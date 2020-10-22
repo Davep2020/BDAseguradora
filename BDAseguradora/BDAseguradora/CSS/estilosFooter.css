@@ -1,0 +1,65 @@
+﻿html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: verdana, geneva, serif;
+}
+
+
+div.contenedor,
+div.contenido {
+    width: 1200px;
+    margin: 0 auto;
+}
+footer {
+    background-color: #808080;
+    padding-top: 40px;
+    margin-top: 30px;
+}
+
+footer h2 {
+    color: white;
+}
+
+footer .contenedor::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+footer .nosotros {
+    float: left;
+    width: 30%;
+    color: white;
+}
+
+footer .menu {
+    float: right;
+    width: 40%;
+    text-align: right;
+}
+
+footer nav {
+    width: auto;
+}
+
+footer nav a {
+    color: white;
+    text-decoration: none;
+}
+
+p.copyright {
+    padding: 20px 0;
+    text-align: center;
+    color: white;
+}

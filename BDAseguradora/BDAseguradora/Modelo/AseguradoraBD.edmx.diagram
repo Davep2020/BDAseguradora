@@ -4,9 +4,9 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ecfab06a643f448fba3d99cea6cdb479" Name="Diagram1">
+      <Diagram DiagramId="ecfab06a643f448fba3d99cea6cdb479" Name="Diagram1" ZoomLevel="86">
         <EntityTypeShape EntityType="bdaseguradoraModel.TblAddiciones" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdaseguradoraModel.TblAdiccionesClientes" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdaseguradoraModel.TblAdiccionesClientes" Width="1.75" PointX="5.25" PointY="4.875" IsExpanded="true" />
         <EntityTypeShape EntityType="bdaseguradoraModel.TblDetallePersona" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="bdaseguradoraModel.TblDetallePolizas" Width="1.5" PointX="6" PointY="1.875" IsExpanded="true" />
         <EntityTypeShape EntityType="bdaseguradoraModel.TblPolizas" Width="1.5" PointX="8.25" PointY="4.125" IsExpanded="true" />
