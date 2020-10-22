@@ -137,7 +137,11 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>AseguradoraBD.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <Content Include="IMG\Aseguradora.jpg" />
     <Content Include="IMG\bg2.jpg" />
+    <Content Include="IMG\Hero.jpg" />
+    <Content Include="IMG\Logo.png" />
+    <Content Include="Index.aspx" />
     <Content Include="JS\jquery-3.1.1.min.js" />
     <Content Include="JS\main.js" />
     <Content Include="Modelo\AseguradoraBD.edmx.diagram">
@@ -228,6 +232,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Modelo\AseguradoraBD.Context.cs">
       <AutoGen>True</AutoGen>
