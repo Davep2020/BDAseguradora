@@ -1,0 +1,41 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="PaginaMaestra.master.cs" Inherits="BDAseguradora.PaginaMaestra.PaginaMaestra" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <%--Definición de hojas de estilos para todas las páginas--%>
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="../CSS/estilosFooter.css" rel="stylesheet" />
+    <%--Content Place Holder para que las páginas que utilicen la 
+        plantilla incluyan hojas de estilo propias--%>
+    <title></title>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+
+            <%--Content Place Holder para que las páginas que utilicen la 
+        plantilla incluyan sus formularios--%>
+            <asp:ContentPlaceHolder ID="contenidoPrincipal" runat="server">
+            </asp:ContentPlaceHolder>
+
+
+    <%--Definición de los scripts para todas las páginas--%>
+    <script src="../Scripts/jquery-3.4.1.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+    <%--Content Place Holder para que las páginas que utilicen la 
+        plantilla incluyan scripts propios--%>
+    <asp:ContentPlaceHolder ID="scriptsPersonalizados" runat="server">
+      </asp:ContentPlaceHolder>
+            <footer>
+                <p class="copyright">
+                    Todos los derechos reservados &copy;. Aseguradora 2020
+                </p>
+            </footer>
+
+</body>
+</html>
