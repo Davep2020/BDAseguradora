@@ -1,0 +1,752 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="bdaseguradoraModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TblAddiciones">
+          <Key>
+            <PropertyRef Name="ID_Adiccion_Ad" />
+          </Key>
+          <Property Name="ID_Adiccion_Ad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre_Ad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Codigo_Ad" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblAdiccionesClientes">
+          <Key>
+            <PropertyRef Name="ID_ACliente_Ac" />
+          </Key>
+          <Property Name="ID_ACliente_Ac" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Adiccion_Ac" Type="int" Nullable="false" />
+          <Property Name="ID_DPersona_Ac" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblDetallePersona">
+          <Key>
+            <PropertyRef Name="ID_DPersona_Dp" />
+          </Key>
+          <Property Name="ID_DPersona_Dp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cedula_Dp" Type="int" Nullable="false" />
+          <Property Name="Genero_DP" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fecha_nacimiento_Dp" Type="date" Nullable="false" />
+          <Property Name="Nombre_Dp" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Primer_Apellido_Dp" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Segundo_Apellido_Dp" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Dirección_Física_Dp" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Telefono_Principal_Dp" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Telefono_Secundario_Dp" Type="varchar" MaxLength="50" />
+          <Property Name="Correo_Electrónico_Dp" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_TipoPersona_Dp" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblDetallePolizas">
+          <Key>
+            <PropertyRef Name="ID_DPoliza_Dpl" />
+          </Key>
+          <Property Name="ID_DPoliza_Dpl" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre_Dpl" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Descripción_Dpl" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Porcentaje_Dpl" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblPolizas">
+          <Key>
+            <PropertyRef Name="ID_Polizas_Pol" />
+          </Key>
+          <Property Name="ID_Polizas_Pol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_DPoliza_Pol" Type="int" Nullable="false" />
+          <Property Name="ID_DPersona_Pol" Type="int" Nullable="false" />
+          <Property Name="MontoAsegurado_Pol" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="PorcentajeCobertura_Pol" Type="int" Nullable="false" />
+          <Property Name="NumAdicciones_Pol" Type="int" Nullable="false" />
+          <Property Name="MontoAdicciones_Pol" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="PrimaAntesImp_Pol" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Impuestos_Pol" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="PrimaFinal_Pol" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblProvincia">
+          <Key>
+            <PropertyRef Name="ID_Provincia_Prv" />
+          </Key>
+          <Property Name="ID_Provincia_Prv" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre_Prv" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblSeguridad">
+          <Key>
+            <PropertyRef Name="ID_Seguridad_Sg" />
+          </Key>
+          <Property Name="ID_Seguridad_Sg" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ussers_Sg" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password_Sg" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="ID_DPersona_Sg" Type="int" Nullable="false" />
+          <Property Name="Ult_Fecha_Ing_Sg" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblSeguros">
+          <Key>
+            <PropertyRef Name="ID_Seguro_Se" />
+          </Key>
+          <Property Name="ID_Seguro_Se" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Polizas_Se" Type="int" Nullable="false" />
+          <Property Name="ID_Provincia_Se" Type="int" Nullable="false" />
+          <Property Name="ID_DPersona_Se" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblTipoPersonas">
+          <Key>
+            <PropertyRef Name="ID_TipoPersona_Tp" />
+          </Key>
+          <Property Name="ID_TipoPersona_Tp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tipo_Tp" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_TblAdiccionesClientes_TblAddiciones">
+          <End Role="TblAddiciones" Type="Self.TblAddiciones" Multiplicity="1" />
+          <End Role="TblAdiccionesClientes" Type="Self.TblAdiccionesClientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblAddiciones">
+              <PropertyRef Name="ID_Adiccion_Ad" />
+            </Principal>
+            <Dependent Role="TblAdiccionesClientes">
+              <PropertyRef Name="ID_Adiccion_Ac" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblAdiccionesClientes_TblDetallePersona">
+          <End Role="TblDetallePersona" Type="Self.TblDetallePersona" Multiplicity="1" />
+          <End Role="TblAdiccionesClientes" Type="Self.TblAdiccionesClientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblDetallePersona">
+              <PropertyRef Name="ID_DPersona_Dp" />
+            </Principal>
+            <Dependent Role="TblAdiccionesClientes">
+              <PropertyRef Name="ID_DPersona_Ac" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblDetallePersona_TblTipoPersonas">
+          <End Role="TblTipoPersonas" Type="Self.TblTipoPersonas" Multiplicity="1" />
+          <End Role="TblDetallePersona" Type="Self.TblDetallePersona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblTipoPersonas">
+              <PropertyRef Name="ID_TipoPersona_Tp" />
+            </Principal>
+            <Dependent Role="TblDetallePersona">
+              <PropertyRef Name="ID_TipoPersona_Dp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPolizas_TblDetallePersona">
+          <End Role="TblDetallePersona" Type="Self.TblDetallePersona" Multiplicity="1" />
+          <End Role="TblPolizas" Type="Self.TblPolizas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblDetallePersona">
+              <PropertyRef Name="ID_DPersona_Dp" />
+            </Principal>
+            <Dependent Role="TblPolizas">
+              <PropertyRef Name="ID_DPersona_Pol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPolizas_TblDetallePolizas">
+          <End Role="TblDetallePolizas" Type="Self.TblDetallePolizas" Multiplicity="1" />
+          <End Role="TblPolizas" Type="Self.TblPolizas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblDetallePolizas">
+              <PropertyRef Name="ID_DPoliza_Dpl" />
+            </Principal>
+            <Dependent Role="TblPolizas">
+              <PropertyRef Name="ID_DPoliza_Pol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblSeguridad_TblDetallePersona">
+          <End Role="TblDetallePersona" Type="Self.TblDetallePersona" Multiplicity="1" />
+          <End Role="TblSeguridad" Type="Self.TblSeguridad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblDetallePersona">
+              <PropertyRef Name="ID_DPersona_Dp" />
+            </Principal>
+            <Dependent Role="TblSeguridad">
+              <PropertyRef Name="ID_DPersona_Sg" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblSeguros_TblDetallePersona">
+          <End Role="TblDetallePersona" Type="Self.TblDetallePersona" Multiplicity="1" />
+          <End Role="TblSeguros" Type="Self.TblSeguros" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblDetallePersona">
+              <PropertyRef Name="ID_DPersona_Dp" />
+            </Principal>
+            <Dependent Role="TblSeguros">
+              <PropertyRef Name="ID_DPersona_Se" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblSeguros_TblPolizas">
+          <End Role="TblPolizas" Type="Self.TblPolizas" Multiplicity="1" />
+          <End Role="TblSeguros" Type="Self.TblSeguros" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblPolizas">
+              <PropertyRef Name="ID_Polizas_Pol" />
+            </Principal>
+            <Dependent Role="TblSeguros">
+              <PropertyRef Name="ID_Polizas_Se" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblSeguros_TblProvincia">
+          <End Role="TblProvincia" Type="Self.TblProvincia" Multiplicity="1" />
+          <End Role="TblSeguros" Type="Self.TblSeguros" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblProvincia">
+              <PropertyRef Name="ID_Provincia_Prv" />
+            </Principal>
+            <Dependent Role="TblSeguros">
+              <PropertyRef Name="ID_Provincia_Se" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="spBorrarAdiccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="parametro" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spBorrarCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="parametro" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spIngresarAdiccionesClientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="adiccion" Type="int" Mode="In" />
+          <Parameter Name="cliente" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spIngresarClientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cedula" Type="int" Mode="In" />
+          <Parameter Name="genero" Type="varchar" Mode="In" />
+          <Parameter Name="fechaNacimiento" Type="date" Mode="In" />
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="primerApellido" Type="varchar" Mode="In" />
+          <Parameter Name="segundoApellido" Type="varchar" Mode="In" />
+          <Parameter Name="direccion" Type="varchar" Mode="In" />
+          <Parameter Name="pTelefono" Type="varchar" Mode="In" />
+          <Parameter Name="sTelefono" Type="varchar" Mode="In" />
+          <Parameter Name="correo" Type="varchar" Mode="In" />
+          <Parameter Name="tipoUsuario" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spModificarAdiccionClientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="parametro" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spModificarTelefonoClientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="telefono" Type="varchar" Mode="In" />
+          <Parameter Name="cedula" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spMostrarAdicciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spMostrarClientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="bdaseguradoraModelStoreContainer">
+          <EntitySet Name="TblAddiciones" EntityType="Self.TblAddiciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblAdiccionesClientes" EntityType="Self.TblAdiccionesClientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblDetallePersona" EntityType="Self.TblDetallePersona" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblDetallePolizas" EntityType="Self.TblDetallePolizas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblPolizas" EntityType="Self.TblPolizas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblProvincia" EntityType="Self.TblProvincia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblSeguridad" EntityType="Self.TblSeguridad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblSeguros" EntityType="Self.TblSeguros" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblTipoPersonas" EntityType="Self.TblTipoPersonas" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_TblAdiccionesClientes_TblAddiciones" Association="Self.FK_TblAdiccionesClientes_TblAddiciones">
+            <End Role="TblAddiciones" EntitySet="TblAddiciones" />
+            <End Role="TblAdiccionesClientes" EntitySet="TblAdiccionesClientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblAdiccionesClientes_TblDetallePersona" Association="Self.FK_TblAdiccionesClientes_TblDetallePersona">
+            <End Role="TblDetallePersona" EntitySet="TblDetallePersona" />
+            <End Role="TblAdiccionesClientes" EntitySet="TblAdiccionesClientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblDetallePersona_TblTipoPersonas" Association="Self.FK_TblDetallePersona_TblTipoPersonas">
+            <End Role="TblTipoPersonas" EntitySet="TblTipoPersonas" />
+            <End Role="TblDetallePersona" EntitySet="TblDetallePersona" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPolizas_TblDetallePersona" Association="Self.FK_TblPolizas_TblDetallePersona">
+            <End Role="TblDetallePersona" EntitySet="TblDetallePersona" />
+            <End Role="TblPolizas" EntitySet="TblPolizas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPolizas_TblDetallePolizas" Association="Self.FK_TblPolizas_TblDetallePolizas">
+            <End Role="TblDetallePolizas" EntitySet="TblDetallePolizas" />
+            <End Role="TblPolizas" EntitySet="TblPolizas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblSeguridad_TblDetallePersona" Association="Self.FK_TblSeguridad_TblDetallePersona">
+            <End Role="TblDetallePersona" EntitySet="TblDetallePersona" />
+            <End Role="TblSeguridad" EntitySet="TblSeguridad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblSeguros_TblDetallePersona" Association="Self.FK_TblSeguros_TblDetallePersona">
+            <End Role="TblDetallePersona" EntitySet="TblDetallePersona" />
+            <End Role="TblSeguros" EntitySet="TblSeguros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblSeguros_TblPolizas" Association="Self.FK_TblSeguros_TblPolizas">
+            <End Role="TblPolizas" EntitySet="TblPolizas" />
+            <End Role="TblSeguros" EntitySet="TblSeguros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblSeguros_TblProvincia" Association="Self.FK_TblSeguros_TblProvincia">
+            <End Role="TblProvincia" EntitySet="TblProvincia" />
+            <End Role="TblSeguros" EntitySet="TblSeguros" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="bdaseguradoraModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TblAddiciones">
+          <Key>
+            <PropertyRef Name="ID_Adiccion_Ad" />
+          </Key>
+          <Property Name="ID_Adiccion_Ad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre_Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Codigo_Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="TblAdiccionesClientes" Relationship="Self.FK_TblAdiccionesClientes_TblAddiciones" FromRole="TblAddiciones" ToRole="TblAdiccionesClientes" />
+        </EntityType>
+        <EntityType Name="TblAdiccionesClientes">
+          <Key>
+            <PropertyRef Name="ID_ACliente_Ac" />
+          </Key>
+          <Property Name="ID_ACliente_Ac" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Adiccion_Ac" Type="Int32" Nullable="false" />
+          <Property Name="ID_DPersona_Ac" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TblAddiciones" Relationship="Self.FK_TblAdiccionesClientes_TblAddiciones" FromRole="TblAdiccionesClientes" ToRole="TblAddiciones" />
+          <NavigationProperty Name="TblDetallePersona" Relationship="Self.FK_TblAdiccionesClientes_TblDetallePersona" FromRole="TblAdiccionesClientes" ToRole="TblDetallePersona" />
+        </EntityType>
+        <EntityType Name="TblDetallePersona">
+          <Key>
+            <PropertyRef Name="ID_DPersona_Dp" />
+          </Key>
+          <Property Name="ID_DPersona_Dp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cedula_Dp" Type="Int32" Nullable="false" />
+          <Property Name="Genero_DP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fecha_nacimiento_Dp" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Nombre_Dp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Primer_Apellido_Dp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Segundo_Apellido_Dp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Dirección_Física_Dp" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefono_Principal_Dp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefono_Secundario_Dp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Correo_Electrónico_Dp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_TipoPersona_Dp" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TblAdiccionesClientes" Relationship="Self.FK_TblAdiccionesClientes_TblDetallePersona" FromRole="TblDetallePersona" ToRole="TblAdiccionesClientes" />
+          <NavigationProperty Name="TblTipoPersonas" Relationship="Self.FK_TblDetallePersona_TblTipoPersonas" FromRole="TblDetallePersona" ToRole="TblTipoPersonas" />
+          <NavigationProperty Name="TblPolizas" Relationship="Self.FK_TblPolizas_TblDetallePersona" FromRole="TblDetallePersona" ToRole="TblPolizas" />
+          <NavigationProperty Name="TblSeguridad" Relationship="Self.FK_TblSeguridad_TblDetallePersona" FromRole="TblDetallePersona" ToRole="TblSeguridad" />
+          <NavigationProperty Name="TblSeguros" Relationship="Self.FK_TblSeguros_TblDetallePersona" FromRole="TblDetallePersona" ToRole="TblSeguros" />
+        </EntityType>
+        <EntityType Name="TblDetallePolizas">
+          <Key>
+            <PropertyRef Name="ID_DPoliza_Dpl" />
+          </Key>
+          <Property Name="ID_DPoliza_Dpl" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre_Dpl" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripción_Dpl" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Porcentaje_Dpl" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TblPolizas" Relationship="Self.FK_TblPolizas_TblDetallePolizas" FromRole="TblDetallePolizas" ToRole="TblPolizas" />
+        </EntityType>
+        <EntityType Name="TblPolizas">
+          <Key>
+            <PropertyRef Name="ID_Polizas_Pol" />
+          </Key>
+          <Property Name="ID_Polizas_Pol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_DPoliza_Pol" Type="Int32" Nullable="false" />
+          <Property Name="ID_DPersona_Pol" Type="Int32" Nullable="false" />
+          <Property Name="MontoAsegurado_Pol" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="PorcentajeCobertura_Pol" Type="Int32" Nullable="false" />
+          <Property Name="NumAdicciones_Pol" Type="Int32" Nullable="false" />
+          <Property Name="MontoAdicciones_Pol" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="PrimaAntesImp_Pol" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Impuestos_Pol" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="PrimaFinal_Pol" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <NavigationProperty Name="TblDetallePersona" Relationship="Self.FK_TblPolizas_TblDetallePersona" FromRole="TblPolizas" ToRole="TblDetallePersona" />
+          <NavigationProperty Name="TblDetallePolizas" Relationship="Self.FK_TblPolizas_TblDetallePolizas" FromRole="TblPolizas" ToRole="TblDetallePolizas" />
+          <NavigationProperty Name="TblSeguros" Relationship="Self.FK_TblSeguros_TblPolizas" FromRole="TblPolizas" ToRole="TblSeguros" />
+        </EntityType>
+        <EntityType Name="TblProvincia">
+          <Key>
+            <PropertyRef Name="ID_Provincia_Prv" />
+          </Key>
+          <Property Name="ID_Provincia_Prv" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre_Prv" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="TblSeguros" Relationship="Self.FK_TblSeguros_TblProvincia" FromRole="TblProvincia" ToRole="TblSeguros" />
+        </EntityType>
+        <EntityType Name="TblSeguridad">
+          <Key>
+            <PropertyRef Name="ID_Seguridad_Sg" />
+          </Key>
+          <Property Name="ID_Seguridad_Sg" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ussers_Sg" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password_Sg" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_DPersona_Sg" Type="Int32" Nullable="false" />
+          <Property Name="Ult_Fecha_Ing_Sg" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="TblDetallePersona" Relationship="Self.FK_TblSeguridad_TblDetallePersona" FromRole="TblSeguridad" ToRole="TblDetallePersona" />
+        </EntityType>
+        <EntityType Name="TblSeguros">
+          <Key>
+            <PropertyRef Name="ID_Seguro_Se" />
+          </Key>
+          <Property Name="ID_Seguro_Se" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Polizas_Se" Type="Int32" Nullable="false" />
+          <Property Name="ID_Provincia_Se" Type="Int32" Nullable="false" />
+          <Property Name="ID_DPersona_Se" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TblDetallePersona" Relationship="Self.FK_TblSeguros_TblDetallePersona" FromRole="TblSeguros" ToRole="TblDetallePersona" />
+          <NavigationProperty Name="TblPolizas" Relationship="Self.FK_TblSeguros_TblPolizas" FromRole="TblSeguros" ToRole="TblPolizas" />
+          <NavigationProperty Name="TblProvincia" Relationship="Self.FK_TblSeguros_TblProvincia" FromRole="TblSeguros" ToRole="TblProvincia" />
+        </EntityType>
+        <EntityType Name="TblTipoPersonas">
+          <Key>
+            <PropertyRef Name="ID_TipoPersona_Tp" />
+          </Key>
+          <Property Name="ID_TipoPersona_Tp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tipo_Tp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="TblDetallePersona" Relationship="Self.FK_TblDetallePersona_TblTipoPersonas" FromRole="TblTipoPersonas" ToRole="TblDetallePersona" />
+        </EntityType>
+        <Association Name="FK_TblAdiccionesClientes_TblAddiciones">
+          <End Role="TblAddiciones" Type="Self.TblAddiciones" Multiplicity="1" />
+          <End Role="TblAdiccionesClientes" Type="Self.TblAdiccionesClientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblAddiciones">
+              <PropertyRef Name="ID_Adiccion_Ad" />
+            </Principal>
+            <Dependent Role="TblAdiccionesClientes">
+              <PropertyRef Name="ID_Adiccion_Ac" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblAdiccionesClientes_TblDetallePersona">
+          <End Role="TblDetallePersona" Type="Self.TblDetallePersona" Multiplicity="1" />
+          <End Role="TblAdiccionesClientes" Type="Self.TblAdiccionesClientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblDetallePersona">
+              <PropertyRef Name="ID_DPersona_Dp" />
+            </Principal>
+            <Dependent Role="TblAdiccionesClientes">
+              <PropertyRef Name="ID_DPersona_Ac" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblDetallePersona_TblTipoPersonas">
+          <End Role="TblTipoPersonas" Type="Self.TblTipoPersonas" Multiplicity="1" />
+          <End Role="TblDetallePersona" Type="Self.TblDetallePersona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblTipoPersonas">
+              <PropertyRef Name="ID_TipoPersona_Tp" />
+            </Principal>
+            <Dependent Role="TblDetallePersona">
+              <PropertyRef Name="ID_TipoPersona_Dp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPolizas_TblDetallePersona">
+          <End Role="TblDetallePersona" Type="Self.TblDetallePersona" Multiplicity="1" />
+          <End Role="TblPolizas" Type="Self.TblPolizas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblDetallePersona">
+              <PropertyRef Name="ID_DPersona_Dp" />
+            </Principal>
+            <Dependent Role="TblPolizas">
+              <PropertyRef Name="ID_DPersona_Pol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblSeguridad_TblDetallePersona">
+          <End Role="TblDetallePersona" Type="Self.TblDetallePersona" Multiplicity="1" />
+          <End Role="TblSeguridad" Type="Self.TblSeguridad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblDetallePersona">
+              <PropertyRef Name="ID_DPersona_Dp" />
+            </Principal>
+            <Dependent Role="TblSeguridad">
+              <PropertyRef Name="ID_DPersona_Sg" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblSeguros_TblDetallePersona">
+          <End Role="TblDetallePersona" Type="Self.TblDetallePersona" Multiplicity="1" />
+          <End Role="TblSeguros" Type="Self.TblSeguros" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblDetallePersona">
+              <PropertyRef Name="ID_DPersona_Dp" />
+            </Principal>
+            <Dependent Role="TblSeguros">
+              <PropertyRef Name="ID_DPersona_Se" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblPolizas_TblDetallePolizas">
+          <End Role="TblDetallePolizas" Type="Self.TblDetallePolizas" Multiplicity="1" />
+          <End Role="TblPolizas" Type="Self.TblPolizas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblDetallePolizas">
+              <PropertyRef Name="ID_DPoliza_Dpl" />
+            </Principal>
+            <Dependent Role="TblPolizas">
+              <PropertyRef Name="ID_DPoliza_Pol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblSeguros_TblPolizas">
+          <End Role="TblPolizas" Type="Self.TblPolizas" Multiplicity="1" />
+          <End Role="TblSeguros" Type="Self.TblSeguros" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblPolizas">
+              <PropertyRef Name="ID_Polizas_Pol" />
+            </Principal>
+            <Dependent Role="TblSeguros">
+              <PropertyRef Name="ID_Polizas_Se" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblSeguros_TblProvincia">
+          <End Role="TblProvincia" Type="Self.TblProvincia" Multiplicity="1" />
+          <End Role="TblSeguros" Type="Self.TblSeguros" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblProvincia">
+              <PropertyRef Name="ID_Provincia_Prv" />
+            </Principal>
+            <Dependent Role="TblSeguros">
+              <PropertyRef Name="ID_Provincia_Se" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="bdaseguradoraEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TblAddiciones" EntityType="Self.TblAddiciones" />
+          <EntitySet Name="TblAdiccionesClientes" EntityType="Self.TblAdiccionesClientes" />
+          <EntitySet Name="TblDetallePersona" EntityType="Self.TblDetallePersona" />
+          <EntitySet Name="TblDetallePolizas" EntityType="Self.TblDetallePolizas" />
+          <EntitySet Name="TblPolizas" EntityType="Self.TblPolizas" />
+          <EntitySet Name="TblProvincia" EntityType="Self.TblProvincia" />
+          <EntitySet Name="TblSeguridad" EntityType="Self.TblSeguridad" />
+          <EntitySet Name="TblSeguros" EntityType="Self.TblSeguros" />
+          <EntitySet Name="TblTipoPersonas" EntityType="Self.TblTipoPersonas" />
+          <AssociationSet Name="FK_TblAdiccionesClientes_TblAddiciones" Association="Self.FK_TblAdiccionesClientes_TblAddiciones">
+            <End Role="TblAddiciones" EntitySet="TblAddiciones" />
+            <End Role="TblAdiccionesClientes" EntitySet="TblAdiccionesClientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblAdiccionesClientes_TblDetallePersona" Association="Self.FK_TblAdiccionesClientes_TblDetallePersona">
+            <End Role="TblDetallePersona" EntitySet="TblDetallePersona" />
+            <End Role="TblAdiccionesClientes" EntitySet="TblAdiccionesClientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblDetallePersona_TblTipoPersonas" Association="Self.FK_TblDetallePersona_TblTipoPersonas">
+            <End Role="TblTipoPersonas" EntitySet="TblTipoPersonas" />
+            <End Role="TblDetallePersona" EntitySet="TblDetallePersona" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPolizas_TblDetallePersona" Association="Self.FK_TblPolizas_TblDetallePersona">
+            <End Role="TblDetallePersona" EntitySet="TblDetallePersona" />
+            <End Role="TblPolizas" EntitySet="TblPolizas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblSeguridad_TblDetallePersona" Association="Self.FK_TblSeguridad_TblDetallePersona">
+            <End Role="TblDetallePersona" EntitySet="TblDetallePersona" />
+            <End Role="TblSeguridad" EntitySet="TblSeguridad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblSeguros_TblDetallePersona" Association="Self.FK_TblSeguros_TblDetallePersona">
+            <End Role="TblDetallePersona" EntitySet="TblDetallePersona" />
+            <End Role="TblSeguros" EntitySet="TblSeguros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblPolizas_TblDetallePolizas" Association="Self.FK_TblPolizas_TblDetallePolizas">
+            <End Role="TblDetallePolizas" EntitySet="TblDetallePolizas" />
+            <End Role="TblPolizas" EntitySet="TblPolizas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblSeguros_TblPolizas" Association="Self.FK_TblSeguros_TblPolizas">
+            <End Role="TblPolizas" EntitySet="TblPolizas" />
+            <End Role="TblSeguros" EntitySet="TblSeguros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblSeguros_TblProvincia" Association="Self.FK_TblSeguros_TblProvincia">
+            <End Role="TblProvincia" EntitySet="TblProvincia" />
+            <End Role="TblSeguros" EntitySet="TblSeguros" />
+          </AssociationSet>
+          <FunctionImport Name="spBorrarAdiccion">
+            <Parameter Name="parametro" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spBorrarCliente">
+            <Parameter Name="parametro" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spIngresarAdiccionesClientes">
+            <Parameter Name="adiccion" Mode="In" Type="Int32" />
+            <Parameter Name="cliente" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spIngresarClientes">
+            <Parameter Name="cedula" Mode="In" Type="Int32" />
+            <Parameter Name="genero" Mode="In" Type="String" />
+            <Parameter Name="fechaNacimiento" Mode="In" Type="DateTime" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="primerApellido" Mode="In" Type="String" />
+            <Parameter Name="segundoApellido" Mode="In" Type="String" />
+            <Parameter Name="direccion" Mode="In" Type="String" />
+            <Parameter Name="pTelefono" Mode="In" Type="String" />
+            <Parameter Name="sTelefono" Mode="In" Type="String" />
+            <Parameter Name="correo" Mode="In" Type="String" />
+            <Parameter Name="tipoUsuario" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spModificarAdiccionClientes">
+            <Parameter Name="parametro" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spModificarTelefonoClientes">
+            <Parameter Name="telefono" Mode="In" Type="String" />
+            <Parameter Name="cedula" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spMostrarAdicciones" ReturnType="Collection(String)" />
+          <FunctionImport Name="spMostrarClientes" ReturnType="Collection(bdaseguradoraModel.spMostrarClientes_Result)" />
+        </EntityContainer>
+        <ComplexType Name="spMostrarClientes_Result">
+          <Property Type="Int32" Name="ID_DPersona_Dp" Nullable="false" />
+          <Property Type="Int32" Name="Cedula_Dp" Nullable="false" />
+          <Property Type="String" Name="Genero_DP" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="Fecha_nacimiento_Dp" Nullable="false" />
+          <Property Type="String" Name="Nombre_Dp" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Primer_Apellido_Dp" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Segundo_Apellido_Dp" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Dirección_Física_Dp" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Telefono_Principal_Dp" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Telefono_Secundario_Dp" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Correo_Electrónico_Dp" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="ID_TipoPersona_Dp" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="bdaseguradoraModelStoreContainer" CdmEntityContainer="bdaseguradoraEntities">
+          <EntitySetMapping Name="TblAddiciones">
+            <EntityTypeMapping TypeName="bdaseguradoraModel.TblAddiciones">
+              <MappingFragment StoreEntitySet="TblAddiciones">
+                <ScalarProperty Name="ID_Adiccion_Ad" ColumnName="ID_Adiccion_Ad" />
+                <ScalarProperty Name="Nombre_Ad" ColumnName="Nombre_Ad" />
+                <ScalarProperty Name="Codigo_Ad" ColumnName="Codigo_Ad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblAdiccionesClientes">
+            <EntityTypeMapping TypeName="bdaseguradoraModel.TblAdiccionesClientes">
+              <MappingFragment StoreEntitySet="TblAdiccionesClientes">
+                <ScalarProperty Name="ID_ACliente_Ac" ColumnName="ID_ACliente_Ac" />
+                <ScalarProperty Name="ID_Adiccion_Ac" ColumnName="ID_Adiccion_Ac" />
+                <ScalarProperty Name="ID_DPersona_Ac" ColumnName="ID_DPersona_Ac" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblDetallePersona">
+            <EntityTypeMapping TypeName="bdaseguradoraModel.TblDetallePersona">
+              <MappingFragment StoreEntitySet="TblDetallePersona">
+                <ScalarProperty Name="ID_DPersona_Dp" ColumnName="ID_DPersona_Dp" />
+                <ScalarProperty Name="Cedula_Dp" ColumnName="Cedula_Dp" />
+                <ScalarProperty Name="Genero_DP" ColumnName="Genero_DP" />
+                <ScalarProperty Name="Fecha_nacimiento_Dp" ColumnName="Fecha_nacimiento_Dp" />
+                <ScalarProperty Name="Nombre_Dp" ColumnName="Nombre_Dp" />
+                <ScalarProperty Name="Primer_Apellido_Dp" ColumnName="Primer_Apellido_Dp" />
+                <ScalarProperty Name="Segundo_Apellido_Dp" ColumnName="Segundo_Apellido_Dp" />
+                <ScalarProperty Name="Dirección_Física_Dp" ColumnName="Dirección_Física_Dp" />
+                <ScalarProperty Name="Telefono_Principal_Dp" ColumnName="Telefono_Principal_Dp" />
+                <ScalarProperty Name="Telefono_Secundario_Dp" ColumnName="Telefono_Secundario_Dp" />
+                <ScalarProperty Name="Correo_Electrónico_Dp" ColumnName="Correo_Electrónico_Dp" />
+                <ScalarProperty Name="ID_TipoPersona_Dp" ColumnName="ID_TipoPersona_Dp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblDetallePolizas">
+            <EntityTypeMapping TypeName="bdaseguradoraModel.TblDetallePolizas">
+              <MappingFragment StoreEntitySet="TblDetallePolizas">
+                <ScalarProperty Name="ID_DPoliza_Dpl" ColumnName="ID_DPoliza_Dpl" />
+                <ScalarProperty Name="Nombre_Dpl" ColumnName="Nombre_Dpl" />
+                <ScalarProperty Name="Descripción_Dpl" ColumnName="Descripción_Dpl" />
+                <ScalarProperty Name="Porcentaje_Dpl" ColumnName="Porcentaje_Dpl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblPolizas">
+            <EntityTypeMapping TypeName="bdaseguradoraModel.TblPolizas">
+              <MappingFragment StoreEntitySet="TblPolizas">
+                <ScalarProperty Name="ID_Polizas_Pol" ColumnName="ID_Polizas_Pol" />
+                <ScalarProperty Name="ID_DPoliza_Pol" ColumnName="ID_DPoliza_Pol" />
+                <ScalarProperty Name="ID_DPersona_Pol" ColumnName="ID_DPersona_Pol" />
+                <ScalarProperty Name="MontoAsegurado_Pol" ColumnName="MontoAsegurado_Pol" />
+                <ScalarProperty Name="PorcentajeCobertura_Pol" ColumnName="PorcentajeCobertura_Pol" />
+                <ScalarProperty Name="NumAdicciones_Pol" ColumnName="NumAdicciones_Pol" />
+                <ScalarProperty Name="MontoAdicciones_Pol" ColumnName="MontoAdicciones_Pol" />
+                <ScalarProperty Name="PrimaAntesImp_Pol" ColumnName="PrimaAntesImp_Pol" />
+                <ScalarProperty Name="Impuestos_Pol" ColumnName="Impuestos_Pol" />
+                <ScalarProperty Name="PrimaFinal_Pol" ColumnName="PrimaFinal_Pol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblProvincia">
+            <EntityTypeMapping TypeName="bdaseguradoraModel.TblProvincia">
+              <MappingFragment StoreEntitySet="TblProvincia">
+                <ScalarProperty Name="ID_Provincia_Prv" ColumnName="ID_Provincia_Prv" />
+                <ScalarProperty Name="Nombre_Prv" ColumnName="Nombre_Prv" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblSeguridad">
+            <EntityTypeMapping TypeName="bdaseguradoraModel.TblSeguridad">
+              <MappingFragment StoreEntitySet="TblSeguridad">
+                <ScalarProperty Name="ID_Seguridad_Sg" ColumnName="ID_Seguridad_Sg" />
+                <ScalarProperty Name="Ussers_Sg" ColumnName="Ussers_Sg" />
+                <ScalarProperty Name="Password_Sg" ColumnName="Password_Sg" />
+                <ScalarProperty Name="ID_DPersona_Sg" ColumnName="ID_DPersona_Sg" />
+                <ScalarProperty Name="Ult_Fecha_Ing_Sg" ColumnName="Ult_Fecha_Ing_Sg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblSeguros">
+            <EntityTypeMapping TypeName="bdaseguradoraModel.TblSeguros">
+              <MappingFragment StoreEntitySet="TblSeguros">
+                <ScalarProperty Name="ID_Seguro_Se" ColumnName="ID_Seguro_Se" />
+                <ScalarProperty Name="ID_Polizas_Se" ColumnName="ID_Polizas_Se" />
+                <ScalarProperty Name="ID_Provincia_Se" ColumnName="ID_Provincia_Se" />
+                <ScalarProperty Name="ID_DPersona_Se" ColumnName="ID_DPersona_Se" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblTipoPersonas">
+            <EntityTypeMapping TypeName="bdaseguradoraModel.TblTipoPersonas">
+              <MappingFragment StoreEntitySet="TblTipoPersonas">
+                <ScalarProperty Name="ID_TipoPersona_Tp" ColumnName="ID_TipoPersona_Tp" />
+                <ScalarProperty Name="Tipo_Tp" ColumnName="Tipo_Tp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spBorrarAdiccion" FunctionName="bdaseguradoraModel.Store.spBorrarAdiccion" />
+          <FunctionImportMapping FunctionImportName="spBorrarCliente" FunctionName="bdaseguradoraModel.Store.spBorrarCliente" />
+          <FunctionImportMapping FunctionImportName="spIngresarAdiccionesClientes" FunctionName="bdaseguradoraModel.Store.spIngresarAdiccionesClientes" />
+          <FunctionImportMapping FunctionImportName="spIngresarClientes" FunctionName="bdaseguradoraModel.Store.spIngresarClientes" />
+          <FunctionImportMapping FunctionImportName="spModificarAdiccionClientes" FunctionName="bdaseguradoraModel.Store.spModificarAdiccionClientes" />
+          <FunctionImportMapping FunctionImportName="spModificarTelefonoClientes" FunctionName="bdaseguradoraModel.Store.spModificarTelefonoClientes" />
+          <FunctionImportMapping FunctionImportName="spMostrarAdicciones" FunctionName="bdaseguradoraModel.Store.spMostrarAdicciones" />
+          <FunctionImportMapping FunctionImportName="spMostrarClientes" FunctionName="bdaseguradoraModel.Store.spMostrarClientes">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="bdaseguradoraModel.spMostrarClientes_Result">
+                <ScalarProperty Name="ID_DPersona_Dp" ColumnName="ID_DPersona_Dp" />
+                <ScalarProperty Name="Cedula_Dp" ColumnName="Cedula_Dp" />
+                <ScalarProperty Name="Genero_DP" ColumnName="Genero_DP" />
+                <ScalarProperty Name="Fecha_nacimiento_Dp" ColumnName="Fecha_nacimiento_Dp" />
+                <ScalarProperty Name="Nombre_Dp" ColumnName="Nombre_Dp" />
+                <ScalarProperty Name="Primer_Apellido_Dp" ColumnName="Primer_Apellido_Dp" />
+                <ScalarProperty Name="Segundo_Apellido_Dp" ColumnName="Segundo_Apellido_Dp" />
+                <ScalarProperty Name="Dirección_Física_Dp" ColumnName="Dirección_Física_Dp" />
+                <ScalarProperty Name="Telefono_Principal_Dp" ColumnName="Telefono_Principal_Dp" />
+                <ScalarProperty Name="Telefono_Secundario_Dp" ColumnName="Telefono_Secundario_Dp" />
+                <ScalarProperty Name="Correo_Electrónico_Dp" ColumnName="Correo_Electrónico_Dp" />
+                <ScalarProperty Name="ID_TipoPersona_Dp" ColumnName="ID_TipoPersona_Dp" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

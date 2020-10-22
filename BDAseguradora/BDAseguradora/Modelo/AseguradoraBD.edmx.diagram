@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ecfab06a643f448fba3d99cea6cdb479" Name="Diagram1">
+        <EntityTypeShape EntityType="bdaseguradoraModel.TblAddiciones" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdaseguradoraModel.TblAdiccionesClientes" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdaseguradoraModel.TblDetallePersona" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdaseguradoraModel.TblDetallePolizas" Width="1.5" PointX="6" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdaseguradoraModel.TblPolizas" Width="1.5" PointX="8.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdaseguradoraModel.TblProvincia" Width="1.5" PointX="8.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdaseguradoraModel.TblSeguridad" Width="1.5" PointX="5.25" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdaseguradoraModel.TblSeguros" Width="1.5" PointX="10.5" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdaseguradoraModel.TblTipoPersonas" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <AssociationConnector Association="bdaseguradoraModel.FK_TblAdiccionesClientes_TblAddiciones" ManuallyRouted="false" />
+        <AssociationConnector Association="bdaseguradoraModel.FK_TblAdiccionesClientes_TblDetallePersona" ManuallyRouted="false" />
+        <AssociationConnector Association="bdaseguradoraModel.FK_TblDetallePersona_TblTipoPersonas" ManuallyRouted="false" />
+        <AssociationConnector Association="bdaseguradoraModel.FK_TblPolizas_TblDetallePersona" ManuallyRouted="false" />
+        <AssociationConnector Association="bdaseguradoraModel.FK_TblSeguridad_TblDetallePersona" ManuallyRouted="false" />
+        <AssociationConnector Association="bdaseguradoraModel.FK_TblSeguros_TblDetallePersona" ManuallyRouted="false" />
+        <AssociationConnector Association="bdaseguradoraModel.FK_TblPolizas_TblDetallePolizas" ManuallyRouted="false" />
+        <AssociationConnector Association="bdaseguradoraModel.FK_TblSeguros_TblPolizas" ManuallyRouted="false" />
+        <AssociationConnector Association="bdaseguradoraModel.FK_TblSeguros_TblProvincia" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

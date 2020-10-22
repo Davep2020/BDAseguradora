@@ -44,12 +44,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -125,7 +131,24 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <EntityDeploy Include="Modelo\AseguradoraBD.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AseguradoraBD.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Modelo\AseguradoraBD.edmx.diagram">
+      <DependentUpon>AseguradoraBD.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Modelo\AseguradoraBD.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>AseguradoraBD.Context.cs</LastGenOutput>
+      <DependentUpon>AseguradoraBD.edmx</DependentUpon>
+    </Content>
+    <Content Include="Modelo\AseguradoraBD.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AseguradoraBD.edmx</DependentUpon>
+      <LastGenOutput>AseguradoraBD.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -194,6 +217,51 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\AseguradoraBD.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AseguradoraBD.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\AseguradoraBD.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AseguradoraBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\AseguradoraBD.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AseguradoraBD.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\spMostrarClientes_Result.cs">
+      <DependentUpon>AseguradoraBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\TblAddiciones.cs">
+      <DependentUpon>AseguradoraBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\TblAdiccionesClientes.cs">
+      <DependentUpon>AseguradoraBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\TblDetallePersona.cs">
+      <DependentUpon>AseguradoraBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\TblDetallePolizas.cs">
+      <DependentUpon>AseguradoraBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\TblPolizas.cs">
+      <DependentUpon>AseguradoraBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\TblProvincia.cs">
+      <DependentUpon>AseguradoraBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\TblSeguridad.cs">
+      <DependentUpon>AseguradoraBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\TblSeguros.cs">
+      <DependentUpon>AseguradoraBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\TblTipoPersonas.cs">
+      <DependentUpon>AseguradoraBD.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -219,6 +287,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Clases\" />
+    <Folder Include="Master\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -230,6 +300,9 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
