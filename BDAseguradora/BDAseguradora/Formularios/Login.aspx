@@ -17,25 +17,20 @@
 
             <div class="formulario">
                 <h2>Iniciar Sesión</h2>
-
-                <input type="text" placeholder="Usuario" required />
-                <input type="password" placeholder="Contraseña" required />
-                <input type="submit" value="Iniciar Sesión" />
+                <asp:TextBox ID="txtUsua" placeholder="Usuario" runat="server" required></asp:TextBox>
+               <asp:TextBox ID="TextBox1" TextMode="Password" CssClass="form-control" placeholder="Contraseña" runat="server" required></asp:TextBox>
+                <asp:Button ID="btnIniciar" runat="server" Text="Iniciar Sesion" OnClick="btnIniciar_Click" />
 
             </div>
 
             <div class="formulario">
+
                 <h2>Crea tu Cuenta</h2>
-
-                <input type="text" placeholder="Usuario" required />
-
-                <input type="password" placeholder="Contraseña" required />
-
-                <input type="email" placeholder="Correo Electronico" required />
-
-                <input type="text" placeholder="Teléfono" required />
-
-                <input type="submit" value="Registrarse" />
+                <asp:TextBox ID="txtUsuario" placeholder="Usuario" runat="server" required></asp:TextBox>
+                <asp:TextBox ID="txtPassword" TextMode="Password" CssClass="form-control" placeholder="Contraseña" runat="server" required></asp:TextBox>
+                <asp:TextBox ID="txtemail" TextMode="Email" placeholder="Correo Electronico" runat="server" required></asp:TextBox>
+                <asp:TextBox ID="txtTelefono" placeholder="Telefono" runat="server" required></asp:TextBox>
+                <asp:Button ID="btnRegistrar" runat="server" Text="Registrar" OnClick="btnRegistrar_Click"/>
 
             </div>
             <div class="reset-password">

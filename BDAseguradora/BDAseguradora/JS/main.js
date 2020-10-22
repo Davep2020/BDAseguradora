@@ -1,4 +1,6 @@
-$('.toggle').click(function(){
+///Funcion para mostrar los formularios de registrar y logear
+
+$('.toggle').click(function () {
     $('.formulario').animate({
         height: "toggle",
         'padding-top': 'toggle',
@@ -7,3 +9,5 @@ $('.toggle').click(function(){
     }, "slow");
     var x=false;
 });
+
+

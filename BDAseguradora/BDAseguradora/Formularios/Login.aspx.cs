@@ -13,5 +13,15 @@ namespace BDAseguradora.Formularios
         {
 
         }
+
+        protected void btnRegistrar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnIniciar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
