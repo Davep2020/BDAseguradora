@@ -19,8 +19,11 @@ html {
     font-size: 62.5%; /** Reset para REMS - 65.5% = 10px de 16px **/
 }
 
-body {
-
+#Logos {
+    
+  
+   
+    margin-right:2%;
 }
 
 img {
@@ -40,7 +43,7 @@ h2 {
     /* margin: 0 auto 0 auto;      Como un reloj 12-3-6-9 */
 }
 body {
-    background: url(../IMG/bg2.jpg);
+    background: url(../IMG/Aseguradora.jpg);
     background-size: cover;
     background-attachment: fixed;
     font-family: Roboto;
@@ -161,24 +164,24 @@ body {
     /*padding: 40px;*/
 }
 
-.contenedor-form .toggle {
-    position: absolute;
-    top: 7px;
-    right: 7px;
-    width: 100px;
-    height: 30px;
-    font-size: 12px;
-    line-height: 25px;
-    text-align: center;
-    border-top: 2px solid #ff851b;
-    border-bottom: 2px solid #ff851b;
-    cursor: pointer;
-    transition: all .5s ease;
-}
+    .contenedor-form .toggle {
+        position: absolute;
+        top: 7px;
+        right: 7px;
+        width: 100px;
+        height: 30px;
+        font-size: 12px;
+        line-height: 25px;
+        text-align: center;
+        border-top: 2px solid #808080;
+        border-bottom: 2px solid #808080;
+        cursor: pointer;
+        transition: all .5s ease;
+    }
 
 .contenedor-form .toggle:hover {
-    border-top: 2px solid #0075d9;
-    border-bottom: 2px solid #0075d9;
+    border-top: 2px solid rgba(255, 0, 0, 0.46);
+    border-bottom: 2px solid rgba(255, 0, 0, 0.46);
 }
 
 .contenedor-form .toggle span {
@@ -203,7 +206,7 @@ body {
     color: #fff;
     border: none;
     border-radius: 2px;
-    border-bottom: 4px solid #ff851b;
+    border-bottom: 4px solid #808080;
     box-sizing: border-box;
     font-family: Roboto;
     font-size: 14px;
@@ -211,15 +214,23 @@ body {
     transition: all .5s ease;
 }
 
-.contenedor-form input[type="text"]:focus,
-.contenedor-form input[type="password"]:focus,
-.contenedor-form input[type="email"]:focus {
-    border-bottom: 4px solid #0075d9;
-}
+    .contenedor-form input[type="text"]:focus,
+    .contenedor-form input[type="password"]:focus,
+    .contenedor-form input[type="email"]:focus {
+        border-bottom: 4px solid rgba(255, 0, 0, 0.46);
+    }
+
+    .contenedor-form input[type="text"]:hover,
+    .contenedor-form input[type="password"]:hover,
+    .contenedor-form input[type="email"]:hover {
+        border-bottom: 4px solid rgba(255, 0, 0, 0.46);
+    }
+
+
 
 .contenedor-form input[type="submit"] {
-    background: #FF851B;
-    color: #FFF;
+    background: #808080;
+    color: #ffffff;
     width: 100%;
     border: none;
     padding: 10px 0;
@@ -232,23 +243,10 @@ body {
 }
 
 .contenedor-form input[type="submit"]:hover {
-    background: rgba(0, 117, 217, 0.7);
+    background: rgba(255, 0, 0, 0.46);
 }
 
-.contenedor-form .reset-password {
-    background: rgba(0, 117, 217, .7);
-    width: 100%;
-    padding: 15px 0;
-    text-align: center;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-}
 
-.contenedor-form .reset-password a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px;
-}
 
 .contenedor-form .formulario {
     display: none;

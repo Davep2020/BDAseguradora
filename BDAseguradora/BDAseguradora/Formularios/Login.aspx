@@ -16,7 +16,9 @@
             </div>
 
             <div class="formulario">
-                <h2>Iniciar Sesión</h2>
+                <img src="/IMG/Logo.png" alt="Logotipo" align="left" id="Logos" width="10%"/>
+                <br />
+                <h2 >Iniciar Sesión</h2>
                 <asp:TextBox ID="txtUsua" placeholder="Usuario" runat="server" required></asp:TextBox>
                <asp:TextBox ID="TextBox1" TextMode="Password" CssClass="form-control" placeholder="Contraseña" runat="server" required></asp:TextBox>
                 <asp:Button ID="btnIniciar" runat="server" Text="Iniciar Sesion" OnClick="btnIniciar_Click" />
@@ -24,7 +26,8 @@
             </div>
 
             <div class="formulario">
-
+                <img src="/IMG/Logo.png" alt="Logotipo" align="left" id="Logos" width="10%"/>
+                <br />
                 <h2>Crea tu Cuenta</h2>
                 <asp:TextBox ID="txtUsuario" placeholder="Usuario" runat="server" required></asp:TextBox>
                 <asp:TextBox ID="txtPassword" TextMode="Password" CssClass="form-control" placeholder="Contraseña" runat="server" required></asp:TextBox>
@@ -32,9 +35,6 @@
                 <asp:TextBox ID="txtTelefono" placeholder="Telefono" runat="server" required></asp:TextBox>
                 <asp:Button ID="btnRegistrar" runat="server" Text="Registrar" OnClick="btnRegistrar_Click"/>
 
-            </div>
-            <div class="reset-password">
-                <a href="#">Olvide mi Contraseña?</a>
             </div>
         </div>
     </form>
