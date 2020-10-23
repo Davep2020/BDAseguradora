@@ -42,7 +42,7 @@ h2 {
     margin-right: auto; */
     /* margin: 0 auto 0 auto;      Como un reloj 12-3-6-9 */
 }
-body {
+.body {
     background: url(../IMG/Aseguradora.jpg);
     background-size: cover;
     background-attachment: fixed;
@@ -74,13 +74,13 @@ body {
     padding: 1rem 0 3rem 0;
 }
 
-.site-header.inicio {
-    background-image: url(../IMG/Aseguradora.jpg);
-    background-position: center center;
-    background-size: cover;
-    height: 100vh;
-    min-height: 60rem;
-}
+    .site-header.inicio {
+        background: url(../IMG/Aseguradora.jpg);
+        background-position: center center;
+        background-size: cover;
+        height: 100vh;
+        min-height: 60rem;
+    }
 
 .contenido-header {
     height: 100%;

@@ -8,7 +8,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
 </head>
-<body>
+<body class="body">
     <form id="form1" runat="server">
         <div class="contenedor-form">
             <div class="toggle">
@@ -27,7 +27,7 @@
 
             <div class="formulario">
                 <img src="/IMG/Logo.png" alt="Logotipo" align="left" id="Logos" width="10%"/>
-                <br />
+                <br/>
                 <h2>Crea tu Cuenta</h2>
                 <asp:TextBox ID="txtUsuario" placeholder="Usuario" runat="server" required></asp:TextBox>
                 <asp:TextBox ID="txtPassword" TextMode="Password" CssClass="form-control" placeholder="Contraseña" runat="server" required></asp:TextBox>
