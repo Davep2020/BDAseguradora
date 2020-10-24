@@ -118,6 +118,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="CSS\Admi.css" />
     <Content Include="CSS\estilos.css" />
     <Content Include="CSS\estilosFooter.css" />
     <Content Include="Default.aspx" />

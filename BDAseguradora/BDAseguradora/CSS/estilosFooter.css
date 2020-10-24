@@ -11,9 +11,6 @@
     padding: 0;
 }
 
-body {
-    font-family: verdana, geneva, serif;
-}
 
 
 div.contenedor,
@@ -58,8 +55,7 @@ footer nav a {
     text-decoration: none;
 }
 
-p.copyright {
-    padding: 20px 0;
-    text-align: center;
-    color: white;
+.copyright {
+   
+    color: aliceblue;
 }
