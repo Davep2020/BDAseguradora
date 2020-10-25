@@ -145,6 +145,7 @@
     <Content Include="IMG\bg2.jpg" />
     <Content Include="IMG\Hero.jpg" />
     <Content Include="IMG\Logo.png" />
+    <Content Include="IMG\Usuario.png" />
     <Content Include="Index.aspx" />
     <Content Include="JS\jquery-3.1.1.min.js" />
     <Content Include="JS\main.js" />

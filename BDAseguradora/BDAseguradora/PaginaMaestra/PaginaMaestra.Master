@@ -29,11 +29,11 @@
     <asp:ContentPlaceHolder ID="scriptsPersonalizados" runat="server">
     </asp:ContentPlaceHolder>
     <!-- Footer -->
-<footer class="page-footer font-small Primero">
+<footer class="page-footer font-small Tercero">
 
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3">© 2020 Copyright:
-    <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+    <a> Aeguradora</a>
   </div>
   <!-- Copyright -->
 
