@@ -14,38 +14,39 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contenidoPrincipal" runat="server">
     <%-- Creacion del NAV --%>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-       <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
-           <ul class="navbar-nav mr-auto">
-               
-               <li class="nav-item active">
-                   <a class="nav-link" href="#">Home</a>
-               </li>
-               <li class="nav-item">
-                   <a class="nav-link" href="#">Polizas</a>
-               </li>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+            <ul class="navbar-nav mr-auto">
 
-           </ul>
-       </div>
-       <div class="mx-auto order-0">
-           
-           <a class="navbar-brand mx-auto" href="#"> <img src="../IMG/Logo.png" alt="Logotipo" style="margin-right:6%" width="33%"/>Aseguradora</a>
-           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
-               <span class="navbar-toggler-icon"></span>
-           </button>
-           
-       </div>
-       <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-           <ul class="navbar-nav ml-auto">
-               <li class="nav-item">
-                   <a class="nav-link" href="#">Registrar</a>
-               </li>
-               <li class="nav-item">
-                   <a class="nav-link" href="#">Cerrar Sesion</a>
-               </li>
-           </ul>
-       </div>
-</nav>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Polizas</a>
+                </li>
+
+            </ul>
+        </div>
+        <div class="mx-auto order-0">
+
+            <a class="navbar-brand mx-auto" href="#">
+                <img src="../IMG/Logo.png" alt="Logotipo" style="margin-right: 6%" width="33%" />Aseguradora</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+        </div>
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Registrar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Cerrar Sesion</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
 
 
@@ -54,7 +55,8 @@
             <div class="col-sm-4 Primero mr-5">
                 <h2>About Me</h2>
                 <h5>Photo of me:</h5>
-                <div><img src="../IMG/Logo.png"  alt="Logotipo"  width="33%"/></div>
+                <div>
+                    <img src="../IMG/Logo.png" alt="Logotipo" width="33%" /></div>
                 <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
                 <h3>Some Links</h3>
                 <p>Lorem ipsum dolor sit ame.</p>
@@ -85,11 +87,9 @@
                 <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
             </div>
         </div>
+        
     </div>
-
-
-
-
+    
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="scriptsPersonalizados" runat="server">
 </asp:Content>

@@ -1,4 +1,4 @@
-﻿body {
+﻿.body {
     background: url(../IMG/Aseguradora.jpg);
     background-size: cover;
     background-attachment: fixed;
@@ -6,4 +6,8 @@
 .Primero {
     background-color: rgba(0,0,0,.7);
     color:white;
+}
+.Tercero {
+    color: white;
+    background-color: black;
 }

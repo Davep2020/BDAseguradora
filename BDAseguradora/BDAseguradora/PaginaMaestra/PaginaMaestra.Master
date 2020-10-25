@@ -5,39 +5,40 @@
 <html>
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <%--Definición de hojas de estilos para todas las páginas--%>
-    
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Aseguradora</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link href="../CSS/Admi.css" rel="stylesheet" />
-    <%--Content Place Holder para que las páginas que utilicen la 
-        plantilla incluyan hojas de estilo propias--%>
-    <title></title>
+
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body class="body">
 
-    <%--Content Place Holder para que las páginas que utilicen la 
-        plantilla incluyan sus formularios--%>
     <asp:ContentPlaceHolder ID="contenidoPrincipal" runat="server">
+
+         
     </asp:ContentPlaceHolder>
 
 
-    <%--Definición de los scripts para todas las páginas--%>
+   
 
-    <%--Content Place Holder para que las páginas que utilicen la 
-        plantilla incluyan scripts propios--%>
     <asp:ContentPlaceHolder ID="scriptsPersonalizados" runat="server">
     </asp:ContentPlaceHolder>
-    <footer>
-        <p class="copyright">
-            Todos los derechos reservados &copy;. Aseguradora 2020
-        </p>
-    </footer>
+    <!-- Footer -->
+<footer class="page-footer font-small Primero">
 
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+    
 </body>
 </html>
