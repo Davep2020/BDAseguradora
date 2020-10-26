@@ -1,0 +1,149 @@
+﻿body {
+}
+
+h2{
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 5rem;
+}
+h5 {
+    text-align: center;
+    font-size:3rem;
+}
+p.icono i{
+    margin-left: 140px;
+    font-size: 5em;
+    color: #000000;
+}
+p.card-text{
+    font-size: 1.5rem;
+}
+
+/*GENERALES*/
+div.contenedor,
+div.contenido {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/*SERVICIOS*/
+.card-jump {
+    margin-right: 30px;
+    transition: all .3 ease;
+}
+.card-jump:hover {
+    transform: scale(1.1);
+    border: 1px solid #561919;
+    box-shadow: 0px 0px 20px #666;
+}
+
+
+
+/* PARALLAX HEADER*/
+.parallax::before {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    /* Css de parallax */
+    background-attachment: fixed;
+    -webkit-filter: brightness(.8);
+    filter: brightness(.8);
+}
+
+
+div.newsletter {
+    position: relative;
+    height: auto;
+}
+
+div.newsletter::before {
+    background-image: url(../IMG/Aseguradora.jpg);
+    content: '';
+}
+
+div.newsletter .contenido {
+    padding: 100px 0;
+    color: #ffffff;
+    text-align: center;
+    position: relative;
+}
+
+div.newsletter .contenido p {
+    font-size: 1.2em;
+    text-transform: lowercase;
+}
+
+div.newsletter .contenido h3 {
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 7vw;
+}
+
+/** MAPA  **/
+div.mapa {
+    height: 420px;
+    /*background-color: green; */
+    border-radius: 5px;
+}
+
+/*PARALLAX TWO*/
+.parallax-two::before {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    /* Css de parallax */
+    background-attachment: fixed;
+    -webkit-filter: brightness(.8);
+    filter: brightness(.8);
+}
+
+
+div.newsletter-two {
+    position: relative;
+    height: auto;
+}
+
+div.newsletter-two::before {
+    background-image: url(../IMG/Edificio.jpg);
+    content: '';
+}
+
+div.newsletter-two .contenido {
+    padding: 100px 0;
+    color: #ffffff;
+    text-align: center;
+    position: relative;
+}
+
+div.newsletter-two .contenido p {
+    font-size: 1.8em;
+    text-transform: lowercase;
+}
+
+div.newsletter-two .contenido h3 {
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 7vw;
+}
+
+/*NOSOTROS*/
+img.card-img {
+    max-width: 50%;
+    margin: 50px 0 50px 50px;
+}
+.aux{
+    max-width: 82rem!important;
+}
+.bg-danger {
+    background-color: #561919!important;
+}

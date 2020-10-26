@@ -16,7 +16,7 @@ html {
 }
 
 html {
-    font-size: 62.5%; /** Reset para REMS - 65.5% = 10px de 16px **/
+    font-size: 62.5%;
 }
 
 #Logos {
@@ -36,13 +36,10 @@ h2 {
 
 .contenedor {
     width: 95%;
-    max-width: 120rem; /* = 1200px */
+    max-width: 120rem; 
     margin: 0 auto;
-    /* margin-left: auto;
-    margin-right: auto; */
-    /* margin: 0 auto 0 auto;      Como un reloj 12-3-6-9 */
 }
-.body {
+.body1 {
     background: url(../IMG/Aseguradora.jpg);
     background-size: cover;
     background-attachment: fixed;
@@ -67,22 +64,50 @@ h2 {
 .boton-rojo{
     background-color:#561919;
 }
-
-/*HEADER*/
-.site-header { 
-    background-color: #333333;
-    padding: 1rem 0 3rem 0;
+.button {
+    background-color: #561919;
+    padding: 10px 40px;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1em;
+    margin-top: 20px;
+    display: inline-block;
+    transition: all .3s ease;
+    border: 2px solid;
 }
 
-    .site-header.inicio {
-        background: url(../IMG/Aseguradora.jpg);
-        background-position: center center;
-        background-size: cover;
-        height: 100vh;
-        min-height: 60rem;
-    }
+.button:hover {
+    background-color: #ffffff;
+    color: #561919;
+    text-decoration:none;
+}
 
-.contenido-header {
+.button.transparente {
+    background-color: transparent;
+    border: 2px solid #ffffff;
+}
+
+.button.transparente:hover {
+    border: 2px solid #561919;
+}
+
+/*HEADER*/
+/*.site-header { 
+    background-color: #333333;
+    padding: 1rem 0 3rem 0;
+}*/
+
+/*.site-header.inicio {
+    background: url(../IMG/Aseguradora.jpg);
+    background-position: center center;
+    background-size: cover;
+    height: 100vh;
+    min-height: 60rem;
+}*/
+
+/*.contenido-header {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -102,7 +127,7 @@ h2 {
     justify-content: space-between;
     align-items: center;
     padding-top: 3rem;
-}
+}*/
 
 
 
