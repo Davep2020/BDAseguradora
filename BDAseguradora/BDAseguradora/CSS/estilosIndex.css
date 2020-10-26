@@ -4,7 +4,7 @@
 h2{
     margin-top: 2rem;
     text-align: center;
-    font-size: 5rem;
+    font-size: 5rem!important;
 }
 h5 {
     text-align: center;
