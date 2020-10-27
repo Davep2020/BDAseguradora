@@ -12,10 +12,10 @@
             <ul class="navbar-nav mr-auto">
 
                 <li class="nav-item uno">
-                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href="#">Home <i class="fa fa-home fa-fw"></i></a>
                 </li>
                 <li class="nav-item uno">
-                    <a class="nav-link" href="#">Polizas</a>
+                    <a class="nav-link" href="#">Polizas <i class="fa fa-shield  fa-fw"></i></a>
                 </li>
 
             </ul>
@@ -32,10 +32,11 @@
         <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item uno">
-                    <a class="nav-link" href="#">Registrar Usuario</a>
+                    <a class="nav-link" href="#">Registrar Usuario <i class="fa fa-user fa-fw"></i></a>
+
                 </li>
                 <li class="nav-item uno">
-                    <a class="nav-link" href="#">Cerrar Sesion</a>
+                    <a class="nav-link" href="#">Cerrar Sesion <i class="fa fa-sign-out fa-fw"></i></a>
                 </li>
             </ul>
         </div>
@@ -53,7 +54,7 @@
                 </div>
                 <p>Some text about me in culpa qui officia deserunt mollit ani</p>
                 <h3>Mantenimientos</h3>
-                <p> Cambios en diferentes sectores</p>
+                <p>Cambios en diferentes sectores</p>
                 <ul class="nav nav-pills flex-column">
                     <li class="nav-item">
                         <a class="nav-link uno" href="#">Clientes</a>
@@ -67,17 +68,50 @@
                     <li class="nav-item">
                         <a class="nav-link uno" href="#">Reportes</a>
                     </li>
-                  
+
                 </ul>
                 <hr class="d-sm-none">
             </div>
             <div class="col-sm-7 Primero ml-4 ">
-                <h2>Polizas</h2>
-                <h5>Title description, Dec 7, 2017</h5>
-                <div class="fakeimg">Fake Image</div>
-                <p>Some text..</p>
-                <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-                <br>
+                <h2 class="Polizas">Polizas</h2>
+                <div id="demo" class="carousel slide" data-ride="carousel">
+                    <ul class="carousel-indicators">
+                        <li data-target="#demo" data-slide-to="0" class="active"></li>
+                        <li data-target="#demo" data-slide-to="1"></li>
+                        <li data-target="#demo" data-slide-to="2"></li>
+                    </ul>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="../IMG/Familia.jpg" alt="Poliza de Familia" width="1100" height="500">
+                            <div class="carousel-caption">
+                                <h3 class="dos">Poliza de Familia</h3>
+                                <p class="dos">Manten tu familia asegurada</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../IMG/Estudiantes.png" alt="Poliza Estudiantil" width="1100" height="500">
+                            <div class="carousel-caption">
+                                <h3 class="dos">Poliza Estudiantil</h3>
+                                <p class="dos">Ten tus hijo asegurados</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../IMG/Carro.jpg"  alt="Poliza Automovil" width="1100" height="500">
+                            <div class="carousel-caption">
+                                <h3 class="dos">Poliza Automovil</h3>
+                                <p class="dos">Asegura tu coche</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#demo" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </a>
+                </div>
+                <br />
+
                 <h2>TITLE HEADING</h2>
                 <h5>Title description, Sep 2, 2017</h5>
                 <div class="fakeimg">Fake Image</div>

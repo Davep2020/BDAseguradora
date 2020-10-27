@@ -128,7 +128,6 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Formularios\frm_Prueba.aspx" />
     <Content Include="Formularios\frm_RegistroClientes.aspx" />
     <Content Include="Formularios\IndexAdmin_PagMaestra.aspx" />
     <Content Include="Formularios\Index_PagMaestra.aspx" />
@@ -148,7 +147,10 @@
     </EntityDeploy>
     <Content Include="IMG\Aseguradora.jpg" />
     <Content Include="IMG\bg2.jpg" />
+    <Content Include="IMG\Carro.jpg" />
     <Content Include="IMG\Edificio.jpg" />
+    <Content Include="IMG\Estudiantes.png" />
+    <Content Include="IMG\Familia.jpg" />
     <Content Include="IMG\Hero.jpg" />
     <Content Include="IMG\Logo.png" />
     <Content Include="IMG\Usuario.png" />
@@ -232,13 +234,6 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\frm_Prueba.aspx.cs">
-      <DependentUpon>frm_Prueba.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Formularios\frm_Prueba.aspx.designer.cs">
-      <DependentUpon>frm_Prueba.aspx</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frm_RegistroClientes.aspx.cs">
       <DependentUpon>frm_RegistroClientes.aspx</DependentUpon>

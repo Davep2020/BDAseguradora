@@ -8,7 +8,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
 </head>
-<body class="body">
+<body class="body1">
     <form id="form1" runat="server">
         <div class="contenedor-form">
             <div class="toggle">

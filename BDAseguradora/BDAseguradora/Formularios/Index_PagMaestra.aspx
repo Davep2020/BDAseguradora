@@ -2,6 +2,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
       <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+     <link href="../Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="../CSS/estilos.css" rel="stylesheet" />
+    
+    <link href="../CSS/estilosIndex.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contenidoPrincipal" runat="server">
     <style>
