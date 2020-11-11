@@ -11,19 +11,14 @@ namespace BDAseguradora.Modelo
 {
     using System;
     
-    public partial class spMostrarClientes_Result
+    public partial class spMuestraCliente_Result
     {
-        public int ID_DPersona_Dp { get; set; }
         public int Cedula_Dp { get; set; }
-        public string Genero_DP { get; set; }
-        public System.DateTime Fecha_nacimiento_Dp { get; set; }
-        public string Nombre_Dp { get; set; }
         public string Primer_Apellido_Dp { get; set; }
         public string Segundo_Apellido_Dp { get; set; }
-        public string Dirección_Física_Dp { get; set; }
-        public string Telefono_Principal_Dp { get; set; }
-        public string Telefono_Secundario_Dp { get; set; }
+        public string Nombre_Dp { get; set; }
         public string Correo_Electrónico_Dp { get; set; }
-        public int ID_TipoPersona_Dp { get; set; }
+        public string Telefono_Principal_Dp { get; set; }
+        public string Nombre_Prv { get; set; }
     }
 }
