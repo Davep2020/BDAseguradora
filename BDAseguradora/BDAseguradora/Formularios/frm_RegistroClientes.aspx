@@ -23,7 +23,9 @@
 
                 <asp:TextBox  runat="server" placeholder="Nombre" class="form-control"/>
 
-                <asp:TextBox  runat="server" placeholder="Apellido" class="form-control"/>
+                <asp:TextBox  runat="server" placeholder="Primer Apellido" class="form-control"/>
+
+                <asp:TextBox  runat="server" placeholder="Segundo Apellido" class="form-control"/>
 
                 <asp:Button Text="Registrar" type="submit" class="btn btn-primary" runat="server" />
 

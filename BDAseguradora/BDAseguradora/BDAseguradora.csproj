@@ -124,11 +124,13 @@
     <Content Include="CSS\estilos.css" />
     <Content Include="CSS\estilosFooter.css" />
     <Content Include="CSS\estilosIndex.css" />
+    <Content Include="CSS\estilosRegistro&amp;Consulta_Clientes.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Formularios\frm_RegistroClientes.aspx" />
+    <Content Include="Formularios\frm_Registro_ConsulaCliente_PagMaestra.aspx" />
     <Content Include="Formularios\IndexAdmin_PagMaestra.aspx" />
     <Content Include="Formularios\Index_PagMaestra.aspx" />
     <Content Include="Formularios\Login.aspx" />
@@ -242,6 +244,13 @@
     <Compile Include="Formularios\frm_RegistroClientes.aspx.designer.cs">
       <DependentUpon>frm_RegistroClientes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frm_Registro_ConsulaCliente_PagMaestra.aspx.cs">
+      <DependentUpon>frm_Registro_ConsulaCliente_PagMaestra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_Registro_ConsulaCliente_PagMaestra.aspx.designer.cs">
+      <DependentUpon>frm_Registro_ConsulaCliente_PagMaestra.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\IndexAdmin_PagMaestra.aspx.cs">
       <DependentUpon>IndexAdmin_PagMaestra.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -350,6 +359,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="BL\" />
     <Folder Include="Clases\" />
     <Folder Include="Master\" />
   </ItemGroup>

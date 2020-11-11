@@ -1,0 +1,41 @@
+﻿body{
+    background: #e1e1e1!important;
+
+}
+@media (min-width: 768px) {
+    .form-control {
+        width: 250px !important;
+    }
+}
+
+@media (min-width:768px) {
+    .col-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 2rem;
+    }
+}
+
+.boton {
+    color: #e1e1e1;
+    background-color: #561919;
+    font-weight: 100;
+    text-decoration: none;
+    text-align: center;
+    border: none;
+    height: 50px;
+    width: 70px;
+    margin-top: 15px;
+    padding-right:65px;
+}
+.boton:hover {
+    color: #e1e1e1 !important;
+    background-color: #481212;
+}
+.longitud {
+    padding-right: 500px !important;
+}
+.b-100px {
+    border: 1px solid #481212;
+    margin-bottom: 10px;
+}
