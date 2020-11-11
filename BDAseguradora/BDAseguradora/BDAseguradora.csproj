@@ -298,7 +298,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AseguradoraBD.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Modelo\spMostrarClientes_Result.cs">
+    <Compile Include="Modelo\spMuestraCliente_Result.cs">
       <DependentUpon>AseguradoraBD.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\TblAddiciones.cs">

@@ -66,7 +66,7 @@
                         <asp:Label ID="lblTelefono2" runat="server" Text="Teléfono 2" ></asp:Label>
                         <asp:TextBox ID="txtTelefono2" runat="server" CssClass="form-control"></asp:TextBox>
                 </div> 
-        </div> <%--Fin 3 columnas--%>
+        </div> <%--Contenedor--%>
     
         <div class="col-3"> 
             <div class="form-group">
@@ -77,7 +77,7 @@
 
             <asp:Button ID="btnAgregarUsuario" runat="server" Text="Agregar" class="btn boton" OnClick="btnAgregarUsuario_Click"/>
 
-        </div> <%--Fin 3 columnas--%>
+        </div> <%--Contenedor--%>
     
 </div> <%--Contenedor--%>
 
@@ -104,6 +104,37 @@
 
    </div><%--Contenedor--%>
     <div Class="b-100px"></div>
+
+        <h2>Búsqueda de clientes</h2>
+    <div class="container">
+        <div class="col-3">
+            <div class="form-group">
+                <asp:Label ID="lblPrimerApellidoBuscar" runat="server" Text="Primer Apellido" ></asp:Label>
+                <asp:TextBox ID="txtPrimerApellidoBuscar" runat="server" CssClass="form-control"></asp:TextBox>
+            </div>
+
+            <div class="form-group">
+                <asp:Label ID="lblNombreBuscar" runat="server" Text="Nombre" ></asp:Label>
+                <asp:TextBox ID="txtNombreBuscar" runat="server" CssClass="form-control"></asp:TextBox>
+            </div>
+
+            <asp:Button ID="btnBuscarCliente" Text="Buscar" runat="server" class="btn boton" OnClick="btnBuscarCliente_Click" />
+        </div>
+    </div>
+
+
+
+        <asp:GridView ID="grListaClientes" runat="server" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black">
+            <FooterStyle BackColor="#CCCCCC" />
+            <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
+            <RowStyle BackColor="White" />
+            <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+            <SortedAscendingCellStyle BackColor="#F1F1F1" />
+            <SortedAscendingHeaderStyle BackColor="#808080" />
+            <SortedDescendingCellStyle BackColor="#CAC9C9" />
+            <SortedDescendingHeaderStyle BackColor="#383838" />
+        </asp:GridView>
 
 </form>
 

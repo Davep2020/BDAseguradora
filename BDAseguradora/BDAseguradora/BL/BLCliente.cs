@@ -19,12 +19,12 @@ namespace BDAseguradora.BL
         /// <param name="pPrimerApellido"></param>
         /// <param name="pNombre"></param>
         /// <returns></returns>
-        public List<spMostrarClientes_Result> RetornaClientes(string pPrimerApellido = null, string pNombre = null)
+        public List<spMuestraCliente_Result> RetornaClientes(string pPrimerApellido = null, string pNombre = null)
         {
             ///Variable que se retorna
-            List<spMostrarClientes_Result> resultados = new List<spMostrarClientes_Result>();
+            List<spMuestraCliente_Result> resultados = new List<spMuestraCliente_Result>();
             ///Asignar las variables
-            resultados = this.modeloBD.spMuestraCliente(pPrimerApellido, pNombre).toList<>();
+            resultados = this.modeloBD.spMuestraCliente(pPrimerApellido, pNombre).ToList();
             ///Retorna el valor
             return resultados;
         }

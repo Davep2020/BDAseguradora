@@ -34,6 +34,7 @@ namespace BDAseguradora.Modelo
         public string Telefono_Secundario_Dp { get; set; }
         public string Correo_Electrónico_Dp { get; set; }
         public int ID_TipoPersona_Dp { get; set; }
+        public Nullable<int> ID_Provincia_Dp { get; set; }
     
         public virtual ICollection<TblAdiccionesClientes> TblAdiccionesClientes { get; set; }
         public virtual TblTipoPersonas TblTipoPersonas { get; set; }
