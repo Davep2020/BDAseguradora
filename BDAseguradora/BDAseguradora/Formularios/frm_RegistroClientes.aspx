@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frm_RegistroClientes.aspx.cs" Inherits="BDAseguradora.Formularios.frm_RegistroClientes" %>
+﻿<%--<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frm_RegistroClientes.aspx.cs" Inherits="BDAseguradora.Formularios.frm_RegistroClientes" %>--%>
 
 <!DOCTYPE html>
 

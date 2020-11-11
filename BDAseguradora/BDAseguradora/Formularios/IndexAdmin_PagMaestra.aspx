@@ -6,41 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contenidoPrincipal" runat="server">
-    <%-- Creacion del NAV --%>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
-            <ul class="navbar-nav mr-auto">
-
-                <li class="nav-item uno">
-                    <a class="nav-link" href="#">Home <i class="fa fa-home fa-fw"></i></a>
-                </li>
-                <li class="nav-item uno">
-                    <a class="nav-link" href="#">Polizas <i class="fa fa-shield  fa-fw"></i></a>
-                </li>
-
-            </ul>
-        </div>
-        <div class="mx-auto order-0">
-
-            <a class="navbar-brand mx-auto" href="#">
-                <img src="../IMG/Logo.png" alt="Logotipo" style="margin-right: 6%" width="33%" />Aseguradora</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-        </div>
-        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item uno">
-                    <a class="nav-link" href="#">Registrar Usuario <i class="fa fa-user fa-fw"></i></a>
-
-                </li>
-                <li class="nav-item uno">
-                    <a class="nav-link" href="#">Cerrar Sesion <i class="fa fa-sign-out fa-fw"></i></a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+ 
 
 
 

@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace BDAseguradora.PaginaMaestra
+namespace BDAseguradora.Formularios
 {
-    public partial class PaginaMaestra : System.Web.UI.MasterPage
+    public partial class Polizas : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
