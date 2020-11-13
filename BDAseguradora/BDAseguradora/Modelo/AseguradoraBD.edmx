@@ -228,6 +228,11 @@
           <Parameter Name="tipoUsuario" Type="int" Mode="In" />
           <Parameter Name="provincia" Type="int" Mode="In" />
         </Function>
+        <Function Name="spIngresarCobertura" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="Descripcion" Type="varchar" Mode="In" />
+          <Parameter Name="Porcentaje" Type="int" Mode="In" />
+        </Function>
         <Function Name="spModificarAdiccionClientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="parametro" Type="int" Mode="In" />
         </Function>
@@ -603,6 +608,11 @@
             <Parameter Name="primerApellido" Mode="In" Type="String" />
             <Parameter Name="nombre" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="spIngresarCobertura">
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Descripcion" Mode="In" Type="String" />
+            <Parameter Name="Porcentaje" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="spMuestraCliente_Result">
           <Property Type="Int32" Name="Cedula_Dp" Nullable="false" />
@@ -739,6 +749,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spIngresarCobertura" FunctionName="bdaseguradoraModel.Store.spIngresarCobertura" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

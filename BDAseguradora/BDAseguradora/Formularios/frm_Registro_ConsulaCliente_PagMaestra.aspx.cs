@@ -36,7 +36,10 @@ namespace BDAseguradora.Formularios
             ///Crear la instancia del objeto BL
             BLCliente blCliente = new BLCliente();
             ///Crear una variable que va a contener esos datos
-            List<spMuestraCliente_Result> resultado = blCliente.RetornaClientes(this.txtPrimerApellidoBuscar.Text, this.txtNombreBuscar.Text);
+            List<spMuestraCliente_Result> resultado = 
+                blCliente.RetornaClientes(
+                    this.txtPrimerApellidoBuscar.Text, 
+                    this.txtNombreBuscar.Text);
 
             //La fuente de datos
             //"grListaClientes" es el id del Grid

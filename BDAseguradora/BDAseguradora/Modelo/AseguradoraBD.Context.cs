@@ -210,5 +210,22 @@ namespace BDAseguradora.Modelo
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spMuestraCliente_Result>("spMuestraCliente", primerApellidoParameter, nombreParameter);
         }
+    
+        public virtual int spIngresarCobertura(string nombre, string descripcion, Nullable<int> porcentaje)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            var descripcionParameter = descripcion != null ?
+                new ObjectParameter("Descripcion", descripcion) :
+                new ObjectParameter("Descripcion", typeof(string));
+    
+            var porcentajeParameter = porcentaje.HasValue ?
+                new ObjectParameter("Porcentaje", porcentaje) :
+                new ObjectParameter("Porcentaje", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spIngresarCobertura", nombreParameter, descripcionParameter, porcentajeParameter);
+        }
     }
 }
