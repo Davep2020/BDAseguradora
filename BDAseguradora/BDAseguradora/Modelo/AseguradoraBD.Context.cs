@@ -140,11 +140,6 @@ namespace BDAseguradora.Modelo
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spModificarTelefonoClientes", telefonoParameter, cedulaParameter);
         }
     
-        public virtual ObjectResult<string> spMostrarAdicciones()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("spMostrarAdicciones");
-        }
-    
         public virtual int spIngresarCliente(Nullable<int> cedula, string genero, Nullable<System.DateTime> fechaNacimiento, string nombre, string primerApellido, string segundoApellido, string direccion, string pTelefono, string sTelefono, string correo, Nullable<int> tipoUsuario, Nullable<int> provincia)
         {
             var cedulaParameter = cedula.HasValue ?
@@ -198,17 +193,22 @@ namespace BDAseguradora.Modelo
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spIngresarCliente", cedulaParameter, generoParameter, fechaNacimientoParameter, nombreParameter, primerApellidoParameter, segundoApellidoParameter, direccionParameter, pTelefonoParameter, sTelefonoParameter, correoParameter, tipoUsuarioParameter, provinciaParameter);
         }
     
-        public virtual ObjectResult<spMuestraCliente_Result> spMuestraCliente(string primerApellido, string nombre)
+        public virtual ObjectResult<spMuestraCliente_Result> spMuestraCliente(Nullable<int> cedula)
         {
-            var primerApellidoParameter = primerApellido != null ?
-                new ObjectParameter("primerApellido", primerApellido) :
-                new ObjectParameter("primerApellido", typeof(string));
+            var cedulaParameter = cedula.HasValue ?
+                new ObjectParameter("cedula", cedula) :
+                new ObjectParameter("cedula", typeof(int));
     
-            var nombreParameter = nombre != null ?
-                new ObjectParameter("nombre", nombre) :
-                new ObjectParameter("nombre", typeof(string));
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spMuestraCliente_Result>("spMuestraCliente", cedulaParameter);
+        }
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spMuestraCliente_Result>("spMuestraCliente", primerApellidoParameter, nombreParameter);
+        public virtual ObjectResult<spMuestraAdiccion_Result> spMuestraAdiccion(Nullable<int> cedula)
+        {
+            var cedulaParameter = cedula.HasValue ?
+                new ObjectParameter("cedula", cedula) :
+                new ObjectParameter("cedula", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spMuestraAdiccion_Result>("spMuestraAdiccion", cedulaParameter);
         }
     
         public virtual int spIngresarCobertura(string nombre, string descripcion, Nullable<int> porcentaje)
