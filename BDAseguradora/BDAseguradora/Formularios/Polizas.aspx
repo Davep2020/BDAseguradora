@@ -41,12 +41,12 @@
                                                 <textarea id="txtADescrip" runat="server" cols="30" rows="2"></textarea>
                                                 <asp:Label ID="Label3" runat="server" Text="Porcentaje: "></asp:Label>
                                                 <asp:TextBox ID="txtPorcentaje" runat="server"></asp:TextBox>
-                                                <asp:Button ID="btnCobertura" runat="server" Text="Agregar" OnClick="btnCobertura_Click"/>
+                                                
 
                                             </div>
 
                                         </div>
-
+                                        <asp:Button ID="btnCobertura" runat="server" Text="Agregar" OnClick="btnCobertura_Click"/>
                                         <!-- Modal footer -->
                                         <div class="modal-footer">
                                             
