@@ -145,10 +145,6 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <EntityDeploy Include="Modelo\AseguradoraBD.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>AseguradoraBD.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <Content Include="IMG\Aseguradora.jpg" />
     <Content Include="IMG\bg2.jpg" />
     <Content Include="IMG\Carro.jpg" />
@@ -161,8 +157,15 @@
     <Content Include="Index.aspx" />
     <Content Include="JS\jquery-3.1.1.min.js" />
     <Content Include="JS\main.js" />
-    <Content Include="Modelo\AseguradoraBD.edmx.diagram">
+    <Content Include="Modelo\AseguradoraBD.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>AseguradoraBD.edmx</DependentUpon>
+      <LastGenOutput>AseguradoraBD.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Modelo\AseguradoraBD.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AseguradoraBD.edmx</DependentUpon>
+      <LastGenOutput>AseguradoraBD.cs</LastGenOutput>
     </Content>
     <Content Include="PaginaMaestra\PaginaMaestra.Master" />
     <Content Include="fonts\FontAwesome.otf" />
@@ -170,17 +173,14 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
+    <EntityDeploy Include="Modelo\AseguradoraBD.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AseguradoraBD.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Modelo\AseguradoraBD.edmx.diagram">
+      <DependentUpon>AseguradoraBD.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="Modelo\AseguradoraBD.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>AseguradoraBD.Context.cs</LastGenOutput>
-      <DependentUpon>AseguradoraBD.edmx</DependentUpon>
-    </Content>
-    <Content Include="Modelo\AseguradoraBD.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AseguradoraBD.edmx</DependentUpon>
-      <LastGenOutput>AseguradoraBD.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

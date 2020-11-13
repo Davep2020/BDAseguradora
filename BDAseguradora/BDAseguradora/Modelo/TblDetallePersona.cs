@@ -41,5 +41,6 @@ namespace BDAseguradora.Modelo
         public virtual ICollection<TblPolizas> TblPolizas { get; set; }
         public virtual ICollection<TblSeguridad> TblSeguridad { get; set; }
         public virtual ICollection<TblSeguros> TblSeguros { get; set; }
+        public virtual TblProvincia TblProvincia { get; set; }
     }
 }

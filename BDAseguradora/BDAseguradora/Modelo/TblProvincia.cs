@@ -17,11 +17,13 @@ namespace BDAseguradora.Modelo
         public TblProvincia()
         {
             this.TblSeguros = new HashSet<TblSeguros>();
+            this.TblDetallePersona = new HashSet<TblDetallePersona>();
         }
     
         public int ID_Provincia_Prv { get; set; }
         public string Nombre_Prv { get; set; }
     
         public virtual ICollection<TblSeguros> TblSeguros { get; set; }
+        public virtual ICollection<TblDetallePersona> TblDetallePersona { get; set; }
     }
 }
