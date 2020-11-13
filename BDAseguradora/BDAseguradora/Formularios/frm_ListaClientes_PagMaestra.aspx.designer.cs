@@ -51,15 +51,6 @@ namespace BDAseguradora.Formularios
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqvCedula;
 
         /// <summary>
-        /// Control rvCedula.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator rvCedula;
-
-        /// <summary>
         /// Control vsCedula.
         /// </summary>
         /// <remarks>
