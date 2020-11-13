@@ -28,7 +28,7 @@ namespace BDAseguradora.Formularios
             //La fuente de datos
             //"grListaClientes" es el id del Grid
             this.grdListaClientes.DataSource = resultado;
-            this.grdListaAdicciones.DataBind();
+            this.grdListaClientes.DataBind();
         }
 
         void CargarAdicciones()
