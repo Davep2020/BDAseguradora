@@ -24,6 +24,7 @@ namespace BDAseguradora.Formularios
         protected global::System.Web.UI.HtmlControls.HtmlForm frmClienteInserta;
 
         /// <summary>
+<<<<<<< HEAD
         /// Control frmClienteInserta.
         /// </summary>
         /// <remarks>
@@ -115,12 +116,15 @@ namespace BDAseguradora.Formularios
 
         /// <summary>
         /// Control lblCedula.
+=======
+        /// Control lblCedulaBuscar.
+>>>>>>> cf641cb336984e077c75bfc7ba24e0fb9d2854e5
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCedula;
+        protected global::System.Web.UI.WebControls.Label lblCedulaBuscar;
 
         /// <summary>
         /// Control txtCedula.
@@ -132,13 +136,31 @@ namespace BDAseguradora.Formularios
         protected global::System.Web.UI.WebControls.TextBox txtCedula;
 
         /// <summary>
-        /// Control rvCedula.
+        /// Control rqvCedula.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rvCedula;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqvCedula;
+
+        /// <summary>
+        /// Control vsCedula.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary vsCedula;
+
+        /// <summary>
+        /// Control cmptxtCedula.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cmptxtCedula;
 
         /// <summary>
         /// Control lblGenero.
@@ -303,12 +325,17 @@ namespace BDAseguradora.Formularios
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rvCorreo;
 
         /// <summary>
+<<<<<<< HEAD
         /// Control lblCorreo.
+=======
+        /// Control regtxtCorreo.
+>>>>>>> cf641cb336984e077c75bfc7ba24e0fb9d2854e5
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.Label lblCorreo;
 
         /// <summary>
@@ -328,6 +355,9 @@ namespace BDAseguradora.Formularios
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rvCorreo;
+=======
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regtxtCorreo;
+>>>>>>> cf641cb336984e077c75bfc7ba24e0fb9d2854e5
 
         /// <summary>
         /// Control lblTelefono1.
@@ -403,6 +433,7 @@ namespace BDAseguradora.Formularios
 
         /// <summary>
         /// Control btnAgregarUsuario.
+<<<<<<< HEAD
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -574,11 +605,13 @@ namespace BDAseguradora.Formularios
 
         /// <summary>
         /// Control btnAgregar.
+=======
+>>>>>>> cf641cb336984e077c75bfc7ba24e0fb9d2854e5
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAgregar;
+        protected global::System.Web.UI.WebControls.Button btnAgregarUsuario;
     }
 }

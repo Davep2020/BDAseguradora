@@ -23,5 +23,10 @@ namespace BDAseguradora.Formularios
         {
             Response.Write("<script>alert('ASD')</script>");
         }
+
+        protected void txtCorreo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
