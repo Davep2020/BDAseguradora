@@ -24,13 +24,13 @@ namespace BDAseguradora.Formularios
         protected global::System.Web.UI.HtmlControls.HtmlForm frmClienteInserta;
 
         /// <summary>
-        /// Control lblCedula.
+        /// Control lblCedulaBuscar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCedula;
+        protected global::System.Web.UI.WebControls.Label lblCedulaBuscar;
 
         /// <summary>
         /// Control txtCedula.
@@ -42,13 +42,31 @@ namespace BDAseguradora.Formularios
         protected global::System.Web.UI.WebControls.TextBox txtCedula;
 
         /// <summary>
-        /// Control rvCedula.
+        /// Control rqvCedula.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rvCedula;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqvCedula;
+
+        /// <summary>
+        /// Control vsCedula.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary vsCedula;
+
+        /// <summary>
+        /// Control cmptxtCedula.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cmptxtCedula;
 
         /// <summary>
         /// Control lblGenero.
@@ -213,6 +231,15 @@ namespace BDAseguradora.Formularios
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rvCorreo;
 
         /// <summary>
+        /// Control regtxtCorreo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regtxtCorreo;
+
+        /// <summary>
         /// Control lblTelefono1.
         /// </summary>
         /// <remarks>
@@ -285,12 +312,12 @@ namespace BDAseguradora.Formularios
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rvDireccion;
 
         /// <summary>
-        /// Control btnAgregar.
+        /// Control btnAgregarUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAgregar;
+        protected global::System.Web.UI.WebControls.Button btnAgregarUsuario;
     }
 }

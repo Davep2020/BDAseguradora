@@ -16,8 +16,9 @@
                 <asp:TextBox ID="txtCedula" runat="server" CssClass="form-control"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="rqvCedula" Display="None" runat="server" 
                 ControlToValidate="txtCedula" ErrorMessage="Debe ingresar un número de cédula."></asp:RequiredFieldValidator>
-        
-            <asp:ValidationSummary ID="vsCedula" ShowMessageBox="true" runat="server" />
+            <asp:ValidationSummary ID="vsCedula" ShowMessageBox="true" runat="server" ShowSummary="false"/>
+            <asp:CompareValidator ID="cmptxtCedula" runat="server" ErrorMessage="Debe digitar números en la cédula, sin espacios ni guiones"
+                ControlToValidate="txtCedula" Operator="DataTypeCheck" Type="Integer" Display="None" ></asp:CompareValidator>
             </div>
 
 
