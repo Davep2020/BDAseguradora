@@ -1,4 +1,3 @@
-<<<<<<< HEAD:BDAseguradora/BDAseguradora/Formularios/frm_Registro_ConsulaCliente_PagMaestra.aspx
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginaMaestra/PaginaMaestra.Master" AutoEventWireup="true" CodeBehind="frm_Registro_ConsulaCliente_PagMaestra.aspx.cs" Inherits="BDAseguradora.Formularios.frm_Registro_ConsulaCliente_PagMaestra" %>
 
 =======
