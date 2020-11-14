@@ -1,12 +1,5 @@
-<<<<<<< HEAD
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginaMaestra/PaginaMaestra.Master" AutoEventWireup="true" CodeBehind="frm_Registro_ConsulaCliente_PagMaestra.aspx.cs" Inherits="BDAseguradora.Formularios.frm_Registro_ConsulaCliente_PagMaestra" %>
-
-=======
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginaMaestra/PaginaMaestra.Master" AutoEventWireup="true" CodeBehind="frm_RegistroClientes_PagMaestra.aspx.cs" Inherits="BDAseguradora.Formularios.frm_RegistroClientes_PagMaestra" %>
->>>>>>> 749fe69dea4c69639d569a29c016c5da17f2d1ba:BDAseguradora/BDAseguradora/Formularios/frm_RegistroClientes_PagMaestra.aspx
-=======
-<%@ Page Title="" Language="C#" MasterPageFile="~/PaginaMaestra/PaginaMaestra.Master" AutoEventWireup="true" CodeBehind="~/Formularios/frm_RegistroClientes_PagMaestra.aspx.cs" Inherits="BDAseguradora.Formularios.frm_RegistroClientes_PagMaestra" %>
->>>>>>> cf641cb336984e077c75bfc7ba24e0fb9d2854e5
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="../CSS/estilosRegistro&Consulta_Clientes.css" rel="stylesheet" />
 </asp:Content>
