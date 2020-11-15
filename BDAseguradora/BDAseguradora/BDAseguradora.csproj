@@ -131,6 +131,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Formularios\frm_AgregarAdiccionXC_PagMaestra.aspx" />
     <Content Include="Formularios\frm_ListaClientes_PagMaestra.aspx" />
+    <Content Include="Formularios\frm_Polizas.aspx" />
     <Content Include="Formularios\frm_RegistroClientes_PagMaestra.aspx" />
     <Content Include="Formularios\IndexAdmin_PagMaestra.aspx" />
     <Content Include="Formularios\Index_PagMaestra.aspx" />
@@ -256,6 +257,13 @@
     </Compile>
     <Compile Include="Formularios\frm_ListaClientes_PagMaestra.aspx.designer.cs">
       <DependentUpon>frm_ListaClientes_PagMaestra.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_Polizas.aspx.cs">
+      <DependentUpon>frm_Polizas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_Polizas.aspx.designer.cs">
+      <DependentUpon>frm_Polizas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frm_RegistroClientes_PagMaestra.aspx.cs">
       <DependentUpon>frm_RegistroClientes_PagMaestra.aspx</DependentUpon>
