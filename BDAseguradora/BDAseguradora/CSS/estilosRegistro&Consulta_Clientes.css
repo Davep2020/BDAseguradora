@@ -38,11 +38,18 @@ h2{
 .longitud {
     padding-right: 500px !important;
 }
-.b-100px {
-    border: 1px solid #481212;
-    margin-bottom: 10px;
-}
-.bajar{
-    margin-bottom:35px
-}
 
+.bajar{
+    margin-bottom:53px
+}
+.ddlAd{
+    margin-left: 75px!important ;
+    margin-top:10px;
+}
+.form-control{
+    text-align: center!important;
+
+}
+.mt-10 {
+    margin-top: 25px;
+}
