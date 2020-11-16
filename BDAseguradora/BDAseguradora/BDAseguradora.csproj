@@ -229,8 +229,14 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BL\BLAdicciones.cs" />
     <Compile Include="BL\BLCliente.cs" />
+<<<<<<< HEAD
     <Compile Include="BL\Cobertura.cs" />
+=======
+    <Compile Include="BL\BLProvincia.cs" />
+    <Compile Include="BL\BLTipoCliente.cs" />
+>>>>>>> 25df335f9b892c35c6bdf4c0bd0ddadae06c896f
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -357,6 +363,15 @@
       <DependentUpon>AseguradoraBD.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\spMuestraCliente_Result.cs">
+      <DependentUpon>AseguradoraBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\spRetornaAdicciones_Result.cs">
+      <DependentUpon>AseguradoraBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\spRetornaProvincias_Result.cs">
+      <DependentUpon>AseguradoraBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\spRetornaTipoPersona_Result.cs">
       <DependentUpon>AseguradoraBD.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\TblAddiciones.cs">

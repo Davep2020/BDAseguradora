@@ -73,12 +73,17 @@ namespace BDAseguradora.Modelo
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spMuestraCliente_Result>("spMuestraCliente", cedulaParameter);
         }
     
+<<<<<<< HEAD
         public virtual ObjectResult<ConsultarCobertura_Result> ConsultarCobertura(string nombre)
+=======
+        public virtual ObjectResult<spRetornaAdicciones_Result> spRetornaAdicciones(string nombre, string codigo)
+>>>>>>> 25df335f9b892c35c6bdf4c0bd0ddadae06c896f
         {
             var nombreParameter = nombre != null ?
                 new ObjectParameter("nombre", nombre) :
                 new ObjectParameter("nombre", typeof(string));
     
+<<<<<<< HEAD
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ConsultarCobertura_Result>("ConsultarCobertura", nombreParameter);
         }
     
@@ -119,6 +124,97 @@ namespace BDAseguradora.Modelo
                 new ObjectParameter("id", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("EliminaCoberturas", idParameter);
+=======
+            var codigoParameter = codigo != null ?
+                new ObjectParameter("codigo", codigo) :
+                new ObjectParameter("codigo", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spRetornaAdicciones_Result>("spRetornaAdicciones", nombreParameter, codigoParameter);
+        }
+    
+        public virtual int spInsertaAdiccionXCliente(string cedula, string codigo)
+        {
+            var cedulaParameter = cedula != null ?
+                new ObjectParameter("cedula", cedula) :
+                new ObjectParameter("cedula", typeof(string));
+    
+            var codigoParameter = codigo != null ?
+                new ObjectParameter("codigo", codigo) :
+                new ObjectParameter("codigo", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertaAdiccionXCliente", cedulaParameter, codigoParameter);
+        }
+    
+        public virtual int spIngresarCliente(Nullable<int> cedula, string genero, Nullable<System.DateTime> fechaNacimiento, string nombre, string primerApellido, string segundoApellido, string direccion, string pTelefono, string sTelefono, string correo, Nullable<int> tipoUsuario, Nullable<int> provincia)
+        {
+            var cedulaParameter = cedula.HasValue ?
+                new ObjectParameter("cedula", cedula) :
+                new ObjectParameter("cedula", typeof(int));
+    
+            var generoParameter = genero != null ?
+                new ObjectParameter("genero", genero) :
+                new ObjectParameter("genero", typeof(string));
+    
+            var fechaNacimientoParameter = fechaNacimiento.HasValue ?
+                new ObjectParameter("fechaNacimiento", fechaNacimiento) :
+                new ObjectParameter("fechaNacimiento", typeof(System.DateTime));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var primerApellidoParameter = primerApellido != null ?
+                new ObjectParameter("primerApellido", primerApellido) :
+                new ObjectParameter("primerApellido", typeof(string));
+    
+            var segundoApellidoParameter = segundoApellido != null ?
+                new ObjectParameter("segundoApellido", segundoApellido) :
+                new ObjectParameter("segundoApellido", typeof(string));
+    
+            var direccionParameter = direccion != null ?
+                new ObjectParameter("direccion", direccion) :
+                new ObjectParameter("direccion", typeof(string));
+    
+            var pTelefonoParameter = pTelefono != null ?
+                new ObjectParameter("pTelefono", pTelefono) :
+                new ObjectParameter("pTelefono", typeof(string));
+    
+            var sTelefonoParameter = sTelefono != null ?
+                new ObjectParameter("sTelefono", sTelefono) :
+                new ObjectParameter("sTelefono", typeof(string));
+    
+            var correoParameter = correo != null ?
+                new ObjectParameter("correo", correo) :
+                new ObjectParameter("correo", typeof(string));
+    
+            var tipoUsuarioParameter = tipoUsuario.HasValue ?
+                new ObjectParameter("tipoUsuario", tipoUsuario) :
+                new ObjectParameter("tipoUsuario", typeof(int));
+    
+            var provinciaParameter = provincia.HasValue ?
+                new ObjectParameter("provincia", provincia) :
+                new ObjectParameter("provincia", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spIngresarCliente", cedulaParameter, generoParameter, fechaNacimientoParameter, nombreParameter, primerApellidoParameter, segundoApellidoParameter, direccionParameter, pTelefonoParameter, sTelefonoParameter, correoParameter, tipoUsuarioParameter, provinciaParameter);
+        }
+    
+        public virtual ObjectResult<spRetornaProvincias_Result> spRetornaProvincias(string nombre)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spRetornaProvincias_Result>("spRetornaProvincias", nombreParameter);
+        }
+    
+        public virtual ObjectResult<spRetornaTipoPersona_Result> spRetornaTipoPersona(string nombre)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spRetornaTipoPersona_Result>("spRetornaTipoPersona", nombreParameter);
+>>>>>>> 25df335f9b892c35c6bdf4c0bd0ddadae06c896f
         }
     }
 }
