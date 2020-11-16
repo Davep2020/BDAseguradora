@@ -3,103 +3,113 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contenidoPrincipal" runat="server">
-    <form id="frmClienteInserta" runat="server">
+    <form id="frm_Poliza" runat="server">
+        <%-- Creacion del NAV --%>
+        <div class="container-fluid" style="margin-top: 30px">
+            <div class="row mb-2">
+                <div class="col-sm-4 Primero ml-3 mr-5">
+                    <h2>About Me</h2>
+                    <h5>Photo of me:</h5>
+                    <div>
+                        <img src="../IMG/Usuario.png" alt="Logotipo" width="33%" />
+                    </div>
+                    <p>Some text about me in culpa qui officia deserunt mollit ani</p>
+                    <h3>Mantenimientos</h3>
+                    <p>Cambios en diferentes sectores</p>
+                    <ul class="nav nav-pills flex-column">
+                        <%-- Agregar Cobertura --%>
+                            <li class="nav-item uno">
+                            <asp:HyperLink ID="HyperLink1" Style="text-decoration: none" runat="server" CssClass="uno" NavigateUrl="~/Formularios/frm_ConsultarCobertura.aspx">Consultar Cobertura</asp:HyperLink>
 
-        <h2>Registro de Clientes</h2>
+                        </li>
+                        <br />
+                        <li class="nav-item uno">
+                            <asp:HyperLink ID="HyperLink2" Style="text-decoration: none" runat="server" CssClass="uno" NavigateUrl="~/Formularios/frm_AgregarCobertura.aspx">Agregar Cobertura</asp:HyperLink>
 
-        <div class="container">
-            <div class="col-3">
-                <div class="form-group">
-                    <asp:Label ID="lblCedulaBuscar" runat="server" Text="Cédula"></asp:Label>
-                    <asp:TextBox ID="txtCedula" runat="server" CssClass="form-control"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rqvCedula" Display="None" runat="server"
-                        ControlToValidate="txtCedula" ErrorMessage="Debe ingresar un número de cédula."></asp:RequiredFieldValidator>
-                    <asp:ValidationSummary ID="vsCedula" ShowMessageBox="true" runat="server" ShowSummary="false" />
-                    <asp:CompareValidator ID="cmptxtCedula" runat="server" ErrorMessage="Debe digitar números en la cédula, sin espacios ni guiones"
-                        ControlToValidate="txtCedula" Operator="DataTypeCheck" Type="Integer" Display="None"></asp:CompareValidator>
+
+                        </li>
+                        <br />
+                        <li class="nav-item uno">
+                            <asp:HyperLink ID="HyperLink3" Style="text-decoration: none" runat="server" CssClass="uno" NavigateUrl="~/Formularios/frm_ModificarCobertura.aspx">Modificar Cobertura</asp:HyperLink>
+
+
+                        </li>
+
+
+                    </ul>
+                    <hr class="d-sm-none">
                 </div>
 
-                <div class="form-group">
-                    <asp:Label ID="lblGenero" runat="server" Text="Género"></asp:Label>
-                    <asp:TextBox ID="txtGenero" runat="server" CssClass="form-control"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rvGenero" runat="server" ControlToValidate="txtGenero" ErrorMessage="Seleccione el género" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
-                </div>
+                <div class="col-sm-7 Primero ml-4 ">
 
+                    <h2 class="Polizas">Polizas</h2>
+                    <div id="demo" class="carousel slide" data-ride="carousel">
+                        <ul class="carousel-indicators">
+                            <li data-target="#demo" data-slide-to="0" class="active"></li>
+                            <li data-target="#demo" data-slide-to="1"></li>
+                            <li data-target="#demo" data-slide-to="2"></li>
+                        </ul>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../IMG/Familia.jpg" alt="Poliza de Familia" width="1100" height="500">
+                                <div class="carousel-caption">
+                                    <h3 class="dos">Poliza de Familia</h3>
+                                    <p class="dos">Manten tu familia asegurada</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../IMG/Estudiantes.png" alt="Poliza Estudiantil" width="1100" height="500">
+                                <div class="carousel-caption">
+                                    <h3 class="dos">Poliza Estudiantil</h3>
+                                    <p class="dos">Ten tus hijo asegurados</p>
 
-                <div class="form-group">
-                    <asp:Label ID="lblFecha_Nacimiento" runat="server" Text="Fecha Nacimiento"></asp:Label>
-                    <asp:TextBox ID="txtFecha_Nacimiento" runat="server" CssClass="form-control"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rvFecha_Nacimiento" runat="server" ControlToValidate="txtFecha_Nacimiento" CssClass="form-control" ErrorMessage="Debe ingresar la fecha de nacimiento" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../IMG/Carro.jpg" alt="Poliza Automovil" width="1100" height="500">
+                                <div class="carousel-caption">
+                                    <h3 class="dos">Poliza Automovil</h3>
+                                    <p class="dos">Asegura tu coche</p>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#demo" data-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </a>
+                    </div>
+                    <br />
 
+                    <h2>TITLE HEADING</h2>
+                    <h5>Title description, Sep 2, 2017</h5>
+                    <asp:GridView ID="GridView1" runat="server" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black" AutoGenerateColumns="False">
+                        <Columns>
+                            <asp:BoundField DataField="Nombre_Dpl" HeaderText="Nombre" />
+                            <asp:BoundField DataField="Descripción_Dpl" HeaderText="Descripcion" />
+                            <asp:BoundField DataField="Porcentaje_Dpl" HeaderText="Porcentaje" />
+
+                        </Columns>
+                        <FooterStyle BackColor="#CCCCCC" />
+                        <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
+                        <RowStyle BackColor="White" />
+                        <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+                        <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                        <SortedAscendingHeaderStyle BackColor="#808080" />
+                        <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                        <SortedDescendingHeaderStyle BackColor="#383838" />
+                    </asp:GridView>
+                    <div class="fakeimg">Fake Image</div>
+                    <p>Some text..</p>
+                    <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
                 </div>
             </div>
 
-            <div class="col-3">
-                <div class="form-group">
-                    <asp:Label ID="lblNombre" runat="server" Text="Nombre"></asp:Label>
-                    <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rqvNombre" runat="server" ControlToValidate="txtNombre" ErrorMessage="Debe ingresar el primer apellido" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
-                </div>
-                <div class="form-group">
-                    <asp:Label ID="lblPrimerApellido" runat="server" Text="Primer Apellido"></asp:Label>
-                    <asp:TextBox ID="txtPrimerApellido" runat="server" CssClass="form-control"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rqvPrimerApellido" runat="server" ControlToValidate="txtPrimerApellido" ErrorMessage="Debe ingresar el primer apellido" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
-                </div>
-
-                <div class="form-group">
-                    <asp:Label ID="lblSegundoApellido" runat="server" Text="Segundo Apellido"></asp:Label>
-                    <asp:TextBox ID="txtSegundoApellido" runat="server" CssClass="form-control"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rqvTxtSegundoApellido" runat="server" ControlToValidate="txtSegundoApellido" ErrorMessage="Debe ingresar el segundo apellido" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-            <%--Fin 3 columnas--%>
-
-
-            <div class="col-3">
-                <div class="form-group">
-                    <asp:Label ID="lblCorreo" runat="server" Text="Correo Eléctronico"></asp:Label>
-                    <asp:TextBox ID="txtCorreo" runat="server" CssClass="form-control" OnTextChanged="txtCorreo_TextChanged"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rvCorreo" runat="server" ControlToValidate="txtCorreo" ErrorMessage="Debe ingresar la direccion" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
-
-                    <asp:RegularExpressionValidator ID="regtxtCorreo" runat="server" ErrorMessage="Debe ingresar un correo electrónico válido"
-                        ControlToValidate="txtCorreo" Display="None" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
-                </div>
-
-                <div class="form-group">
-                    <asp:Label ID="lblTelefono1" runat="server" Text="Teléfono 1"></asp:Label>
-                    <asp:TextBox ID="txtTelefono1" runat="server" CssClass="form-control"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rqvTelefono1" runat="server" ControlToValidate="txtTelefono1" CssClass="form-control" ErrorMessage="Debe ingresar el teléfono principal" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
-                </div>
-                <div class="form-group">
-                    <asp:Label ID="lblTelefono2" runat="server" Text="Teléfono 2"></asp:Label>
-                    <asp:TextBox ID="txtTelefono2" runat="server" CssClass="form-control"></asp:TextBox>
-                </div>
-            </div>
-            <%--Contenedor--%>
-
-            <div class="col-3">
-                <div class="form-group">
-                    <asp:Label ID="lblDireccion" runat="server" Text="Dirección"></asp:Label>
-                    <asp:TextBox ID="txtDireccion" runat="server" CssClass="form-control longitud"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rvDireccion" runat="server" ControlToValidate="txtDireccion" ErrorMessage="Debe ingresar la direccion" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
-                </div>
-
-                <asp:Button ID="btnAgregarUsuario" runat="server" Text="Agregar" class="btn boton" />
-
-            </div>
-            <%--Contenedor--%>
         </div>
-        <%--Contenedor--%>
-
-
-        <div class="b-100px"></div>
-
-
-
-        <div style="margin-bottom: 250px"></div>
-
-
     </form>
+
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="scriptsPersonalizados" runat="server">
 </asp:Content>

@@ -72,5 +72,53 @@ namespace BDAseguradora.Modelo
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spMuestraCliente_Result>("spMuestraCliente", cedulaParameter);
         }
+    
+        public virtual ObjectResult<ConsultarCobertura_Result> ConsultarCobertura(string nombre)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ConsultarCobertura_Result>("ConsultarCobertura", nombreParameter);
+        }
+    
+        public virtual int sp_ModificaCobertura(Nullable<int> id, string nombre, string des, Nullable<int> porce)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            var desParameter = des != null ?
+                new ObjectParameter("Des", des) :
+                new ObjectParameter("Des", typeof(string));
+    
+            var porceParameter = porce.HasValue ?
+                new ObjectParameter("Porce", porce) :
+                new ObjectParameter("Porce", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_ModificaCobertura", idParameter, nombreParameter, desParameter, porceParameter);
+        }
+    
+        public virtual ObjectResult<RetornaCoberturaID_Result> RetornaCoberturaID(Nullable<int> iD_DPoliza_Dpl)
+        {
+            var iD_DPoliza_DplParameter = iD_DPoliza_Dpl.HasValue ?
+                new ObjectParameter("ID_DPoliza_Dpl", iD_DPoliza_Dpl) :
+                new ObjectParameter("ID_DPoliza_Dpl", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<RetornaCoberturaID_Result>("RetornaCoberturaID", iD_DPoliza_DplParameter);
+        }
+    
+        public virtual int EliminaCoberturas(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("EliminaCoberturas", idParameter);
+        }
     }
 }

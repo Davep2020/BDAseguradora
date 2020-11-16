@@ -21,6 +21,9 @@ namespace BDAseguradora.BL
             return resultados;
         }
 
+
+
+
         public List<spMuestraAdiccion_Result> RetornaAdicciones(int pCedula)
         {
             ///Variable que se retorna
@@ -31,22 +34,7 @@ namespace BDAseguradora.BL
         }
 
 
-        /**Insertar Cobertura**/
-        public bool InsertaCobertura(string pNombre,string pDescripcion,int pPorcentaje)
-        {
-            int registroAfectados = 0;
-            registroAfectados =
-                this.blCliente.spIngresarCobertura(pNombre, pDescripcion, pPorcentaje);
-            if (registroAfectados > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-            
-        }
+       
 
 
 

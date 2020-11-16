@@ -9,22 +9,39 @@
 
 }
 
+
+@media (max-width: 768px) {
+    body {
+        margin: 0px;
+        padding: 0px;
+    }
+}
+
+
 .fakeimg {
     height: 200px;
     background: #aaa;
 }
-.Tercero{
- background-color: rgb(0, 0, 0);
+.Tercero {
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    height: 30px;
+    width: 100%;
+    background: #999;
+    background-color: rgb(0, 0, 0);
     color: rgb(255, 255, 255);
 }
 
-.uno:hover{
+.uno:hover {
     background: rgba(255, 0, 0, 0.46);
-    color:white;
+    color: white;
+    text-decoration: none;
 }
 
 .uno {
     color: white;
+    text-decoration: none;
 }
 .carousel-inner img {
     width: 100%;
@@ -37,3 +54,4 @@
 .Primero .fade {
     color: black;
 }
+

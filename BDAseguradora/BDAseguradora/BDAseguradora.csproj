@@ -130,13 +130,16 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Formularios\frm_AgregarAdiccionXC_PagMaestra.aspx" />
+    <Content Include="Formularios\frm_AgregarCobertura.aspx" />
+    <Content Include="Formularios\frm_ConsultarCobertura.aspx" />
+    <Content Include="Formularios\frm_EliminarCobertura.aspx" />
     <Content Include="Formularios\frm_ListaClientes_PagMaestra.aspx" />
+    <Content Include="Formularios\frm_ModificarCobertura.aspx" />
     <Content Include="Formularios\frm_Polizas.aspx" />
     <Content Include="Formularios\frm_RegistroClientes_PagMaestra.aspx" />
     <Content Include="Formularios\IndexAdmin_PagMaestra.aspx" />
     <Content Include="Formularios\Index_PagMaestra.aspx" />
     <Content Include="Formularios\Login.aspx" />
-    <Content Include="Formularios\Polizas.aspx" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -227,6 +230,7 @@
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BL\BLCliente.cs" />
+    <Compile Include="BL\Cobertura.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -248,12 +252,40 @@
     <Compile Include="Formularios\frm_AgregarAdiccionXC_PagMaestra.aspx.designer.cs">
       <DependentUpon>frm_AgregarAdiccionXC_PagMaestra.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frm_AgregarCobertura.aspx.cs">
+      <DependentUpon>frm_AgregarCobertura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_AgregarCobertura.aspx.designer.cs">
+      <DependentUpon>frm_AgregarCobertura.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_ConsultarCobertura.aspx.cs">
+      <DependentUpon>frm_ConsultarCobertura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_ConsultarCobertura.aspx.designer.cs">
+      <DependentUpon>frm_ConsultarCobertura.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_EliminarCobertura.aspx.cs">
+      <DependentUpon>frm_EliminarCobertura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_EliminarCobertura.aspx.designer.cs">
+      <DependentUpon>frm_EliminarCobertura.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\frm_ListaClientes_PagMaestra.aspx.cs">
       <DependentUpon>frm_ListaClientes_PagMaestra.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Formularios\frm_ListaClientes_PagMaestra.aspx.designer.cs">
       <DependentUpon>frm_ListaClientes_PagMaestra.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_ModificarCobertura.aspx.cs">
+      <DependentUpon>frm_ModificarCobertura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_ModificarCobertura.aspx.designer.cs">
+      <DependentUpon>frm_ModificarCobertura.aspx</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frm_Polizas.aspx.cs">
       <DependentUpon>frm_Polizas.aspx</DependentUpon>
@@ -290,13 +322,6 @@
     <Compile Include="Formularios\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Polizas.aspx.cs">
-      <DependentUpon>Polizas.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Formularios\Polizas.aspx.designer.cs">
-      <DependentUpon>Polizas.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -321,6 +346,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AseguradoraBD.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\ConsultarCobertura_Result.cs">
+      <DependentUpon>AseguradoraBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\RetornaCoberturaID_Result.cs">
+      <DependentUpon>AseguradoraBD.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\spMuestraAdiccion_Result.cs">
       <DependentUpon>AseguradoraBD.tt</DependentUpon>

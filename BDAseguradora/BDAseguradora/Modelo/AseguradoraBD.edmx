@@ -216,6 +216,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="ConsultarCobertura" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="EliminaCoberturas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="RetornaCoberturaID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID_DPoliza_Dpl" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_ModificaCobertura" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="Des" Type="varchar" Mode="In" />
+          <Parameter Name="Porce" Type="int" Mode="In" />
+        </Function>
         <Function Name="spIngresarCobertura" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Nombre" Type="varchar" Mode="In" />
           <Parameter Name="Descripcion" Type="varchar" Mode="In" />
@@ -562,6 +577,21 @@
             <End Role="TblProvincia" EntitySet="TblProvincia" />
             <End Role="TblDetallePersona" EntitySet="TblDetallePersona" />
           </AssociationSet>
+          <FunctionImport Name="ConsultarCobertura" ReturnType="Collection(bdaseguradoraModel.ConsultarCobertura_Result)">
+          <Parameter Name="nombre" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_ModificaCobertura">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Des" Mode="In" Type="String" />
+            <Parameter Name="Porce" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="RetornaCoberturaID" ReturnType="Collection(bdaseguradoraModel.RetornaCoberturaID_Result)">
+          <Parameter Name="ID_DPoliza_Dpl" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="EliminaCoberturas">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="spMuestraAdiccion_Result">
           <Property Type="String" Name="Nombre_Ad" Nullable="false" MaxLength="50" />
@@ -588,6 +618,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="ConsultarCobertura_Result">
+          <Property Type="Int32" Name="ID_DPoliza_Dpl" Nullable="false" />
+          <Property Type="String" Name="Nombre_Dpl" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Descripción_Dpl" Nullable="false" MaxLength="500" />
+          <Property Type="Int32" Name="Porcentaje_Dpl" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="RetornaCoberturaID_Result">
+          <Property Type="Int32" Name="ID_DPoliza_Dpl" Nullable="false" />
+          <Property Type="String" Name="Nombre_Dpl" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Descripción_Dpl" Nullable="false" MaxLength="500" />
+          <Property Type="Int32" Name="Porcentaje_Dpl" Nullable="false" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -716,6 +758,28 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ConsultarCobertura" FunctionName="bdaseguradoraModel.Store.ConsultarCobertura">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="bdaseguradoraModel.ConsultarCobertura_Result">
+                <ScalarProperty Name="ID_DPoliza_Dpl" ColumnName="ID_DPoliza_Dpl" />
+                <ScalarProperty Name="Nombre_Dpl" ColumnName="Nombre_Dpl" />
+                <ScalarProperty Name="Descripción_Dpl" ColumnName="Descripción_Dpl" />
+                <ScalarProperty Name="Porcentaje_Dpl" ColumnName="Porcentaje_Dpl" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_ModificaCobertura" FunctionName="bdaseguradoraModel.Store.sp_ModificaCobertura" />
+          <FunctionImportMapping FunctionImportName="RetornaCoberturaID" FunctionName="bdaseguradoraModel.Store.RetornaCoberturaID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="bdaseguradoraModel.RetornaCoberturaID_Result">
+                <ScalarProperty Name="ID_DPoliza_Dpl" ColumnName="ID_DPoliza_Dpl" />
+                <ScalarProperty Name="Nombre_Dpl" ColumnName="Nombre_Dpl" />
+                <ScalarProperty Name="Descripción_Dpl" ColumnName="Descripción_Dpl" />
+                <ScalarProperty Name="Porcentaje_Dpl" ColumnName="Porcentaje_Dpl" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="EliminaCoberturas" FunctionName="bdaseguradoraModel.Store.EliminaCoberturas" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
