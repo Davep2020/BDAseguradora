@@ -13,30 +13,13 @@ namespace BDAseguradora.Modelo
 {
 
 using System;
-    using System.Collections.Generic;
     
-public partial class TblProvincia
+public partial class RetornaCobertura_Result
 {
 
-    public TblProvincia()
-    {
+    public int ID_DPoliza_Dpl { get; set; }
 
-        this.TblSeguros = new HashSet<TblSeguros>();
-
-        this.TblDetallePersona = new HashSet<TblDetallePersona>();
-
-    }
-
-
-    public int ID_Provincia_Prv { get; set; }
-
-    public string Nombre_Prv { get; set; }
-
-
-
-    public virtual ICollection<TblSeguros> TblSeguros { get; set; }
-
-    public virtual ICollection<TblDetallePersona> TblDetallePersona { get; set; }
+    public string Nombre_Dpl { get; set; }
 
 }
 

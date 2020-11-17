@@ -137,6 +137,7 @@
     <Content Include="Formularios\frm_ModificarCobertura.aspx" />
     <Content Include="Formularios\frm_Polizas.aspx" />
     <Content Include="Formularios\frm_RegistroClientes_PagMaestra.aspx" />
+    <Content Include="Formularios\frm_RegistroPoliza.aspx" />
     <Content Include="Formularios\IndexAdmin_PagMaestra.aspx" />
     <Content Include="Formularios\Index_PagMaestra.aspx" />
     <Content Include="Formularios\Login.aspx" />
@@ -231,6 +232,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BL\BLCliente.cs" />
     <Compile Include="BL\Cobertura.cs" />
+    <Compile Include="BL\Poliza.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -301,6 +303,13 @@
     <Compile Include="Formularios\frm_RegistroClientes_PagMaestra.aspx.designer.cs">
       <DependentUpon>frm_RegistroClientes_PagMaestra.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frm_RegistroPoliza.aspx.cs">
+      <DependentUpon>frm_RegistroPoliza.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_RegistroPoliza.aspx.designer.cs">
+      <DependentUpon>frm_RegistroPoliza.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\IndexAdmin_PagMaestra.aspx.cs">
       <DependentUpon>IndexAdmin_PagMaestra.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -351,6 +360,9 @@
       <DependentUpon>AseguradoraBD.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\RetornaCoberturaID_Result.cs">
+      <DependentUpon>AseguradoraBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\RetornaCobertura_Result.cs">
       <DependentUpon>AseguradoraBD.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\spMuestraAdiccion_Result.cs">

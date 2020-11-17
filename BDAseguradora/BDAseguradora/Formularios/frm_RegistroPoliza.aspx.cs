@@ -1,0 +1,64 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using BDAseguradora.Modelo;
+using BDAseguradora.BL;
+
+namespace BDAseguradora.Formularios
+{
+    public partial class frm_RegistroPoliza : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            cargaListaCobertura();
+        }
+
+        protected void btnPoliza_Click(object sender, EventArgs e)
+        {
+            AlmacenarCoberturas();
+        }
+        void cargaListaCobertura()
+        {
+            Poliza poliza = new Poliza();
+            ///indicarle al dropdownlist la fuente de datos
+            this.ddCobertura.DataSource = poliza.RetornaCober(null);
+            this.ddCobertura.DataBind();
+            ///indicarle al dropdownlist que se muestre
+
+        }
+
+        void AlmacenarCoberturas()
+        {
+            if (this.IsValid)
+            {
+                string mensaje = "";
+                Poliza oCliente = new Poliza();
+                bool resultado = false;
+
+                try
+                {
+                    resultado = oCliente.InsertaPoliza(Convert.ToInt32(this.txtCedula.Text), Convert.ToInt32(this.ddCobertura.SelectedValue), Convert.ToInt32(txtMonto.Text),Convert.ToDateTime(txtFecha.Text));
+                }
+                catch (Exception excepcionCapturada)
+                {
+                    mensaje += $"Ocurrio un error:{excepcionCapturada.Message}";
+
+                }
+
+                finally
+                {
+                    if (resultado)
+                    {
+                        mensaje += "El registro fue insertado";
+                    }
+                    Response.Write("<script>alert('" + mensaje + "')</script>"); ;
+                }
+            }
+        }
+
+
+    }
+}

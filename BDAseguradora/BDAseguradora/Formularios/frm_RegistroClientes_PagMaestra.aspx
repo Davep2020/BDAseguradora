@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginaMaestra/PaginaMaestra.Master" AutoEventWireup="true" CodeBehind="frm_RegistroClientes_PagMaestra.aspx.cs" Inherits="BDAseguradora.Formularios.frm_RegistroClientes_PagMaestra" %>
-ntPlaceHolder
-<asp:Content ID="Content1" ConteID="head" runat="server">
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" ConteID="head" runat="server">
     <link href="../CSS/estilosRegistro&Consulta_Clientes.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contenidoPrincipal" runat="server">

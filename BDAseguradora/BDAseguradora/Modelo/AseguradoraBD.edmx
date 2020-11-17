@@ -62,6 +62,7 @@
           <Property Name="PrimaAntesImp_Pol" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="Impuestos_Pol" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="PrimaFinal_Pol" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Fecha_Pol" Type="datetime" />
         </EntityType>
         <EntityType Name="TblProvincia">
           <Key>
@@ -144,30 +145,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TblPolizas_TblDetallePersona">
-          <End Role="TblDetallePersona" Type="Self.TblDetallePersona" Multiplicity="1" />
-          <End Role="TblPolizas" Type="Self.TblPolizas" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblDetallePersona">
-              <PropertyRef Name="ID_DPersona_Dp" />
-            </Principal>
-            <Dependent Role="TblPolizas">
-              <PropertyRef Name="ID_DPersona_Pol" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TblPolizas_TblDetallePolizas">
-          <End Role="TblDetallePolizas" Type="Self.TblDetallePolizas" Multiplicity="1" />
-          <End Role="TblPolizas" Type="Self.TblPolizas" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblDetallePolizas">
-              <PropertyRef Name="ID_DPoliza_Dpl" />
-            </Principal>
-            <Dependent Role="TblPolizas">
-              <PropertyRef Name="ID_DPoliza_Pol" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_TblSeguridad_TblDetallePersona">
           <End Role="TblDetallePersona" Type="Self.TblDetallePersona" Multiplicity="1" />
           <End Role="TblSeguridad" Type="Self.TblSeguridad" Multiplicity="*" />
@@ -222,6 +199,15 @@
         <Function Name="EliminaCoberturas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id" Type="int" Mode="In" />
         </Function>
+        <Function Name="IngresarPoliza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idPer" Type="int" Mode="In" />
+          <Parameter Name="idCo" Type="int" Mode="In" />
+          <Parameter Name="Monto" Type="int" Mode="In" />
+          <Parameter Name="Fecha" Type="date" Mode="In" />
+        </Function>
+        <Function Name="RetornaCobertura" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="RetornaCoberturaID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID_DPoliza_Dpl" Type="int" Mode="In" />
         </Function>
@@ -267,14 +253,6 @@
           <AssociationSet Name="FK_TblDetallePersona_TblTipoPersonas" Association="Self.FK_TblDetallePersona_TblTipoPersonas">
             <End Role="TblTipoPersonas" EntitySet="TblTipoPersonas" />
             <End Role="TblDetallePersona" EntitySet="TblDetallePersona" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TblPolizas_TblDetallePersona" Association="Self.FK_TblPolizas_TblDetallePersona">
-            <End Role="TblDetallePersona" EntitySet="TblDetallePersona" />
-            <End Role="TblPolizas" EntitySet="TblPolizas" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TblPolizas_TblDetallePolizas" Association="Self.FK_TblPolizas_TblDetallePolizas">
-            <End Role="TblDetallePolizas" EntitySet="TblDetallePolizas" />
-            <End Role="TblPolizas" EntitySet="TblPolizas" />
           </AssociationSet>
           <AssociationSet Name="FK_TblSeguridad_TblDetallePersona" Association="Self.FK_TblSeguridad_TblDetallePersona">
             <End Role="TblDetallePersona" EntitySet="TblDetallePersona" />
@@ -367,6 +345,7 @@
           <NavigationProperty Name="TblDetallePersona" Relationship="Self.FK_TblPolizas_TblDetallePersona" FromRole="TblPolizas" ToRole="TblDetallePersona" />
           <NavigationProperty Name="TblDetallePolizas" Relationship="Self.FK_TblPolizas_TblDetallePolizas" FromRole="TblPolizas" ToRole="TblDetallePolizas" />
           <NavigationProperty Name="TblSeguros" Relationship="Self.FK_TblSeguros_TblPolizas" FromRole="TblPolizas" ToRole="TblSeguros" />
+          <Property Name="Fecha_Pol" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="TblProvincia">
           <Key>
@@ -592,6 +571,15 @@
           <FunctionImport Name="EliminaCoberturas">
           <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="IngresarPoliza">
+            <Parameter Name="idPer" Mode="In" Type="Int32" />
+            <Parameter Name="idCo" Mode="In" Type="Int32" />
+            <Parameter Name="Monto" Mode="In" Type="Int32" />
+            <Parameter Name="Fecha" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="RetornaCobertura" ReturnType="Collection(bdaseguradoraModel.RetornaCobertura_Result)">
+          <Parameter Name="nombre" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="spMuestraAdiccion_Result">
           <Property Type="String" Name="Nombre_Ad" Nullable="false" MaxLength="50" />
@@ -629,6 +617,10 @@
           <Property Type="String" Name="Nombre_Dpl" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Descripción_Dpl" Nullable="false" MaxLength="500" />
           <Property Type="Int32" Name="Porcentaje_Dpl" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="RetornaCobertura_Result">
+          <Property Type="Int32" Name="ID_DPoliza_Dpl" Nullable="false" />
+          <Property Type="String" Name="Nombre_Dpl" Nullable="false" MaxLength="50" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -686,6 +678,7 @@
           <EntitySetMapping Name="TblPolizas">
             <EntityTypeMapping TypeName="bdaseguradoraModel.TblPolizas">
               <MappingFragment StoreEntitySet="TblPolizas">
+                <ScalarProperty Name="Fecha_Pol" ColumnName="Fecha_Pol" />
                 <ScalarProperty Name="ID_Polizas_Pol" ColumnName="ID_Polizas_Pol" />
                 <ScalarProperty Name="ID_DPoliza_Pol" ColumnName="ID_DPoliza_Pol" />
                 <ScalarProperty Name="ID_DPersona_Pol" ColumnName="ID_DPersona_Pol" />
@@ -780,6 +773,15 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="EliminaCoberturas" FunctionName="bdaseguradoraModel.Store.EliminaCoberturas" />
+          <FunctionImportMapping FunctionImportName="IngresarPoliza" FunctionName="bdaseguradoraModel.Store.IngresarPoliza" />
+          <FunctionImportMapping FunctionImportName="RetornaCobertura" FunctionName="bdaseguradoraModel.Store.RetornaCobertura">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="bdaseguradoraModel.RetornaCobertura_Result">
+                <ScalarProperty Name="ID_DPoliza_Dpl" ColumnName="ID_DPoliza_Dpl" />
+                <ScalarProperty Name="Nombre_Dpl" ColumnName="Nombre_Dpl" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
