@@ -22,13 +22,12 @@
             </div>
 
         <div class="form-group">
-                 <asp:Label ID="lblAdiccion" runat="server" Text="Adicción" CssClass="form-control"></asp:Label>
-            <asp:DropDownList ID="ddlAdiccion" runat="server"  DataTextField="Nombre_Ad" DataValueField="Codigo_Ad" ></asp:DropDownList>
-        <asp:RequiredFieldValidator ID="rqvAdiccion" runat="server" 
-            ErrorMessage="Debe seleccionar una adicción" Display="None" ControlToValidate="ddlAdiccion"></asp:RequiredFieldValidator>
-             <asp:Button ID="btnAgregarAdicción" runat="server" Text="Agregar" CssClass="btn boton" OnClick="btnAgregarAdicción_Click"/>
+                 <asp:Label ID="lblAdiccion" runat="server" Text="Adicción" ></asp:Label>
+                 <asp:TextBox ID="txtAdiccion" runat="server" CssClass="form-control"></asp:TextBox>
+                 <asp:RequiredFieldValidator ID="rvAdiccion" runat="server" ControlToValidate="txtAdiccion" CssClass="form-control" ErrorMessage="Debe ingresar la cédula del usuario que quiere agregarle addicciones" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
+                 
          </div>
-
+             <asp:Button ID="btnAgregarAdicción" runat="server" Text="Agregar" CssClass="btn boton"/>
     </div>
 
    </div><%--Contenedor--%>

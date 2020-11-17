@@ -94,9 +94,9 @@ namespace BDAseguradora.Formularios
 
                     }
                 }
-
-                lblmensaje.Text = mensaje;
-                }
+                Response.Write("<script>alert('" + mensaje + "')</script>"); ;
+                ///lblmensaje.Text = mensaje;
+            }
 
 
 

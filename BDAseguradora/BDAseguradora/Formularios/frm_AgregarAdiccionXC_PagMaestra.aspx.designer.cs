@@ -78,22 +78,22 @@ namespace BDAseguradora.Formularios
         protected global::System.Web.UI.WebControls.Label lblAdiccion;
 
         /// <summary>
-        /// Control ddlAdiccion.
+        /// Control txtAdiccion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlAdiccion;
+        protected global::System.Web.UI.WebControls.TextBox txtAdiccion;
 
         /// <summary>
-        /// Control rqvAdiccion.
+        /// Control rvAdiccion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqvAdiccion;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rvAdiccion;
 
         /// <summary>
         /// Control btnAgregarAdicción.
