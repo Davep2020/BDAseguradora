@@ -13,7 +13,11 @@ namespace BDAseguradora.Formularios
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            cargaListaCobertura();
+            if (!IsPostBack)
+            {
+                cargaListaCobertura();
+            }
+            
         }
 
         protected void btnPoliza_Click(object sender, EventArgs e)

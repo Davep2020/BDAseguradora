@@ -599,10 +599,10 @@
             <End Role="TblDetallePersona" EntitySet="TblDetallePersona" />
           </AssociationSet>
           <FunctionImport Name="ConsultarCobertura" ReturnType="Collection(bdaseguradoraModel.ConsultarCobertura_Result)">
-            <Parameter Name="nombre" Mode="In" Type="String" />
+          <Parameter Name="nombre" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="EliminaCoberturas">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="IngresarPoliza">
             <Parameter Name="idPer" Mode="In" Type="Int32" />
@@ -611,10 +611,10 @@
             <Parameter Name="Fecha" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="RetornaCobertura" ReturnType="Collection(bdaseguradoraModel.RetornaCobertura_Result)">
-            <Parameter Name="nombre" Mode="In" Type="String" />
+          <Parameter Name="nombre" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="RetornaCoberturaID" ReturnType="Collection(bdaseguradoraModel.RetornaCoberturaID_Result)">
-            <Parameter Name="ID_DPoliza_Dpl" Mode="In" Type="Int32" />
+          <Parameter Name="ID_DPoliza_Dpl" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_ModificaCobertura">
             <Parameter Name="id" Mode="In" Type="Int32" />
@@ -650,7 +650,7 @@
             <Parameter Name="codigo" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="spModificarAdiccionClientes">
-            <Parameter Name="parametro" Mode="In" Type="Int32" />
+          <Parameter Name="parametro" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spModificarCliente">
             <Parameter Name="idCliente" Mode="In" Type="Int32" />
@@ -668,23 +668,23 @@
           </FunctionImport>
           <FunctionImport Name="spMostrarAdicciones" ReturnType="Collection(String)" />
           <FunctionImport Name="spMuestraAdiccion" ReturnType="Collection(bdaseguradoraModel.spMuestraAdiccion_Result)">
-            <Parameter Name="cedula" Mode="In" Type="Int32" />
+          <Parameter Name="cedula" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spMuestraCliente" ReturnType="Collection(bdaseguradoraModel.spMuestraCliente_Result)">
-            <Parameter Name="cedula" Mode="In" Type="Int32" />
+          <Parameter Name="cedula" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spRetornaAdicciones" ReturnType="Collection(bdaseguradoraModel.spRetornaAdicciones_Result)">
             <Parameter Name="nombre" Mode="In" Type="String" />
             <Parameter Name="codigo" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="spRetornaClienteActualizar" ReturnType="Collection(bdaseguradoraModel.spRetornaClienteActualizar_Result)">
-            <Parameter Name="idCliente" Mode="In" Type="Int32" />
+          <Parameter Name="idCliente" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spRetornaProvincias" ReturnType="Collection(bdaseguradoraModel.spRetornaProvincias_Result)">
-            <Parameter Name="nombre" Mode="In" Type="String" />
+          <Parameter Name="nombre" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="spRetornaTipoPersona" ReturnType="Collection(bdaseguradoraModel.spRetornaTipoPersona_Result)">
-            <Parameter Name="nombre" Mode="In" Type="String" />
+          <Parameter Name="nombre" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <Association Name="FK_TblDetallePersona_TblProvincia">
