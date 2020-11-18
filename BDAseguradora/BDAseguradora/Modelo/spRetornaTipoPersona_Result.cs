@@ -10,20 +10,10 @@
 namespace BDAseguradora.Modelo
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class TblDetallePolizas
+    public partial class spRetornaTipoPersona_Result
     {
-        public TblDetallePolizas()
-        {
-            this.TblPolizas = new HashSet<TblPolizas>();
-        }
-    
-        public int ID_DPoliza_Dpl { get; set; }
-        public string Nombre_Dpl { get; set; }
-        public string Descripción_Dpl { get; set; }
-        public int Porcentaje_Dpl { get; set; }
-    
-        public virtual ICollection<TblPolizas> TblPolizas { get; set; }
+        public int ID_TipoPersona_Tp { get; set; }
+        public string Tipo_Tp { get; set; }
     }
 }
