@@ -27,7 +27,7 @@
         <asp:RequiredFieldValidator ID="rqvAdiccion" runat="server" 
             ErrorMessage="Debe seleccionar una adicción" Display="None" ControlToValidate="ddlAdiccion"></asp:RequiredFieldValidator>
          </div>
-
+             <asp:Button ID="btnAgregarAdicción" runat="server" Text="Agregar" CssClass="btn boton"/>
              <asp:Button ID="btnAgregarAdicción" runat="server" Text="Agregar" CssClass="btn boton" OnClick="btnAgregarAdicción_Click"/>
     </div>
 

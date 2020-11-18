@@ -9,10 +9,7 @@ namespace BDAseguradora.Formularios
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
 
-            }
         }
 
         protected void btnBuscarCliente_Click(object sender, EventArgs e)
@@ -43,7 +40,5 @@ namespace BDAseguradora.Formularios
             this.grdListaAdicciones.DataSource = resultado;
             this.grdListaAdicciones.DataBind();
         }
-
-
     }
 }

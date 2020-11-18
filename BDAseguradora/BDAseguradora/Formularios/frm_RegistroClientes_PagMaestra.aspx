@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginaMaestra/PaginaMaestra.Master" AutoEventWireup="true" CodeBehind="frm_RegistroClientes_PagMaestra.aspx.cs" Inherits="BDAseguradora.Formularios.frm_RegistroClientes_PagMaestra" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" ConteID="head" runat="server">
     <link href="../CSS/estilosRegistro&Consulta_Clientes.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contenidoPrincipal" runat="server">
@@ -59,7 +59,7 @@
             <div class="col-3">
                 <div class="form-group"> 
                         <asp:Label ID="lblCorreo" runat="server" Text="Correo Eléctronico" ></asp:Label>                 
-                        <asp:TextBox ID="txtCorreo" runat="server" CssClass="form-control" ></asp:TextBox>
+                        <asp:TextBox ID="txtCorreo" runat="server" CssClass="form-control" OnTextChanged="txtCorreo_TextChanged"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rvCorreo" runat="server"  ControlToValidate="txtCorreo" ErrorMessage="Debe ingresar la direccion" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
                
                     <asp:RegularExpressionValidator ID="regtxtCorreo" runat="server" ErrorMessage="Debe ingresar un correo electrónico válido"
@@ -76,40 +76,28 @@
                     <asp:TextBox ID="txtTelefono2" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>
-            
+            <%--Contenedor--%>
 
             <div class="col-3">
                 <div class="form-group">
                     <asp:Label ID="lblDireccion" runat="server" Text="Dirección"></asp:Label>
-                    <asp:TextBox ID="txtDireccion" runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox ID="txtDireccion" runat="server" CssClass="form-control longitud"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rvDireccion" runat="server" ControlToValidate="txtDireccion" ErrorMessage="Debe ingresar la direccion" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
                 </div>
 
-                <div class="form-group ">
-                    <asp:Label ID="lblProvincia" runat="server" Text="Provincia" CssClass="form-control mt-10"></asp:Label>
-                    <asp:DropDownList ID="ddlProvincia" runat="server"  DataTextField="Nombre_Prv" DataValueField="ID_Provincia_Prv" class="ddlAd"></asp:DropDownList>
-                    <asp:RequiredFieldValidator ID="rqvProvincia" runat="server" 
-                    ErrorMessage="Debe seleccionar una provincia" Display="None" ControlToValidate="ddlProvincia"></asp:RequiredFieldValidator>
-                </div>
-
-                <div class="form-group">
-                    <asp:Label ID="lblTipoPersona" runat="server" Text="Tipo Persona" CssClass="form-control mt-10"></asp:Label>
-                    <asp:DropDownList ID="ddlTipoPersona" runat="server"  DataTextField="Tipo_Tp" DataValueField="ID_TipoPersona_Tp" Cssclass="ddlAd"></asp:DropDownList>
-                    <asp:RequiredFieldValidator ID="rqvTipoPersona" runat="server" 
-                    ErrorMessage="Debe seleccionar un tipo de cliente" Display="None" ControlToValidate="ddlTipoPersona"></asp:RequiredFieldValidator>
-                    </div>
-            </div>
-
-            <div class="col-3">
-                
-                <asp:Button ID="btnAgregarUsuario" runat="server" Text="Agregar" class="btn boton" OnClick="btnAgregarUsuario_Click" />
+                <asp:Button ID="btnAgregarUsuario" runat="server" Text="Agregar" class="btn boton" />
 
             </div>
+            <%--Contenedor--%>
+        </div>
+        <%--Contenedor--%>
 
-        </div><%--Contenedor--%>
 
+        <div class="b-100px"></div>
 
-         <div class="bajar"></div>
+        
+
+         <div style="margin-bottom:250px"></div>
 
 
 </form>

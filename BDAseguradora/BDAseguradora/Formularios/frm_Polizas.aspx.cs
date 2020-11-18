@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BDAseguradora.BL;
+using BDAseguradora.Modelo;
+
 
 namespace BDAseguradora.Formularios
 {
@@ -11,7 +14,9 @@ namespace BDAseguradora.Formularios
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           
         }
+   
+
     }
 }
