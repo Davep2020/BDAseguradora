@@ -9,7 +9,10 @@ namespace BDAseguradora.Formularios
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
 
+            }
         }
 
         protected void btnBuscarCliente_Click(object sender, EventArgs e)

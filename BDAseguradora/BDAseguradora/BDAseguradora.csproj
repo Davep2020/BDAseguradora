@@ -231,6 +231,7 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BL\BLAdicciones.cs" />
     <Compile Include="BL\BLCliente.cs" />
     <Compile Include="BL\BLProvincia.cs" />
     <Compile Include="BL\BLTipoCliente.cs" />
