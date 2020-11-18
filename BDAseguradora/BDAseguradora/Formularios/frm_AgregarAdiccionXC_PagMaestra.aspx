@@ -26,10 +26,12 @@
             <asp:DropDownList ID="ddlAdiccion" runat="server"  DataTextField="Nombre_Ad" DataValueField="Codigo_Ad" ></asp:DropDownList>
         <asp:RequiredFieldValidator ID="rqvAdiccion" runat="server" 
             ErrorMessage="Debe seleccionar una adicción" Display="None" ControlToValidate="ddlAdiccion"></asp:RequiredFieldValidator>
-             <asp:Button ID="btnAgregarAdicción" runat="server" Text="Agregar" CssClass="btn boton" OnClick="btnAgregarAdicción_Click"/>
          </div>
 
+             <asp:Button ID="btnAgregarAdicción" runat="server" Text="Agregar" CssClass="btn boton" OnClick="btnAgregarAdicción_Click"/>
     </div>
+
+        <div class="mb-500"></div>
 
    </div><%--Contenedor--%>
     </form>

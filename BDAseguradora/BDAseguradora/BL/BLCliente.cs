@@ -75,5 +75,44 @@ namespace BDAseguradora.BL
             return false;
         }
 
+        /// <summary>
+        /// Método que retorna los datos de un cliente, pasando por parámetro su ID
+        /// </summary>
+        /// <param name="pIdCliente">Id del cliente</param>
+        /// <returns></returns>
+        public spRetornaClienteActualizar_Result RetornaClienteActualiza(int pIdCliente)
+        {
+            spRetornaClienteActualizar_Result resultado = new spRetornaClienteActualizar_Result();
+
+            resultado = this.blCliente.spRetornaClienteActualizar(pIdCliente).FirstOrDefault();
+
+            return resultado;
+        }
+
+
+
+        public bool ModificarCliente(int pIdCliente,int pCedula, string pGenero, DateTime pFechaNacimiento, string pNombre,
+                                    string pPrimerApellido, string pSegundoApellido, string pDireccion,
+                                    string pPrimerTelefono, string pSegundoTelefono, string pCorreo, int pIdProvincia)
+        {
+            int registros = 0;
+
+            registros = 
+                this.blCliente.spModificarCliente(pIdCliente,
+                                                    pCedula, 
+                                                    pGenero, 
+                                                    pFechaNacimiento, 
+                                                    pNombre,              
+                                                    pPrimerApellido, 
+                                                    pSegundoApellido, 
+                                                    pDireccion,             
+                                                    pPrimerTelefono, 
+                                                    pSegundoTelefono, 
+                                                    pCorreo,
+                                                    pIdProvincia);
+
+            return registros > 0;
+        }
+
     }
 }

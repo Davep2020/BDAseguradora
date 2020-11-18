@@ -64,15 +64,6 @@ namespace BDAseguradora.Modelo
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spMuestraAdiccion_Result>("spMuestraAdiccion", cedulaParameter);
         }
     
-        public virtual ObjectResult<spMuestraCliente_Result> spMuestraCliente(Nullable<int> cedula)
-        {
-            var cedulaParameter = cedula.HasValue ?
-                new ObjectParameter("cedula", cedula) :
-                new ObjectParameter("cedula", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spMuestraCliente_Result>("spMuestraCliente", cedulaParameter);
-        }
-    
         public virtual ObjectResult<spRetornaAdicciones_Result> spRetornaAdicciones(string nombre, string codigo)
         {
             var nombreParameter = nombre != null ?
@@ -168,6 +159,77 @@ namespace BDAseguradora.Modelo
                 new ObjectParameter("nombre", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spRetornaTipoPersona_Result>("spRetornaTipoPersona", nombreParameter);
+        }
+    
+        public virtual ObjectResult<spMuestraCliente_Result> spMuestraCliente(Nullable<int> cedula)
+        {
+            var cedulaParameter = cedula.HasValue ?
+                new ObjectParameter("cedula", cedula) :
+                new ObjectParameter("cedula", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spMuestraCliente_Result>("spMuestraCliente", cedulaParameter);
+        }
+    
+        public virtual ObjectResult<spRetornaClienteActualizar_Result> spRetornaClienteActualizar(Nullable<int> idCliente)
+        {
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("idCliente", idCliente) :
+                new ObjectParameter("idCliente", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spRetornaClienteActualizar_Result>("spRetornaClienteActualizar", idClienteParameter);
+        }
+    
+        public virtual int spModificarCliente(Nullable<int> idCliente, Nullable<int> cedula, string genero, Nullable<System.DateTime> fechaNacimiento, string nombre, string primerApellido, string segundoApellido, string direccion, string telefono1, string telefono2, string correo, Nullable<int> idProvincia)
+        {
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("idCliente", idCliente) :
+                new ObjectParameter("idCliente", typeof(int));
+    
+            var cedulaParameter = cedula.HasValue ?
+                new ObjectParameter("cedula", cedula) :
+                new ObjectParameter("cedula", typeof(int));
+    
+            var generoParameter = genero != null ?
+                new ObjectParameter("genero", genero) :
+                new ObjectParameter("genero", typeof(string));
+    
+            var fechaNacimientoParameter = fechaNacimiento.HasValue ?
+                new ObjectParameter("fechaNacimiento", fechaNacimiento) :
+                new ObjectParameter("fechaNacimiento", typeof(System.DateTime));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var primerApellidoParameter = primerApellido != null ?
+                new ObjectParameter("primerApellido", primerApellido) :
+                new ObjectParameter("primerApellido", typeof(string));
+    
+            var segundoApellidoParameter = segundoApellido != null ?
+                new ObjectParameter("segundoApellido", segundoApellido) :
+                new ObjectParameter("segundoApellido", typeof(string));
+    
+            var direccionParameter = direccion != null ?
+                new ObjectParameter("direccion", direccion) :
+                new ObjectParameter("direccion", typeof(string));
+    
+            var telefono1Parameter = telefono1 != null ?
+                new ObjectParameter("telefono1", telefono1) :
+                new ObjectParameter("telefono1", typeof(string));
+    
+            var telefono2Parameter = telefono2 != null ?
+                new ObjectParameter("telefono2", telefono2) :
+                new ObjectParameter("telefono2", typeof(string));
+    
+            var correoParameter = correo != null ?
+                new ObjectParameter("correo", correo) :
+                new ObjectParameter("correo", typeof(string));
+    
+            var idProvinciaParameter = idProvincia.HasValue ?
+                new ObjectParameter("idProvincia", idProvincia) :
+                new ObjectParameter("idProvincia", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spModificarCliente", idClienteParameter, cedulaParameter, generoParameter, fechaNacimientoParameter, nombreParameter, primerApellidoParameter, segundoApellidoParameter, direccionParameter, telefono1Parameter, telefono2Parameter, correoParameter, idProvinciaParameter);
         }
     }
 }

@@ -39,6 +39,7 @@
                     <asp:BoundField DataField="Cedula_Dp" HeaderText="Cédula" />
                     <asp:BoundField DataField="Correo_Electrónico_Dp" HeaderText="Email" />
                     <asp:BoundField DataField="Nombre_Prv" HeaderText="Provincia" />
+                    <asp:HyperLinkField DataNavigateUrlFields="ID_DPersona_Dp" DataNavigateUrlFormatString="frm_ModificarCliente.aspx?ID_DPersona_Dp={0}" Text="Modificar" />
                 </Columns>
                 <FooterStyle BackColor="#CCCCCC" />
                 <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />

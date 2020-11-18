@@ -239,6 +239,20 @@
           <Parameter Name="cedula" Type="varchar" Mode="In" />
           <Parameter Name="codigo" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="spModificarCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idCliente" Type="int" Mode="In" />
+          <Parameter Name="cedula" Type="int" Mode="In" />
+          <Parameter Name="genero" Type="varchar" Mode="In" />
+          <Parameter Name="fechaNacimiento" Type="date" Mode="In" />
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="primerApellido" Type="varchar" Mode="In" />
+          <Parameter Name="segundoApellido" Type="varchar" Mode="In" />
+          <Parameter Name="direccion" Type="varchar" Mode="In" />
+          <Parameter Name="telefono1" Type="varchar" Mode="In" />
+          <Parameter Name="telefono2" Type="varchar" Mode="In" />
+          <Parameter Name="correo" Type="varchar" Mode="In" />
+          <Parameter Name="idProvincia" Type="int" Mode="In" />
+        </Function>
         <Function Name="spMuestraAdiccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="cedula" Type="int" Mode="In" />
         </Function>
@@ -248,6 +262,9 @@
         <Function Name="spRetornaAdicciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="nombre" Type="varchar" Mode="In" />
           <Parameter Name="codigo" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spRetornaClienteActualizar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idCliente" Type="int" Mode="In" />
         </Function>
         <Function Name="spRetornaProvincias" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="nombre" Type="varchar" Mode="In" />
@@ -583,9 +600,6 @@
           <FunctionImport Name="spMuestraAdiccion" ReturnType="Collection(bdaseguradoraModel.spMuestraAdiccion_Result)">
           <Parameter Name="cedula" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="spMuestraCliente" ReturnType="Collection(bdaseguradoraModel.spMuestraCliente_Result)">
-          <Parameter Name="cedula" Mode="In" Type="Int32" />
-          </FunctionImport>
           <AssociationSet Name="FK_TblDetallePersona_TblProvincia" Association="bdaseguradoraModel.FK_TblDetallePersona_TblProvincia">
             <End Role="TblProvincia" EntitySet="TblProvincia" />
             <End Role="TblDetallePersona" EntitySet="TblDetallePersona" />
@@ -616,21 +630,32 @@
           <Parameter Name="nombre" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="spRetornaTipoPersona" ReturnType="Collection(bdaseguradoraModel.spRetornaTipoPersona_Result)">
+          <Parameter Name="nombre" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spMuestraCliente" ReturnType="Collection(bdaseguradoraModel.spMuestraCliente_Result)">
+          <Parameter Name="cedula" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spRetornaClienteActualizar" ReturnType="Collection(bdaseguradoraModel.spRetornaClienteActualizar_Result)">
+          <Parameter Name="idCliente" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spModificarCliente">
+            <Parameter Name="idCliente" Mode="In" Type="Int32" />
+            <Parameter Name="cedula" Mode="In" Type="Int32" />
+            <Parameter Name="genero" Mode="In" Type="String" />
+            <Parameter Name="fechaNacimiento" Mode="In" Type="DateTime" />
             <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="primerApellido" Mode="In" Type="String" />
+            <Parameter Name="segundoApellido" Mode="In" Type="String" />
+            <Parameter Name="direccion" Mode="In" Type="String" />
+            <Parameter Name="telefono1" Mode="In" Type="String" />
+            <Parameter Name="telefono2" Mode="In" Type="String" />
+            <Parameter Name="correo" Mode="In" Type="String" />
+            <Parameter Name="idProvincia" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="spMuestraAdiccion_Result">
           <Property Type="String" Name="Nombre_Ad" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Codigo_Ad" Nullable="false" MaxLength="50" />
-        </ComplexType>
-        <ComplexType Name="spMuestraCliente_Result">
-          <Property Type="Int32" Name="Cedula_Dp" Nullable="false" />
-          <Property Type="String" Name="Primer_Apellido_Dp" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="Segundo_Apellido_Dp" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="Nombre_Dp" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="Correo_Electrónico_Dp" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="Telefono_Principal_Dp" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="Nombre_Prv" Nullable="false" MaxLength="50" />
         </ComplexType>
         <Association Name="FK_TblDetallePersona_TblProvincia">
           <End Type="bdaseguradoraModel.TblProvincia" Role="TblProvincia" Multiplicity="0..1" />
@@ -655,6 +680,30 @@
         <ComplexType Name="spRetornaTipoPersona_Result">
           <Property Type="Int32" Name="ID_TipoPersona_Tp" Nullable="false" />
           <Property Type="String" Name="Tipo_Tp" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="spMuestraCliente_Result">
+          <Property Type="Int32" Name="ID_DPersona_Dp" Nullable="false" />
+          <Property Type="Int32" Name="Cedula_Dp" Nullable="false" />
+          <Property Type="String" Name="Primer_Apellido_Dp" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Segundo_Apellido_Dp" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Nombre_Dp" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Correo_Electrónico_Dp" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Telefono_Principal_Dp" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Nombre_Prv" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="spRetornaClienteActualizar_Result">
+          <Property Type="Int32" Name="ID_DPersona_Dp" Nullable="false" />
+          <Property Type="Int32" Name="Cedula_Dp" Nullable="false" />
+          <Property Type="String" Name="Genero_DP" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="Fecha_nacimiento_Dp" Nullable="false" />
+          <Property Type="String" Name="Nombre_Dp" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Primer_Apellido_Dp" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Segundo_Apellido_Dp" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Dirección_Física_Dp" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Telefono_Principal_Dp" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Telefono_Secundario_Dp" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Correo_Electrónico_Dp" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Nombre_Prv" Nullable="false" MaxLength="50" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -771,19 +820,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="spMuestraCliente" FunctionName="bdaseguradoraModel.Store.spMuestraCliente">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="bdaseguradoraModel.spMuestraCliente_Result">
-                <ScalarProperty Name="Cedula_Dp" ColumnName="Cedula_Dp" />
-                <ScalarProperty Name="Primer_Apellido_Dp" ColumnName="Primer_Apellido_Dp" />
-                <ScalarProperty Name="Segundo_Apellido_Dp" ColumnName="Segundo_Apellido_Dp" />
-                <ScalarProperty Name="Nombre_Dp" ColumnName="Nombre_Dp" />
-                <ScalarProperty Name="Correo_Electrónico_Dp" ColumnName="Correo_Electrónico_Dp" />
-                <ScalarProperty Name="Telefono_Principal_Dp" ColumnName="Telefono_Principal_Dp" />
-                <ScalarProperty Name="Nombre_Prv" ColumnName="Nombre_Prv" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="spRetornaAdicciones" FunctionName="bdaseguradoraModel.Store.spRetornaAdicciones">
             <ResultMapping>
               <ComplexTypeMapping TypeName="bdaseguradoraModel.spRetornaAdicciones_Result">
@@ -810,6 +846,39 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spMuestraCliente" FunctionName="bdaseguradoraModel.Store.spMuestraCliente">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="bdaseguradoraModel.spMuestraCliente_Result">
+                <ScalarProperty Name="ID_DPersona_Dp" ColumnName="ID_DPersona_Dp" />
+                <ScalarProperty Name="Cedula_Dp" ColumnName="Cedula_Dp" />
+                <ScalarProperty Name="Primer_Apellido_Dp" ColumnName="Primer_Apellido_Dp" />
+                <ScalarProperty Name="Segundo_Apellido_Dp" ColumnName="Segundo_Apellido_Dp" />
+                <ScalarProperty Name="Nombre_Dp" ColumnName="Nombre_Dp" />
+                <ScalarProperty Name="Correo_Electrónico_Dp" ColumnName="Correo_Electrónico_Dp" />
+                <ScalarProperty Name="Telefono_Principal_Dp" ColumnName="Telefono_Principal_Dp" />
+                <ScalarProperty Name="Nombre_Prv" ColumnName="Nombre_Prv" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spRetornaClienteActualizar" FunctionName="bdaseguradoraModel.Store.spRetornaClienteActualizar">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="bdaseguradoraModel.spRetornaClienteActualizar_Result">
+                <ScalarProperty Name="ID_DPersona_Dp" ColumnName="ID_DPersona_Dp" />
+                <ScalarProperty Name="Cedula_Dp" ColumnName="Cedula_Dp" />
+                <ScalarProperty Name="Genero_DP" ColumnName="Genero_DP" />
+                <ScalarProperty Name="Fecha_nacimiento_Dp" ColumnName="Fecha_nacimiento_Dp" />
+                <ScalarProperty Name="Nombre_Dp" ColumnName="Nombre_Dp" />
+                <ScalarProperty Name="Primer_Apellido_Dp" ColumnName="Primer_Apellido_Dp" />
+                <ScalarProperty Name="Segundo_Apellido_Dp" ColumnName="Segundo_Apellido_Dp" />
+                <ScalarProperty Name="Dirección_Física_Dp" ColumnName="Dirección_Física_Dp" />
+                <ScalarProperty Name="Telefono_Principal_Dp" ColumnName="Telefono_Principal_Dp" />
+                <ScalarProperty Name="Telefono_Secundario_Dp" ColumnName="Telefono_Secundario_Dp" />
+                <ScalarProperty Name="Correo_Electrónico_Dp" ColumnName="Correo_Electrónico_Dp" />
+                <ScalarProperty Name="Nombre_Prv" ColumnName="Nombre_Prv" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spModificarCliente" FunctionName="bdaseguradoraModel.Store.spModificarCliente" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -50,6 +50,12 @@ h2{
     text-align: center!important;
 
 }
+.form-group{
+    text-align:center;
+}
 .mt-10 {
     margin-top: 25px;
+}
+.mb-500{
+    margin-bottom: 387px;
 }

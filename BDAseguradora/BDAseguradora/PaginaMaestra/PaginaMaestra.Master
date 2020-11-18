@@ -35,7 +35,7 @@
                     <a class="nav-link" href="frm_RegistroClientes_PagMaestra.aspx">Registrar usuario <i class="fa fa-user fa-fw"></i></a>
                 </li>
                 <li class="nav-item uno">
-                    <a class="nav-link" href="#">Polizas <i class="fa fa-shield  fa-fw"></i></a>
+                    <a class="nav-link" href="frm_Polizas.aspx">Polizas <i class="fa fa-shield  fa-fw"></i></a>
                 </li>
                 <li class="nav-item uno">
                     <a class="nav-link" href="frm_AgregarAdiccionXC_PagMaestra.aspx">Adicciones <i class="fa fa-book  fa-fw"></i></a>
@@ -47,7 +47,7 @@
         </div>
         <div class="mx-auto order-0">
 
-            <a class="navbar-brand mx-auto" href="#">
+            <a class="navbar-brand mx-auto">
                 <img src="../IMG/Logo.png" alt="Logotipo" style="margin-right: 6%" width="33%" />Aseguradora</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
                 <span class="navbar-toggler-icon"></span>
