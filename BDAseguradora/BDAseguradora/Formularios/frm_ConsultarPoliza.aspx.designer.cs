@@ -11,7 +11,7 @@ namespace BDAseguradora.Formularios
 {
 
 
-    public partial class frm_ConsultarCobertura
+    public partial class frm_ConsultarPoliza
     {
 
         /// <summary>
@@ -33,22 +33,22 @@ namespace BDAseguradora.Formularios
         protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
-        /// Control txtNombreconsu.
+        /// Control txtCedula.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombreconsu;
+        protected global::System.Web.UI.WebControls.TextBox txtCedula;
 
         /// <summary>
-        /// Control grdConsultarcober.
+        /// Control grdConsultarPoliza.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdConsultarcober;
+        protected global::System.Web.UI.WebControls.GridView grdConsultarPoliza;
 
         /// <summary>
         /// Control btnConsultar.

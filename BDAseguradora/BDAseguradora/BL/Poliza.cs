@@ -38,5 +38,54 @@ namespace BDAseguradora.BL
         }
 
 
+        public List<ConsultarPoliza_Result> RetornaPolizas(int pCedula)
+        {
+            ///crear la variable que se retornará
+            List<ConsultarPoliza_Result> resultado = new List<ConsultarPoliza_Result>();
+            ///asignarle a la variable el resultado del llamado del procedimiento almacenado
+            resultado = this.Polizas.ConsultarPoliza(pCedula).ToList();
+            return resultado;
+        }
+
+        public RetornPolizaID_Result RetornaPolizaID(int pid)
+        {
+            RetornPolizaID_Result resultado = new RetornPolizaID_Result();
+            resultado =
+                this.Polizas.RetornPolizaID(pid).FirstOrDefault();
+
+
+            return resultado;
+        }
+
+        public bool EliminaPoliza(int pidPoliza)
+        {
+            ///variable que posee la cantidad de registros afectados
+            ///al realizar insert/update/delete la cantidad de 
+            ///registros afectados debe ser mayor a 0
+            int registrosAfectados = 0;
+            ///invocar al procedimiento almacenado
+            registrosAfectados =
+                this.Polizas.EliminaPoliza(pidPoliza);
+
+            return registrosAfectados > 0;
+
+        }
+
+
+
+
+
+        public bool ModificarPolizar(int pid,int pidPer,int pCobertura,int pMonto, DateTime pfecha)
+        {
+   
+            int registroAfectados = 0;
+            registroAfectados =
+                this.Polizas.ModificaPoliza(pid,pidPer,pCobertura,pMonto,pfecha);
+
+            return registroAfectados > 0;
+
+        }
+
+
     }
 }
