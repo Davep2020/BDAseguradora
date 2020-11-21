@@ -132,8 +132,11 @@
     <Content Include="Formularios\frm_AgregarAdiccionXC_PagMaestra.aspx" />
     <Content Include="Formularios\frm_AgregarCobertura.aspx" />
     <Content Include="Formularios\frm_ConsultarCobertura.aspx" />
+    <Content Include="Formularios\frm_EliminarAdiccionCliente.aspx" />
+    <Content Include="Formularios\frm_EliminarCliente.aspx" />
     <Content Include="Formularios\frm_EliminarCobertura.aspx" />
     <Content Include="Formularios\frm_ListaClientes_PagMaestra.aspx" />
+    <Content Include="Formularios\frm_ModificarAdicción.aspx" />
     <Content Include="Formularios\frm_ModificarCobertura.aspx" />
     <Content Include="Formularios\frm_ModificarCliente.aspx" />
     <Content Include="Formularios\frm_Polizas.aspx" />
@@ -272,6 +275,20 @@
     <Compile Include="Formularios\frm_ConsultarCobertura.aspx.designer.cs">
       <DependentUpon>frm_ConsultarCobertura.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frm_EliminarAdiccionCliente.aspx.cs">
+      <DependentUpon>frm_EliminarAdiccionCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_EliminarAdiccionCliente.aspx.designer.cs">
+      <DependentUpon>frm_EliminarAdiccionCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_EliminarCliente.aspx.cs">
+      <DependentUpon>frm_EliminarCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_EliminarCliente.aspx.designer.cs">
+      <DependentUpon>frm_EliminarCliente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\frm_EliminarCobertura.aspx.cs">
       <DependentUpon>frm_EliminarCobertura.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -285,6 +302,13 @@
     </Compile>
     <Compile Include="Formularios\frm_ListaClientes_PagMaestra.aspx.designer.cs">
       <DependentUpon>frm_ListaClientes_PagMaestra.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_ModificarAdicción.aspx.cs">
+      <DependentUpon>frm_ModificarAdicción.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_ModificarAdicción.aspx.designer.cs">
+      <DependentUpon>frm_ModificarAdicción.aspx</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frm_ModificarCliente.aspx.cs">
       <DependentUpon>frm_ModificarCliente.aspx</DependentUpon>

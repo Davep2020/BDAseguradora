@@ -100,5 +100,14 @@ namespace BDAseguradora.BL
             return registros > 0;
         }
 
+
+        public bool EliminarCliente(int pIdCliente)
+        {
+            int registros = 0;
+
+            registros = this.blCliente.spEliminaCliente(pIdCliente);
+
+            return registros > 0;
+        }
     }
 }

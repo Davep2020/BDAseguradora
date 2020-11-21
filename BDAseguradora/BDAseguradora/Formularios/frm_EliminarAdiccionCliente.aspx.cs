@@ -1,17 +1,22 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 using BDAseguradora.BL;
 using BDAseguradora.Modelo;
 
 namespace BDAseguradora.Formularios
 {
-    public partial class frm_AgregarAdiccionXC_PagMaestra : System.Web.UI.Page
+    public partial class frm_EliminarAdiccionCliente : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
 
-            this.cargaAdicciones();
+                this.cargaAdicciones();
             }
 
         }
@@ -33,7 +38,7 @@ namespace BDAseguradora.Formularios
         /// Valida que todas las reglas del formulario se hayan cumplido y procede
         /// a insertar la adicción utilizando un Store Procedura
         /// </summary>
-        void AlmacenarAdicciones()
+        void EliminarAdicciones()
         {
             if (this.IsValid)
             {
@@ -46,11 +51,7 @@ namespace BDAseguradora.Formularios
 
                 try
                 {
-                    ///Creamos variables para asignar los datos que entran del formulario
-                    string codigo = this.ddlAdiccion.SelectedValue;
-                    string cedula = this.txtCedula.Text;
-                    ///Llamos al store procedure del objeto y le enviamos los parámetros
-                    resultado = oAdiccion.InsertaAdiccion(cedula, codigo);
+                    
                 }
                 catch (Exception excepcionCapturada)
                 {
@@ -60,7 +61,7 @@ namespace BDAseguradora.Formularios
                 finally
                 {
                     ///Mensaje de aviso de insercípon
-                    if (resultado )
+                    if (resultado)
                     {
                         mensaje += "La adicción fue insertada";
                     }
@@ -69,11 +70,13 @@ namespace BDAseguradora.Formularios
                 Response.Write("<script>alert('" + mensaje + "')</script>"); ;
             }
         }
-        
-        protected void btnAgregarAdicción_Click(object sender, EventArgs e)
+
+        protected void btnEliminarAdicción_Click(object sender, EventArgs e)
         {
-            ///Llamado a la función desde el evento OnClick
-            AlmacenarAdicciones();
+            this.EliminarAdicciones();
         }
+
+
+
     }
 }

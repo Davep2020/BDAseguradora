@@ -4,12 +4,12 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BDAseguradora.Modelo;
 using BDAseguradora.BL;
+using BDAseguradora.Modelo;
 
 namespace BDAseguradora.Formularios
 {
-    public partial class frm_ModificarCliente : System.Web.UI.Page
+    public partial class frm_EliminarCliente : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,9 +21,9 @@ namespace BDAseguradora.Formularios
             }
         }
 
-        protected void btnAgregarUsuario_Click(object sender, EventArgs e)
+        protected void btnBorrarUsuario_Click(object sender, EventArgs e)
         {
-            this.GuardarCliente();
+            this.BorrarCliente();
         }
 
         /// <summary>
@@ -94,9 +94,9 @@ namespace BDAseguradora.Formularios
             }
         }
         /// <summary>
-        /// Método que modifica el usuario del id que pasamos por parámetro.
+        /// Método que elimina un cliente con el id.
         /// </summary>
-        void GuardarCliente()
+        void BorrarCliente()
         {
             //Variable de mensaje
             string mensaje = "";
@@ -107,17 +107,9 @@ namespace BDAseguradora.Formularios
 
             try
             {
-                //Variable para capturar el id del tipo de cliente
-                int idTipoCliente = Convert.ToInt16(this.ddlTipoPersona.SelectedValue);
-                //Variable para capturar el id de la provincia
-                int idProvincia = Convert.ToInt16(this.ddlProvincia.SelectedValue);
-                //obtener el valor del hidden field 
                 int idCliente = Convert.ToInt16(Session["IdCliente"]);
-                //Ejecutar método del objeto, con sus respectivos parámetros
-                resultado = oBLCliente.ModificarCliente(idCliente, Convert.ToInt32(this.txtCedula.Text), this.txtGenero.Text, Convert.ToDateTime(this.txtFecha_Nacimiento.Text)
-                                                    , this.txtNombre.Text, this.txtPrimerApellido.Text, this.txtSegundoApellido.Text
-                                                    , this.txtDireccion.Text, this.txtTelefono1.Text, this.txtTelefono2.Text,
-                                                    this.txtCorreo.Text, idProvincia);
+
+                resultado = oBLCliente.EliminarCliente(idCliente);
             }
             catch (Exception excepcion)
             {
@@ -129,13 +121,17 @@ namespace BDAseguradora.Formularios
                 if (resultado)
                 {
                     //Mensaje si funciona
-                    mensaje += "El registro fue modificado.";
+                    mensaje += "El registro fue eliminado.";
+                    Response.Redirect("frm_ListaClientes_PagMaestra.aspx");
                 }
             }
             ///mostrar el mensaje
             Response.Write("<script>alert('" + mensaje + "')</script>");
         }
-
-
+        //Botón que redirige al formulario para buscar clientes.
+        protected void Volver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("frm_ListaClientes_PagMaestra.aspx");
+        }
     }
 }

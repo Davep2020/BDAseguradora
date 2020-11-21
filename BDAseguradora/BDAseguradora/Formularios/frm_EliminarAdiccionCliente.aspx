@@ -1,13 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginaMaestra/PaginaMaestra.Master" AutoEventWireup="true" CodeBehind="frm_AgregarAdiccionXC_PagMaestra.aspx.cs" Inherits="BDAseguradora.Formularios.frm_AgregarAdiccionXC_PagMaestra" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginaMaestra/PaginaMaestra.Master" AutoEventWireup="true" CodeBehind="frm_EliminarAdiccionCliente.aspx.cs" Inherits="BDAseguradora.Formularios.frm_EliminarAdiccionCliente" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="../CSS/estilosRegistro&Consulta_Clientes.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contenidoPrincipal" runat="server">
-    <form id="frmIngresaAdiccion" runat="server">
-        
-
-
-        <h2 >Registro de Adicciones por el número de cédula del clientes</h2>
+     <h2 >Eliminación de Adicciones de un cliente</h2>
     <div class="container">
 
     <div class="col-3">
@@ -27,13 +23,12 @@
         <asp:RequiredFieldValidator ID="rqvAdiccion" runat="server" 
             ErrorMessage="Debe seleccionar una adicción" Display="None" ControlToValidate="ddlAdiccion"></asp:RequiredFieldValidator>
          </div>
-             <asp:Button ID="btnAgregarAdicción" runat="server" Text="Agregar" CssClass="btn boton" OnClick="btnAgregarAdicción_Click"/>
+             <asp:Button ID="btnEliminarAdicción" runat="server" Text="Eliminar" CssClass="btn btn-danger" OnClick="btnEliminarAdicción_Click"  />
     </div>
 
         <div class="mb-500"></div>
 
    </div><%--Contenedor--%>
-    </form>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="scriptsPersonalizados" runat="server">
 </asp:Content>

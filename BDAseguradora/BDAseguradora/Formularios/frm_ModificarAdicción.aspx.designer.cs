@@ -11,17 +11,17 @@ namespace BDAseguradora.Formularios
 {
 
 
-    public partial class frm_AgregarAdiccionXC_PagMaestra
+    public partial class frm_ModificaAdicción
     {
 
         /// <summary>
-        /// Control frmIngresaAdiccion.
+        /// Control frm_ModificaAdiccion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm frmIngresaAdiccion;
+        protected global::System.Web.UI.HtmlControls.HtmlForm frm_ModificaAdiccion;
 
         /// <summary>
         /// Control lblCedulaBuscar.
@@ -96,12 +96,12 @@ namespace BDAseguradora.Formularios
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqvAdiccion;
 
         /// <summary>
-        /// Control btnAgregarAdicción.
+        /// Control btnModificarAdicción.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAgregarAdicción;
+        protected global::System.Web.UI.WebControls.Button btnModificarAdicción;
     }
 }

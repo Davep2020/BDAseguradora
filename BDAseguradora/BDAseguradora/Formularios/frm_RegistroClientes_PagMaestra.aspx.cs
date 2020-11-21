@@ -19,12 +19,15 @@ namespace BDAseguradora.Formularios
                 this.CargarTipoCliente();
             }
         }
-
+        //Evento del botón
         protected void btnAgregarUsuario_Click(object sender, EventArgs e)
         {
             this.GuardarCliente();
         }
- 
+        /// <summary>
+ /// Lista las provincias que vienen de la tabla TblProvincias
+ /// y las carga en un GRID
+ /// </summary>
         void CargarProvincia()
         {
             ///Crear objeto
@@ -34,7 +37,10 @@ namespace BDAseguradora.Formularios
             ///Mostra en el dropdown
             this.ddlProvincia.DataBind();
         }
-
+        /// <summary>
+        /// Lista los tipos de clientes que vienen de la tabla TblTipoPersonas
+        /// y las carga en un GRID
+        /// </summary>
         void CargarTipoCliente()
         {
             ///Crear objeto
@@ -44,7 +50,9 @@ namespace BDAseguradora.Formularios
             ///Mostra en el dropdown
             this.ddlTipoPersona.DataBind();
         }
-
+        /// <summary>
+        /// Método que ingresa el registro del cliente.
+        /// </summary>
         void GuardarCliente()
         {
             //Variable de mensaje

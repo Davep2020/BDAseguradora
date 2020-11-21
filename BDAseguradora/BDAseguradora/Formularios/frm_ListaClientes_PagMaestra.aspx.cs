@@ -20,7 +20,9 @@ namespace BDAseguradora.Formularios
             CargarDatos();
             CargarAdicciones();
         }
-
+        /// <summary>
+        /// Método que carga los datos del cliente en un GRID
+        /// </summary>
         void CargarDatos()
         {
             ///Crear la instancia del objeto BL
@@ -33,7 +35,9 @@ namespace BDAseguradora.Formularios
             this.grdListaClientes.DataSource = resultado;
             this.grdListaClientes.DataBind();
         }
-
+        /// <summary>
+        /// Método que carga las adicciones del cliente en un GRID
+        /// </summary>
         void CargarAdicciones()
         {
             BLCliente bLCliente = new BLCliente();
