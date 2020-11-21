@@ -510,6 +510,23 @@ public partial class bdaseguradoraEntities : DbContext
         return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ModificaPoliza", idParameter, idPerParameter, idCoParameter, montoParameter, fechaParameter);
     }
 
+
+    public virtual ObjectResult<RetornaUsuaPwd_Result> RetornaUsuaPwd(string usuario, string contrasena)
+    {
+
+        var usuarioParameter = usuario != null ?
+            new ObjectParameter("Usuario", usuario) :
+            new ObjectParameter("Usuario", typeof(string));
+
+
+        var contrasenaParameter = contrasena != null ?
+            new ObjectParameter("contrasena", contrasena) :
+            new ObjectParameter("contrasena", typeof(string));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<RetornaUsuaPwd_Result>("RetornaUsuaPwd", usuarioParameter, contrasenaParameter);
+    }
+
 }
 
 }

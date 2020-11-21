@@ -224,6 +224,10 @@
         <Function Name="RetornaCoberturaID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID_DPoliza_Dpl" Type="int" Mode="In" />
         </Function>
+        <Function Name="RetornaUsuaPwd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Usuario" Type="varchar" Mode="In" />
+          <Parameter Name="contrasena" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="RetornPolizaID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Polizas" Type="int" Mode="In" />
         </Function>
@@ -715,6 +719,10 @@
             <Parameter Name="Monto" Mode="In" Type="Int32" />
             <Parameter Name="Fecha" Mode="In" Type="DateTime" />
           </FunctionImport>
+          <FunctionImport Name="RetornaUsuaPwd" ReturnType="Collection(bdaseguradoraModel.RetornaUsuaPwd_Result)">
+            <Parameter Name="Usuario" Mode="In" Type="String" />
+            <Parameter Name="contrasena" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <Association Name="FK_TblDetallePersona_TblProvincia">
           <End Type="bdaseguradoraModel.TblProvincia" Role="TblProvincia" Multiplicity="0..1" />
@@ -809,6 +817,13 @@
           <Property Type="Decimal" Name="Impuestos_Pol" Nullable="false" Precision="18" Scale="0" />
           <Property Type="Decimal" Name="PrimaFinal_Pol" Nullable="false" Precision="18" Scale="0" />
           <Property Type="DateTime" Name="Fecha_Pol" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="RetornaUsuaPwd_Result">
+          <Property Type="Int32" Name="ID_Seguridad_Sg" Nullable="false" />
+          <Property Type="String" Name="Ussers_Sg" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Password_Sg" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="Nombre" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Tipo" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1054,6 +1069,17 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="ModificaPoliza" FunctionName="bdaseguradoraModel.Store.ModificaPoliza" />
+          <FunctionImportMapping FunctionImportName="RetornaUsuaPwd" FunctionName="bdaseguradoraModel.Store.RetornaUsuaPwd">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="bdaseguradoraModel.RetornaUsuaPwd_Result">
+                <ScalarProperty Name="ID_Seguridad_Sg" ColumnName="ID_Seguridad_Sg" />
+                <ScalarProperty Name="Ussers_Sg" ColumnName="Ussers_Sg" />
+                <ScalarProperty Name="Password_Sg" ColumnName="Password_Sg" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -94,42 +94,6 @@ h2 {
     background-color: #ffffff;
 }
 
-/*HEADER*/
-/*.site-header { 
-    background-color: #333333;
-    padding: 1rem 0 3rem 0;
-}*/
-
-/*.site-header.inicio {
-    background: url(../IMG/Aseguradora.jpg);
-    background-position: center center;
-    background-size: cover;
-    height: 100vh;
-    min-height: 60rem;
-}*/
-
-/*.contenido-header {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-align: left;
-}
-
-.contenido-header h1 {
-    color: white;
-    padding-bottom: 2rem;
-    max-width: 60rem;
-    line-height: 1.2; 
-}
-
-.barra {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 3rem;
-}*/
-
 
 
 /** Navegacion HEADER **/
@@ -186,33 +150,10 @@ h2 {
     margin: 48px auto;
     border-radius: 5px;
     color: #fff;
-    position: relative;
+    
     /*padding: 40px;*/
 }
 
-    .contenedor-form .toggle {
-        position: absolute;
-        top: 7px;
-        right: 7px;
-        width: 100px;
-        height: 30px;
-        font-size: 12px;
-        line-height: 25px;
-        text-align: center;
-        border-top: 2px solid #808080;
-        border-bottom: 2px solid #808080;
-        cursor: pointer;
-        transition: all .5s ease;
-    }
-
-.contenedor-form .toggle:hover {
-    border-top: 2px solid rgba(255, 0, 0, 0.46);
-    border-bottom: 2px solid rgba(255, 0, 0, 0.46);
-}
-
-.contenedor-form .toggle span {
-    letter-spacing: 1px;
-}
 
 .contenedor-form h2 {
     margin: 0 0 28px 0;
@@ -274,10 +215,10 @@ h2 {
 
 
 
-.contenedor-form .formulario {
-    display: none;
-    padding: 40px;
-}
+    .contenedor-form .formulario {
+        display: block;
+        padding: 40px;
+    }
 
 .contenedor-form .formulario:nth-child(2) {
     display: block;
