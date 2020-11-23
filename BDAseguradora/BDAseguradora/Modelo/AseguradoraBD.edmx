@@ -271,6 +271,9 @@
           <Parameter Name="cedula" Type="varchar" Mode="In" />
           <Parameter Name="codigo" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="spModificarAdiccionClientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="parametro" Type="int" Mode="In" />
+        </Function>
         <Function Name="spModificarCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idCliente" Type="int" Mode="In" />
           <Parameter Name="cedula" Type="int" Mode="In" />
@@ -981,6 +984,7 @@
           <FunctionImportMapping FunctionImportName="spIngresarCliente" FunctionName="bdaseguradoraModel.Store.spIngresarCliente" />
           <FunctionImportMapping FunctionImportName="spIngresarCobertura" FunctionName="bdaseguradoraModel.Store.spIngresarCobertura" />
           <FunctionImportMapping FunctionImportName="spInsertaAdiccionXCliente" FunctionName="bdaseguradoraModel.Store.spInsertaAdiccionXCliente" />
+          <FunctionImportMapping FunctionImportName="spModificarAdiccionClientes" FunctionName="bdaseguradoraModel.Store.spModificarAdiccionClientes" />
           <FunctionImportMapping FunctionImportName="spModificarCliente" FunctionName="bdaseguradoraModel.Store.spModificarCliente" />
           <FunctionImportMapping FunctionImportName="spMostrarAdicciones" FunctionName="bdaseguradoraModel.Store.spMostrarAdicciones" />
           <FunctionImportMapping FunctionImportName="spMuestraAdiccion" FunctionName="bdaseguradoraModel.Store.spMuestraAdiccion">
@@ -1048,13 +1052,13 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-<<<<<<< .mine
+
           <FunctionImportMapping FunctionImportName="spEliminaCliente" FunctionName="bdaseguradoraModel.Store.spEliminaCliente" />
           <FunctionImportMapping FunctionImportName="spEliminaAdiccionCliente" FunctionName="bdaseguradoraModel.Store.spEliminaAdiccionCliente" />
-=======
+
           <FunctionImportMapping FunctionImportName="EliminaPoliza" FunctionName="bdaseguradoraModel.Store.EliminaPoliza" />
           <FunctionImportMapping FunctionImportName="ConsultarPoliza" FunctionName="bdaseguradoraModel.Store.ConsultarPoliza">
->>>>>>> .theirs
+
             <ResultMapping>
               <ComplexTypeMapping TypeName="bdaseguradoraModel.ConsultarPoliza_Result">
                 <ScalarProperty Name="ID_Polizas_Pol" ColumnName="ID_Polizas_Pol" />

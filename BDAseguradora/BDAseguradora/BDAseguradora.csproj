@@ -173,6 +173,7 @@
     <Content Include="Formularios\frm_ModificarCobertura.aspx" />
     <Content Include="Formularios\frm_ModificarCliente.aspx" />
     <Content Include="Formularios\frm_ModificarPolizas.aspx" />
+    <Content Include="Formularios\frm_Polizas.aspx" />
     <Content Include="Formularios\frm_RegistroClientes_PagMaestra.aspx" />
     <Content Include="Formularios\frm_RegistroPoliza.aspx" />
     <Content Include="Formularios\frm_ReportePolizaCliente.aspx" />
@@ -408,6 +409,12 @@
     </Compile>
     <Compile Include="Formularios\frm_ModificarPolizas.aspx.designer.cs">
       <DependentUpon>frm_ModificarPolizas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_Polizas.aspx.cs">
+      <DependentUpon>frm_Polizas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_Polizas.aspx.designer.cs">
+      <DependentUpon>frm_Polizas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frm_RegistroClientes_PagMaestra.aspx.cs">
       <DependentUpon>frm_RegistroClientes_PagMaestra.aspx</DependentUpon>

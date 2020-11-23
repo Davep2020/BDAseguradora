@@ -358,7 +358,7 @@ namespace BDAseguradora.Modelo
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spEliminaAdiccionCliente", idAdiccionParameter, cedulaParameter);
         }
-    }
+ 
 
     public virtual int EliminaPoliza(Nullable<int> id)
     {
@@ -443,5 +443,5 @@ namespace BDAseguradora.Modelo
 
         return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<RetornaUsuaPwd_Result>("RetornaUsuaPwd", usuarioParameter, contrasenaParameter);
     }
-
+    }
 }
