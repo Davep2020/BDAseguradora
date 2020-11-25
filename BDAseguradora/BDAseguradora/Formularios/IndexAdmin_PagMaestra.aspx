@@ -18,7 +18,7 @@
                 <div>
                     <img src="../IMG/Usuario.png" alt="Logotipo" width="33%" />
                 </div>
-                <p>Some text about me in culpa qui officia deserunt mollit ani</p>
+                <asp:Label ID="lblNombre" runat="server" Font-Bold="True" Font-Size="XX-Large"></asp:Label>
                 <h3>Mantenimientos</h3>
                 <p>Cambios en diferentes sectores</p>
                 <ul class="nav nav-pills flex-column">
@@ -32,7 +32,7 @@
                         <a class="nav-link uno" href="#">Adicciones por cliente</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link uno" href="#">Reportes</a>
+                        <a class="nav-link uno" href="frm_ReportePolizaCliente.aspx">Reportes</a>
                     </li>
 
                 </ul>

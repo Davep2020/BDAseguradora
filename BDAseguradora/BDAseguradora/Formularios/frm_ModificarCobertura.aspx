@@ -16,23 +16,21 @@
                     <h3>Mantenimientos</h3>
                     <p>Cambios en diferentes sectores</p>
                     <ul class="nav nav-pills flex-column">
-                            <li class="nav-item uno">
-                            <asp:HyperLink ID="HyperLink1" Style="text-decoration: none" runat="server" CssClass="uno" NavigateUrl="~/Formularios/frm_ConsultarCobertura.aspx">Consultar Cobertura</asp:HyperLink>
-
+                      <li class="nav-item">
+                            <a class="nav-link uno" href="frm_AgregarCobertura.aspx">Ingresar Cobertura</a>
                         </li>
-                        <br />
-                        <li class="nav-item uno">
-                            <asp:HyperLink ID="HyperLink2" Style="text-decoration: none" runat="server" CssClass="uno" NavigateUrl="~/Formularios/frm_AgregarCobertura.aspx">Agregar Cobertura</asp:HyperLink>
-
-
+                        <li class="nav-item">
+                            <a class="nav-link uno" href="frm_ConsultarCobertura.aspx">Consultar Cobertura</a>
                         </li>
-                        <br />
-                        <li class="nav-item uno">
-                            <asp:HyperLink ID="HyperLink3" Style="text-decoration: none" runat="server" CssClass="uno" NavigateUrl="~/Formularios/frm_ModificarCobertura.aspx">Modificar Cobertura</asp:HyperLink>
 
-
+                        <li class="nav-item">
+                            <a class="nav-link uno" href="frm_RegistroPoliza.aspx">Ingresar Poliza</a>
                         </li>
-                     
+
+                        <li class="nav-item">
+                            <a class="nav-link uno" href="frm_ConsultarPoliza.aspx">Consultar Poliza</a>
+                        </li>
+
 
 
                     </ul>

@@ -17,13 +17,13 @@
                     <h3>Mantenimientos</h3>
                     <p>Cambios en diferentes sectores</p>
                     <ul class="nav nav-pills flex-column">
-                    <li class="nav-item">
+                        <li class="nav-item">
                             <a class="nav-link uno" href="frm_AgregarCobertura.aspx">Ingresar Cobertura</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link uno" href="frm_ConsultarCobertura.aspx">Consultar Cobertura</a>
                         </li>
-                        
+
                         <li class="nav-item">
                             <a class="nav-link uno" href="frm_RegistroPoliza.aspx">Ingresar Poliza</a>
                         </li>
