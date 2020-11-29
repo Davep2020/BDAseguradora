@@ -46,11 +46,27 @@ namespace BDAseguradora.BL
             return false;
         }
 
-        public bool EliminaAdiccionCliente(int pIdAdiccion, int pCedula)
+        public spRetornaAdicciónID_Result RetornaAdiccionClienteID(int pIdAC)
+        {
+            spRetornaAdicciónID_Result resultado = new spRetornaAdicciónID_Result();
+
+            resultado = this.modeloBD.spRetornaAdicciónID(pIdAC).FirstOrDefault();
+
+            return resultado;
+        } 
+
+        public bool EliminaAdiccionCliente(int pID_ACliente_Ac)
         {
             int resultado = 0;
-            resultado = this.modeloBD.spEliminaAdiccionCliente(pIdAdiccion, pCedula);
+            resultado = this.modeloBD.spEliminaAdiccionCliente(pID_ACliente_Ac);
             return resultado > 0;
+        }
+
+        public bool ModificaAdiccion(int pID_ACliente_Ac, string pNombreAdiccion)
+        {
+            int registros = this.modeloBD.spModificaAdiccionClientes(pID_ACliente_Ac, pNombreAdiccion);
+
+            return registros > 0;
         }
     }
 }

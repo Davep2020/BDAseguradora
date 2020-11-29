@@ -238,8 +238,7 @@
           <Parameter Name="Porce" Type="int" Mode="In" />
         </Function>
         <Function Name="spEliminaAdiccionCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="idAdiccion" Type="int" Mode="In" />
-          <Parameter Name="Cedula" Type="int" Mode="In" />
+          <Parameter Name="id" Type="int" Mode="In" />
         </Function>
         <Function Name="spEliminaCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idCliente" Type="int" Mode="In" />
@@ -271,8 +270,9 @@
           <Parameter Name="cedula" Type="varchar" Mode="In" />
           <Parameter Name="codigo" Type="varchar" Mode="In" />
         </Function>
-        <Function Name="spModificarAdiccionClientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="parametro" Type="int" Mode="In" />
+        <Function Name="spModificaAdiccionClientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idPrincipal" Type="int" Mode="In" />
+          <Parameter Name="NombreAdiccion" Type="varchar" Mode="In" />
         </Function>
         <Function Name="spModificarCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idCliente" Type="int" Mode="In" />
@@ -298,6 +298,9 @@
         <Function Name="spRetornaAdicciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="nombre" Type="varchar" Mode="In" />
           <Parameter Name="codigo" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spRetornaAdicciónID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
         </Function>
         <Function Name="spRetornaClienteActualizar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idCliente" Type="int" Mode="In" />
@@ -676,9 +679,6 @@
             <Parameter Name="cedula" Mode="In" Type="String" />
             <Parameter Name="codigo" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="spModificarAdiccionClientes">
-          <Parameter Name="parametro" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="spModificarCliente">
             <Parameter Name="idCliente" Mode="In" Type="Int32" />
             <Parameter Name="cedula" Mode="In" Type="Int32" />
@@ -694,9 +694,6 @@
             <Parameter Name="idProvincia" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spMostrarAdicciones" ReturnType="Collection(String)" />
-          <FunctionImport Name="spMuestraAdiccion" ReturnType="Collection(bdaseguradoraModel.spMuestraAdiccion_Result)">
-          <Parameter Name="cedula" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="spMuestraCliente" ReturnType="Collection(bdaseguradoraModel.spMuestraCliente_Result)">
           <Parameter Name="cedula" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -719,10 +716,6 @@
           <FunctionImport Name="EliminaPoliza">
           <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="spEliminaAdiccionCliente">
-            <Parameter Name="idAdiccion" Mode="In" Type="Int32" />
-            <Parameter Name="Cedula" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="ConsultarPoliza" ReturnType="Collection(bdaseguradoraModel.ConsultarPoliza_Result)">
           <Parameter Name="Cedula" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -739,6 +732,19 @@
           <FunctionImport Name="RetornaUsuaPwd" ReturnType="Collection(bdaseguradoraModel.RetornaUsuaPwd_Result)">
             <Parameter Name="Usuario" Mode="In" Type="String" />
             <Parameter Name="contrasena" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spMuestraAdiccion" ReturnType="Collection(bdaseguradoraModel.spMuestraAdiccion_Result)">
+          <Parameter Name="cedula" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spRetornaAdicciónID" ReturnType="Collection(bdaseguradoraModel.spRetornaAdicciónID_Result)">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spEliminaAdiccionCliente">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spModificaAdiccionClientes">
+            <Parameter Name="idPrincipal" Mode="In" Type="Int32" />
+            <Parameter Name="NombreAdiccion" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <Association Name="FK_TblDetallePersona_TblProvincia">
@@ -768,10 +774,6 @@
           <Property Type="String" Name="Nombre_Dpl" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Descripción_Dpl" Nullable="false" MaxLength="500" />
           <Property Type="Int32" Name="Porcentaje_Dpl" Nullable="false" />
-        </ComplexType>
-        <ComplexType Name="spMuestraAdiccion_Result">
-          <Property Type="String" Name="Nombre_Ad" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="Codigo_Ad" Nullable="false" MaxLength="50" />
         </ComplexType>
         <ComplexType Name="spMuestraCliente_Result">
           <Property Type="Int32" Name="ID_DPersona_Dp" Nullable="false" />
@@ -841,6 +843,20 @@
           <Property Type="String" Name="Password_Sg" Nullable="false" MaxLength="25" />
           <Property Type="String" Name="Nombre" Nullable="true" MaxLength="50" />
           <Property Type="Int32" Name="Tipo" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spMuestraAdiccion_Result">
+          <Property Type="String" Name="Nombre_Ad" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Codigo_Ad" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="ID_ACliente_Ac" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="spRetornaAdicciónID_Result">
+          <Property Type="Int32" Name="ID_DPersona_Ac" Nullable="false" />
+          <Property Type="Int32" Name="ID_Adiccion_Ac" Nullable="false" />
+          <Property Type="Int32" Name="ID_ACliente_Ac" Nullable="false" />
+          <Property Type="String" Name="Nombre_Ad" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="ID_Adiccion_Ad" Nullable="false" />
+          <Property Type="String" Name="Nombre_Dp" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Cedula_Dp" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -984,17 +1000,8 @@
           <FunctionImportMapping FunctionImportName="spIngresarCliente" FunctionName="bdaseguradoraModel.Store.spIngresarCliente" />
           <FunctionImportMapping FunctionImportName="spIngresarCobertura" FunctionName="bdaseguradoraModel.Store.spIngresarCobertura" />
           <FunctionImportMapping FunctionImportName="spInsertaAdiccionXCliente" FunctionName="bdaseguradoraModel.Store.spInsertaAdiccionXCliente" />
-          <FunctionImportMapping FunctionImportName="spModificarAdiccionClientes" FunctionName="bdaseguradoraModel.Store.spModificarAdiccionClientes" />
           <FunctionImportMapping FunctionImportName="spModificarCliente" FunctionName="bdaseguradoraModel.Store.spModificarCliente" />
           <FunctionImportMapping FunctionImportName="spMostrarAdicciones" FunctionName="bdaseguradoraModel.Store.spMostrarAdicciones" />
-          <FunctionImportMapping FunctionImportName="spMuestraAdiccion" FunctionName="bdaseguradoraModel.Store.spMuestraAdiccion">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="bdaseguradoraModel.spMuestraAdiccion_Result">
-                <ScalarProperty Name="Nombre_Ad" ColumnName="Nombre_Ad" />
-                <ScalarProperty Name="Codigo_Ad" ColumnName="Codigo_Ad" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="spMuestraCliente" FunctionName="bdaseguradoraModel.Store.spMuestraCliente">
             <ResultMapping>
               <ComplexTypeMapping TypeName="bdaseguradoraModel.spMuestraCliente_Result">
@@ -1054,7 +1061,6 @@
           </FunctionImportMapping>
 
           <FunctionImportMapping FunctionImportName="spEliminaCliente" FunctionName="bdaseguradoraModel.Store.spEliminaCliente" />
-          <FunctionImportMapping FunctionImportName="spEliminaAdiccionCliente" FunctionName="bdaseguradoraModel.Store.spEliminaAdiccionCliente" />
 
           <FunctionImportMapping FunctionImportName="EliminaPoliza" FunctionName="bdaseguradoraModel.Store.EliminaPoliza" />
           <FunctionImportMapping FunctionImportName="ConsultarPoliza" FunctionName="bdaseguradoraModel.Store.ConsultarPoliza">
@@ -1103,6 +1109,30 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spMuestraAdiccion" FunctionName="bdaseguradoraModel.Store.spMuestraAdiccion">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="bdaseguradoraModel.spMuestraAdiccion_Result">
+                <ScalarProperty Name="Nombre_Ad" ColumnName="Nombre_Ad" />
+                <ScalarProperty Name="Codigo_Ad" ColumnName="Codigo_Ad" />
+                <ScalarProperty Name="ID_ACliente_Ac" ColumnName="ID_ACliente_Ac" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spRetornaAdicciónID" FunctionName="bdaseguradoraModel.Store.spRetornaAdicciónID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="bdaseguradoraModel.spRetornaAdicciónID_Result">
+                <ScalarProperty Name="ID_DPersona_Ac" ColumnName="ID_DPersona_Ac" />
+                <ScalarProperty Name="ID_Adiccion_Ac" ColumnName="ID_Adiccion_Ac" />
+                <ScalarProperty Name="ID_ACliente_Ac" ColumnName="ID_ACliente_Ac" />
+                <ScalarProperty Name="Nombre_Ad" ColumnName="Nombre_Ad" />
+                <ScalarProperty Name="ID_Adiccion_Ad" ColumnName="ID_Adiccion_Ad" />
+                <ScalarProperty Name="Nombre_Dp" ColumnName="Nombre_Dp" />
+                <ScalarProperty Name="Cedula_Dp" ColumnName="Cedula_Dp" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spEliminaAdiccionCliente" FunctionName="bdaseguradoraModel.Store.spEliminaAdiccionCliente" />
+          <FunctionImportMapping FunctionImportName="spModificaAdiccionClientes" FunctionName="bdaseguradoraModel.Store.spModificaAdiccionClientes" />
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

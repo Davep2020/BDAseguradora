@@ -10,7 +10,7 @@
     <div class="col-3">
             <div class="form-group">
                 <asp:Label ID="lblCedulaBuscar" runat="server" Text="Cédula" ></asp:Label>
-                <asp:TextBox ID="txtCedula" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox ID="txtCedula" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="rqvCedula" Display="None" runat="server" 
                 ControlToValidate="txtCedula" ErrorMessage="Debe ingresar un número de cédula."></asp:RequiredFieldValidator>
             <asp:ValidationSummary ID="vsCedula" ShowMessageBox="true" runat="server"  ShowSummary="false"/>
@@ -20,7 +20,7 @@
 
         <div class="form-group">
                  <asp:Label ID="lblAdiccion" runat="server" Text="Adicción" CssClass="form-control"></asp:Label>
-            <asp:DropDownList ID="ddlAdiccion" runat="server"  DataTextField="Nombre_Ad" DataValueField="Codigo_Ad" ></asp:DropDownList>
+            <asp:DropDownList ID="ddlAdiccion" runat="server"  DataTextField="Nombre_Ad" DataValueField="Nombre_Ad" ></asp:DropDownList>
         <asp:RequiredFieldValidator ID="rqvAdiccion" runat="server" 
             ErrorMessage="Debe seleccionar una adicción" Display="None" ControlToValidate="ddlAdiccion"></asp:RequiredFieldValidator>
          </div>

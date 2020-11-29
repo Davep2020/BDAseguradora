@@ -212,15 +212,6 @@ namespace BDAseguradora.Modelo
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertaAdiccionXCliente", cedulaParameter, codigoParameter);
         }
     
-        public virtual int spModificarAdiccionClientes(Nullable<int> parametro)
-        {
-            var parametroParameter = parametro.HasValue ?
-                new ObjectParameter("parametro", parametro) :
-                new ObjectParameter("parametro", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spModificarAdiccionClientes", parametroParameter);
-        }
-    
         public virtual int spModificarCliente(Nullable<int> idCliente, Nullable<int> cedula, string genero, Nullable<System.DateTime> fechaNacimiento, string nombre, string primerApellido, string segundoApellido, string direccion, string telefono1, string telefono2, string correo, Nullable<int> idProvincia)
         {
             var idClienteParameter = idCliente.HasValue ?
@@ -277,15 +268,6 @@ namespace BDAseguradora.Modelo
         public virtual ObjectResult<string> spMostrarAdicciones()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("spMostrarAdicciones");
-        }
-    
-        public virtual ObjectResult<spMuestraAdiccion_Result> spMuestraAdiccion(Nullable<int> cedula)
-        {
-            var cedulaParameter = cedula.HasValue ?
-                new ObjectParameter("cedula", cedula) :
-                new ObjectParameter("cedula", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spMuestraAdiccion_Result>("spMuestraAdiccion", cedulaParameter);
         }
     
         public virtual ObjectResult<spMuestraCliente_Result> spMuestraCliente(Nullable<int> cedula)
@@ -346,102 +328,109 @@ namespace BDAseguradora.Modelo
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spEliminaCliente", idClienteParameter);
         }
     
-        public virtual int spEliminaAdiccionCliente(Nullable<int> idAdiccion, Nullable<int> cedula)
+        public virtual int EliminaPoliza(Nullable<int> id)
         {
-            var idAdiccionParameter = idAdiccion.HasValue ?
-                new ObjectParameter("idAdiccion", idAdiccion) :
-                new ObjectParameter("idAdiccion", typeof(int));
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
     
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("EliminaPoliza", idParameter);
+        }
+    
+        public virtual ObjectResult<ConsultarPoliza_Result> ConsultarPoliza(Nullable<int> cedula)
+        {
             var cedulaParameter = cedula.HasValue ?
                 new ObjectParameter("Cedula", cedula) :
                 new ObjectParameter("Cedula", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spEliminaAdiccionCliente", idAdiccionParameter, cedulaParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ConsultarPoliza_Result>("ConsultarPoliza", cedulaParameter);
         }
- 
-
-    public virtual int EliminaPoliza(Nullable<int> id)
-    {
-
-        var idParameter = id.HasValue ?
-            new ObjectParameter("id", id) :
-            new ObjectParameter("id", typeof(int));
-
-
-        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("EliminaPoliza", idParameter);
-    }
-
-
-    public virtual ObjectResult<ConsultarPoliza_Result> ConsultarPoliza(Nullable<int> cedula)
-    {
-
-        var cedulaParameter = cedula.HasValue ?
-            new ObjectParameter("Cedula", cedula) :
-            new ObjectParameter("Cedula", typeof(int));
-
-
-        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ConsultarPoliza_Result>("ConsultarPoliza", cedulaParameter);
-    }
-
-
-    public virtual ObjectResult<RetornPolizaID_Result> RetornPolizaID(Nullable<int> polizas)
-    {
-
-        var polizasParameter = polizas.HasValue ?
-            new ObjectParameter("Polizas", polizas) :
-            new ObjectParameter("Polizas", typeof(int));
-
-
-        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<RetornPolizaID_Result>("RetornPolizaID", polizasParameter);
-    }
-
-
-    public virtual int ModificaPoliza(Nullable<int> id, Nullable<int> idPer, Nullable<int> idCo, Nullable<int> monto, Nullable<System.DateTime> fecha)
-    {
-
-        var idParameter = id.HasValue ?
-            new ObjectParameter("id", id) :
-            new ObjectParameter("id", typeof(int));
-
-
-        var idPerParameter = idPer.HasValue ?
-            new ObjectParameter("idPer", idPer) :
-            new ObjectParameter("idPer", typeof(int));
-
-
-        var idCoParameter = idCo.HasValue ?
-            new ObjectParameter("idCo", idCo) :
-            new ObjectParameter("idCo", typeof(int));
-
-
-        var montoParameter = monto.HasValue ?
-            new ObjectParameter("Monto", monto) :
-            new ObjectParameter("Monto", typeof(int));
-
-
-        var fechaParameter = fecha.HasValue ?
-            new ObjectParameter("Fecha", fecha) :
-            new ObjectParameter("Fecha", typeof(System.DateTime));
-
-
-        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ModificaPoliza", idParameter, idPerParameter, idCoParameter, montoParameter, fechaParameter);
-    }
-
-
-    public virtual ObjectResult<RetornaUsuaPwd_Result> RetornaUsuaPwd(string usuario, string contrasena)
-    {
-
-        var usuarioParameter = usuario != null ?
-            new ObjectParameter("Usuario", usuario) :
-            new ObjectParameter("Usuario", typeof(string));
-
-
-        var contrasenaParameter = contrasena != null ?
-            new ObjectParameter("contrasena", contrasena) :
-            new ObjectParameter("contrasena", typeof(string));
-
-
-        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<RetornaUsuaPwd_Result>("RetornaUsuaPwd", usuarioParameter, contrasenaParameter);
-    }
+    
+        public virtual ObjectResult<RetornPolizaID_Result> RetornPolizaID(Nullable<int> polizas)
+        {
+            var polizasParameter = polizas.HasValue ?
+                new ObjectParameter("Polizas", polizas) :
+                new ObjectParameter("Polizas", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<RetornPolizaID_Result>("RetornPolizaID", polizasParameter);
+        }
+    
+        public virtual int ModificaPoliza(Nullable<int> id, Nullable<int> idPer, Nullable<int> idCo, Nullable<int> monto, Nullable<System.DateTime> fecha)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var idPerParameter = idPer.HasValue ?
+                new ObjectParameter("idPer", idPer) :
+                new ObjectParameter("idPer", typeof(int));
+    
+            var idCoParameter = idCo.HasValue ?
+                new ObjectParameter("idCo", idCo) :
+                new ObjectParameter("idCo", typeof(int));
+    
+            var montoParameter = monto.HasValue ?
+                new ObjectParameter("Monto", monto) :
+                new ObjectParameter("Monto", typeof(int));
+    
+            var fechaParameter = fecha.HasValue ?
+                new ObjectParameter("Fecha", fecha) :
+                new ObjectParameter("Fecha", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ModificaPoliza", idParameter, idPerParameter, idCoParameter, montoParameter, fechaParameter);
+        }
+    
+        public virtual ObjectResult<RetornaUsuaPwd_Result> RetornaUsuaPwd(string usuario, string contrasena)
+        {
+            var usuarioParameter = usuario != null ?
+                new ObjectParameter("Usuario", usuario) :
+                new ObjectParameter("Usuario", typeof(string));
+    
+            var contrasenaParameter = contrasena != null ?
+                new ObjectParameter("contrasena", contrasena) :
+                new ObjectParameter("contrasena", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<RetornaUsuaPwd_Result>("RetornaUsuaPwd", usuarioParameter, contrasenaParameter);
+        }
+    
+        public virtual ObjectResult<spMuestraAdiccion_Result> spMuestraAdiccion(Nullable<int> cedula)
+        {
+            var cedulaParameter = cedula.HasValue ?
+                new ObjectParameter("cedula", cedula) :
+                new ObjectParameter("cedula", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spMuestraAdiccion_Result>("spMuestraAdiccion", cedulaParameter);
+        }
+    
+        public virtual ObjectResult<spRetornaAdicciónID_Result> spRetornaAdicciónID(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spRetornaAdicciónID_Result>("spRetornaAdicciónID", idParameter);
+        }
+    
+        public virtual int spEliminaAdiccionCliente(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spEliminaAdiccionCliente", idParameter);
+        }
+    
+        public virtual int spModificaAdiccionClientes(Nullable<int> idPrincipal, string nombreAdiccion)
+        {
+            var idPrincipalParameter = idPrincipal.HasValue ?
+                new ObjectParameter("idPrincipal", idPrincipal) :
+                new ObjectParameter("idPrincipal", typeof(int));
+    
+            var nombreAdiccionParameter = nombreAdiccion != null ?
+                new ObjectParameter("NombreAdiccion", nombreAdiccion) :
+                new ObjectParameter("NombreAdiccion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spModificaAdiccionClientes", idPrincipalParameter, nombreAdiccionParameter);
+        }
     }
 }

@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginaMaestra/PaginaMaestra.Master" AutoEventWireup="true" CodeBehind="frm_ListaClientes_PagMaestra.aspx.cs" Inherits="BDAseguradora.Formularios.frm_ListaClientes_PagMaestra" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="../CSS/estilosRegistro&Consulta_Clientes.css" rel="stylesheet" />
-    <link href="../CSS/Admi.css" rel="stylesheet" />
+<%--    <link href="../CSS/Admi.css" rel="stylesheet" />--%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contenidoPrincipal" runat="server">
     <form id="frmLista" runat="server">
@@ -59,7 +59,8 @@
             <Columns>
                 <asp:BoundField DataField="Codigo_Ad" HeaderText="Código" />
                 <asp:BoundField DataField="Nombre_Ad" HeaderText="Adicción" />
-                <asp:HyperLinkField DataNavigateUrlFields="ID_DPersona_Dp" DataNavigateUrlFormatString="frm_EliminarCliente.aspx?ID_DPersona_Dp={0}" HeaderText="Eliminar" />
+                <asp:HyperLinkField Text="Modificar" DataNavigateUrlFields="ID_ACliente_Ac" DataNavigateUrlFormatString="frm_ModificarAdicción.aspx?ID_ACliente_Ac={0}" />
+                <asp:HyperLinkField DataNavigateUrlFormatString="frm_EliminarAdiccionCliente.aspx?ID_ACliente_Ac={0}" Text="Eliminar" DataNavigateUrlFields="ID_ACliente_Ac" />
             </Columns>
             <FooterStyle BackColor="#CCCCCC" />
             <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />

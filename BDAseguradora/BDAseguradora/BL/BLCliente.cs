@@ -39,10 +39,6 @@ namespace BDAseguradora.BL
         }
 
 
-       
-
-
-
         /// <summary>
         /// Método que retorna los datos de un cliente, pasando por parámetro su ID
         /// </summary>

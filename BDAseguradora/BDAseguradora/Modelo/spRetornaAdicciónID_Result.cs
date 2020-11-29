@@ -11,10 +11,14 @@ namespace BDAseguradora.Modelo
 {
     using System;
     
-    public partial class spMuestraAdiccion_Result
+    public partial class spRetornaAdicciónID_Result
     {
-        public string Nombre_Ad { get; set; }
-        public string Codigo_Ad { get; set; }
+        public int ID_DPersona_Ac { get; set; }
+        public int ID_Adiccion_Ac { get; set; }
         public int ID_ACliente_Ac { get; set; }
+        public string Nombre_Ad { get; set; }
+        public int ID_Adiccion_Ad { get; set; }
+        public string Nombre_Dp { get; set; }
+        public int Cedula_Dp { get; set; }
     }
 }

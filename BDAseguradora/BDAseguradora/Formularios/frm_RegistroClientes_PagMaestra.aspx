@@ -106,7 +106,7 @@
 
             </div>
         <%--Contenedor--%>
-
+        </div>
 
         <div class="b-100px"></div>
 
