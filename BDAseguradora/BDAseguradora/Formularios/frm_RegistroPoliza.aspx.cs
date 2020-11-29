@@ -19,7 +19,13 @@ namespace BDAseguradora.Formularios
             }
             
         }
-
+        protected void btnSi_Click(object sender, EventArgs e)
+        {
+            this.Session.Add("NombreUsuario", null);
+            this.Session.Add("Tipo", null);
+            this.Session.Add("UsuarioLogeado", null);
+            this.Response.Redirect("~/Formularios/Login.aspx");
+        }
         protected void btnPoliza_Click(object sender, EventArgs e)
         {
             AlmacenarCoberturas();

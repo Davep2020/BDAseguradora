@@ -46,11 +46,11 @@ namespace BDAseguradora.BL
             return false;
         }
 
-        public bool EliminaAdiccionCliente(int pIdAdiccion, int pCedula)
-        {
-            int resultado = 0;
-            resultado = this.modeloBD.spEliminaAdiccionCliente(pIdAdiccion, pCedula);
-            return resultado > 0;
-        }
+        ////public bool EliminaAdiccionCliente(int pIdAdiccion, int pCedula)
+        ////{
+        ////    int resultado = 0;
+        ////    resultado = this.modeloBD.spEliminaAdiccionCliente(pIdAdiccion, pCedula);
+        ////    return resultado > 0;
+        ////}
     }
 }

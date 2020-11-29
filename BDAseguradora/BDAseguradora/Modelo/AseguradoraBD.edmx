@@ -238,8 +238,7 @@
           <Parameter Name="Porce" Type="int" Mode="In" />
         </Function>
         <Function Name="spEliminaAdiccionCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="idAdiccion" Type="int" Mode="In" />
-          <Parameter Name="Cedula" Type="int" Mode="In" />
+          <Parameter Name="id" Type="int" Mode="In" />
         </Function>
         <Function Name="spEliminaCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idCliente" Type="int" Mode="In" />
@@ -270,9 +269,6 @@
         <Function Name="spInsertaAdiccionXCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="cedula" Type="varchar" Mode="In" />
           <Parameter Name="codigo" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="spModificarAdiccionClientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="parametro" Type="int" Mode="In" />
         </Function>
         <Function Name="spModificarCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idCliente" Type="int" Mode="In" />
@@ -720,11 +716,7 @@
           <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spEliminaAdiccionCliente">
-            <Parameter Name="idAdiccion" Mode="In" Type="Int32" />
-            <Parameter Name="Cedula" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="ConsultarPoliza" ReturnType="Collection(bdaseguradoraModel.ConsultarPoliza_Result)">
-          <Parameter Name="Cedula" Mode="In" Type="Int32" />
+            <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="RetornPolizaID" ReturnType="Collection(bdaseguradoraModel.RetornPolizaID_Result)">
           <Parameter Name="Polizas" Mode="In" Type="Int32" />
@@ -739,6 +731,9 @@
           <FunctionImport Name="RetornaUsuaPwd" ReturnType="Collection(bdaseguradoraModel.RetornaUsuaPwd_Result)">
             <Parameter Name="Usuario" Mode="In" Type="String" />
             <Parameter Name="contrasena" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ConsultarPoliza" ReturnType="Collection(bdaseguradoraModel.ConsultarPoliza_Result)">
+            <Parameter Name="Cedula" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <Association Name="FK_TblDetallePersona_TblProvincia">
@@ -810,18 +805,6 @@
           <Property Type="Int32" Name="ID_TipoPersona_Tp" Nullable="false" />
           <Property Type="String" Name="Tipo_Tp" Nullable="false" MaxLength="50" />
         </ComplexType>
-        <ComplexType Name="ConsultarPoliza_Result">
-          <Property Type="Int32" Name="ID_Polizas_Pol" Nullable="false" />
-          <Property Type="String" Name="Nombre_Dpl" Nullable="false" MaxLength="50" />
-          <Property Type="Int32" Name="Cedula_Dp" Nullable="false" />
-          <Property Type="Decimal" Name="MontoAsegurado_Pol" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Int32" Name="NumAdicciones_Pol" Nullable="false" />
-          <Property Type="Decimal" Name="MontoAdicciones_Pol" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Decimal" Name="PrimaAntesImp_Pol" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Decimal" Name="Impuestos_Pol" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Decimal" Name="PrimaFinal_Pol" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="DateTime" Name="Fecha_Pol" Nullable="true" Precision="23" />
-        </ComplexType>
         <ComplexType Name="RetornPolizaID_Result">
           <Property Type="Int32" Name="ID_Polizas_Pol" Nullable="false" />
           <Property Type="Int32" Name="ID_DPoliza_Dpl" Nullable="false" />
@@ -841,6 +824,18 @@
           <Property Type="String" Name="Password_Sg" Nullable="false" MaxLength="25" />
           <Property Type="String" Name="Nombre" Nullable="true" MaxLength="50" />
           <Property Type="Int32" Name="Tipo" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="ConsultarPoliza_Result">
+          <Property Type="Int32" Name="ID_Polizas_Pol" Nullable="false" />
+          <Property Type="String" Name="Nombre_Dpl" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Cedula_Dp" Nullable="false" />
+          <Property Type="Decimal" Name="MontoAsegurado_Pol" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="NumAdicciones_Pol" Nullable="false" />
+          <Property Type="Decimal" Name="MontoAdicciones_Pol" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="PrimaAntesImp_Pol" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="Impuestos_Pol" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="PrimaFinal_Pol" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="Fecha_Pol" Nullable="true" Precision="23" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -984,7 +979,6 @@
           <FunctionImportMapping FunctionImportName="spIngresarCliente" FunctionName="bdaseguradoraModel.Store.spIngresarCliente" />
           <FunctionImportMapping FunctionImportName="spIngresarCobertura" FunctionName="bdaseguradoraModel.Store.spIngresarCobertura" />
           <FunctionImportMapping FunctionImportName="spInsertaAdiccionXCliente" FunctionName="bdaseguradoraModel.Store.spInsertaAdiccionXCliente" />
-          <FunctionImportMapping FunctionImportName="spModificarAdiccionClientes" FunctionName="bdaseguradoraModel.Store.spModificarAdiccionClientes" />
           <FunctionImportMapping FunctionImportName="spModificarCliente" FunctionName="bdaseguradoraModel.Store.spModificarCliente" />
           <FunctionImportMapping FunctionImportName="spMostrarAdicciones" FunctionName="bdaseguradoraModel.Store.spMostrarAdicciones" />
           <FunctionImportMapping FunctionImportName="spMuestraAdiccion" FunctionName="bdaseguradoraModel.Store.spMuestraAdiccion">
@@ -1057,23 +1051,6 @@
           <FunctionImportMapping FunctionImportName="spEliminaAdiccionCliente" FunctionName="bdaseguradoraModel.Store.spEliminaAdiccionCliente" />
 
           <FunctionImportMapping FunctionImportName="EliminaPoliza" FunctionName="bdaseguradoraModel.Store.EliminaPoliza" />
-          <FunctionImportMapping FunctionImportName="ConsultarPoliza" FunctionName="bdaseguradoraModel.Store.ConsultarPoliza">
-
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="bdaseguradoraModel.ConsultarPoliza_Result">
-                <ScalarProperty Name="ID_Polizas_Pol" ColumnName="ID_Polizas_Pol" />
-                <ScalarProperty Name="Nombre_Dpl" ColumnName="Nombre_Dpl" />
-                <ScalarProperty Name="Cedula_Dp" ColumnName="Cedula_Dp" />
-                <ScalarProperty Name="MontoAsegurado_Pol" ColumnName="MontoAsegurado_Pol" />
-                <ScalarProperty Name="NumAdicciones_Pol" ColumnName="NumAdicciones_Pol" />
-                <ScalarProperty Name="MontoAdicciones_Pol" ColumnName="MontoAdicciones_Pol" />
-                <ScalarProperty Name="PrimaAntesImp_Pol" ColumnName="PrimaAntesImp_Pol" />
-                <ScalarProperty Name="Impuestos_Pol" ColumnName="Impuestos_Pol" />
-                <ScalarProperty Name="PrimaFinal_Pol" ColumnName="PrimaFinal_Pol" />
-                <ScalarProperty Name="Fecha_Pol" ColumnName="Fecha_Pol" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="RetornPolizaID" FunctionName="bdaseguradoraModel.Store.RetornPolizaID">
             <ResultMapping>
               <ComplexTypeMapping TypeName="bdaseguradoraModel.RetornPolizaID_Result">
@@ -1100,6 +1077,22 @@
                 <ScalarProperty Name="Password_Sg" ColumnName="Password_Sg" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ConsultarPoliza" FunctionName="bdaseguradoraModel.Store.ConsultarPoliza">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="bdaseguradoraModel.ConsultarPoliza_Result">
+                <ScalarProperty Name="ID_Polizas_Pol" ColumnName="ID_Polizas_Pol" />
+                <ScalarProperty Name="Nombre_Dpl" ColumnName="Nombre_Dpl" />
+                <ScalarProperty Name="Cedula_Dp" ColumnName="Cedula_Dp" />
+                <ScalarProperty Name="MontoAsegurado_Pol" ColumnName="MontoAsegurado_Pol" />
+                <ScalarProperty Name="NumAdicciones_Pol" ColumnName="NumAdicciones_Pol" />
+                <ScalarProperty Name="MontoAdicciones_Pol" ColumnName="MontoAdicciones_Pol" />
+                <ScalarProperty Name="PrimaAntesImp_Pol" ColumnName="PrimaAntesImp_Pol" />
+                <ScalarProperty Name="Impuestos_Pol" ColumnName="Impuestos_Pol" />
+                <ScalarProperty Name="PrimaFinal_Pol" ColumnName="PrimaFinal_Pol" />
+                <ScalarProperty Name="Fecha_Pol" ColumnName="Fecha_Pol" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

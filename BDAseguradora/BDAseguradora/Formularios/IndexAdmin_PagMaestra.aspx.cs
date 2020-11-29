@@ -14,5 +14,12 @@ namespace BDAseguradora.Formularios
                 this.lblNombre.Text = datosUsuario;
             }
         }
+        protected void btnSi_Click(object sender, EventArgs e)
+        {
+            this.Session.Add("NombreUsuario", null);
+            this.Session.Add("Tipo", null);
+            this.Session.Add("UsuarioLogeado", null);
+            this.Response.Redirect("~/Formularios/Login.aspx");
+        }
     }
 }
