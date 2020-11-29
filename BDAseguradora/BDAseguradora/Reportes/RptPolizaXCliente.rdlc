@@ -64,7 +64,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Nombre_Dpl</Value>
+                              <Value>Beneficiario</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -94,7 +94,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Cedula Dp</Value>
+                              <Value>Cedula</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -154,7 +154,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Num Adicciones Pol</Value>
+                              <Value>Cantidad </Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -214,7 +214,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Prima Antes Imp Pol</Value>
+                              <Value>Prima Antes Imp </Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -302,21 +302,21 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox8">
+                    <Textbox Name="Nombre_Dpl">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>[Nombre_Dpl]</Value>
+                              <Value>=Fields!Nombre_Dpl.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox8</rd:DefaultName>
+                      <rd:DefaultName>Nombre_Dpl</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -328,6 +328,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -583,7 +584,7 @@
       <Border>
         <Style>None</Style>
       </Border>
-      <BackgroundColor>White</BackgroundColor>
+      <BackgroundColor>Silver</BackgroundColor>
     </Style>
   </Body>
   <Width>9.6332in</Width>
@@ -678,6 +679,7 @@
         <Border>
           <Style>None</Style>
         </Border>
+        <BackgroundColor>LightGrey</BackgroundColor>
       </Style>
     </PageHeader>
     <PageFooter>
@@ -693,7 +695,10 @@
               <TextRuns>
                 <TextRun>
                   <Value>Fecha: </Value>
-                  <Style />
+                  <Style>
+                    <FontWeight>Bold</FontWeight>
+                    <Color>White</Color>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
@@ -701,7 +706,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
           <Top>0.43146cm</Top>
-          <Left>0.36724cm</Left>
+          <Left>0.33196cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <Style>
@@ -722,7 +727,10 @@
               <TextRuns>
                 <TextRun>
                   <Value>=Globals!ExecutionTime</Value>
-                  <Style />
+                  <Style>
+                    <FontWeight>Bold</FontWeight>
+                    <Color>White</Color>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
@@ -752,14 +760,17 @@
               <TextRuns>
                 <TextRun>
                   <Value>=Globals!OverallPageNumber</Value>
-                  <Style />
+                  <Style>
+                    <FontWeight>Bold</FontWeight>
+                    <Color>White</Color>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>OverallPageNumber</rd:DefaultName>
-          <Top>0.74896cm</Top>
+          <Top>0.43146cm</Top>
           <Left>21.40975cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
@@ -782,7 +793,10 @@
               <TextRuns>
                 <TextRun>
                   <Value>=User!UserID</Value>
-                  <Style />
+                  <Style>
+                    <FontWeight>Bold</FontWeight>
+                    <Color>White</Color>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
@@ -809,6 +823,7 @@
         <Border>
           <Style>None</Style>
         </Border>
+        <BackgroundColor>Black</BackgroundColor>
       </Style>
     </PageFooter>
     <PageHeight>29.7cm</PageHeight>

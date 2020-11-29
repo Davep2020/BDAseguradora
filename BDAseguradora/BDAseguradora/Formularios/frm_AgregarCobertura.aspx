@@ -5,6 +5,27 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="contenidoPrincipal" runat="server">
     <form id="frm_Poliza" runat="server">
         <%-- Creacion del NAV --%>
+                  <%-- Codigo del modal de cerrar sesion --%>
+     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Cerrar Sesión</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ¿Estas Seguro en Cerrar Sesión?
+                    </div>
+                    <div class="modal-footer">
+                        <asp:Button ID="btnNo" runat="server" data-dismiss="modal" Text="No" />
+                        <asp:Button ID="btnSi" runat="server" Text="Si" OnClick="btnSi_Click" />
+
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="container-fluid" style="margin-top: 30px">
             <div class="row mb-2">
                 <div class="col-sm-4 Primero ml-3 mr-5">
@@ -18,22 +39,21 @@
                     <p>Cambios en diferentes sectores</p>
                     <ul class="nav nav-pills flex-column">
 
-                    <li class="nav-item uno">
-                            <asp:HyperLink ID="HyperLink1" Style="text-decoration: none" runat="server" CssClass="uno" NavigateUrl="~/Formularios/frm_ConsultarCobertura.aspx">Consultar Cobertura</asp:HyperLink>
-
+                             <li class="nav-item">
+                            <a class="nav-link uno" href="frm_AgregarCobertura.aspx">Ingresar Cobertura</a>
                         </li>
-                        <br />
-                        <li class="nav-item uno">
-                            <asp:HyperLink ID="HyperLink2" Style="text-decoration: none" runat="server" CssClass="uno" NavigateUrl="~/Formularios/frm_AgregarCobertura.aspx">Agregar Cobertura</asp:HyperLink>
-
-
+                        <li class="nav-item">
+                            <a class="nav-link uno" href="frm_ConsultarCobertura.aspx">Consultar Cobertura</a>
                         </li>
-                        <br />
-                        <li class="nav-item uno">
-                            <asp:HyperLink ID="HyperLink3" Style="text-decoration: none" runat="server" CssClass="uno" NavigateUrl="~/Formularios/frm_ModificarCobertura.aspx">Modificar Cobertura</asp:HyperLink>
 
-
+                        <li class="nav-item">
+                            <a class="nav-link uno" href="frm_RegistroPoliza.aspx">Ingresar Poliza</a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link uno" href="frm_ConsultarPoliza.aspx">Consultar Poliza</a>
+                        </li>
+
 
 
                     </ul>
@@ -45,16 +65,16 @@
 
                     <div class="col-3">
                         <asp:Label ID="Label1" runat="server" Text="Nombre: "></asp:Label>
-                        <asp:TextBox ID="txtNombreCober" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtNombreCober" runat="server" required></asp:TextBox>
                         <asp:Label ID="Label2" runat="server" Text="Descripcion: "></asp:Label>
-                        <textarea id="txtADescrip" runat="server" cols="30" rows="2"></textarea>
-                        <asp:Label ID="Label3" runat="server" Text="Porcentaje: "></asp:Label>
-                        <asp:TextBox ID="txtPorcentaje" runat="server"></asp:TextBox>
+                        <textarea id="txtADescrip" runat="server" cols="30" rows="2" required></textarea>
+                        <asp:Label ID="Label3" runat="server" Text="Porcentaje: " ></asp:Label>
+                        <asp:TextBox ID="txtPorcentaje" runat="server" required></asp:TextBox>
                         <asp:Label ID="lblmensaje" CssClass="alert-info" runat="server" Width="500px"></asp:Label>
 
                     </div>
                     <asp:Button ID="btnCobertura" runat="server" Text="Agregar" OnClick="btnCobertura_Click1" />
-                    <asp:Button ID="Button1" runat="server" Text="Agregar" OnClick="btnCobertura_Click1" />
+                    
                 </div>
                  
             </div>

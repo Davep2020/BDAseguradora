@@ -6,7 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contenidoPrincipal" runat="server">
- 
+           <%-- Codigo del modal de cerrar sesion --%>
+
+    <form runat="server"> 
+     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Cerrar Sesión</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ¿Estas Seguro en Cerrar Sesión?
+                    </div>
+                    <div class="modal-footer">
+                        <asp:Button ID="btnNo" runat="server" data-dismiss="modal" Text="No" />
+                        <asp:Button ID="btnSi" runat="server" Text="Si" OnClick="btnSi_Click" />
+
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
 
@@ -18,7 +40,7 @@
                 <div>
                     <img src="../IMG/Usuario.png" alt="Logotipo" width="33%" />
                 </div>
-                <p>Some text about me in culpa qui officia deserunt mollit ani</p>
+                <asp:Label ID="lblNombre" runat="server" Font-Bold="True" Font-Size="XX-Large"></asp:Label>
                 <h3>Mantenimientos</h3>
                 <p>Cambios en diferentes sectores</p>
                 <ul class="nav nav-pills flex-column">
@@ -32,7 +54,7 @@
                         <a class="nav-link uno" href="#">Adicciones por cliente</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link uno" href="#">Reportes</a>
+                        <a class="nav-link uno" href="frm_ReportePolizaCliente.aspx">Reportes</a>
                     </li>
 
                 </ul>
@@ -87,7 +109,7 @@
         </div>
 
     </div>
-
+        </form>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="scriptsPersonalizados" runat="server">
 </asp:Content>

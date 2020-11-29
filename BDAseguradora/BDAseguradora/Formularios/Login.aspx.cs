@@ -33,7 +33,7 @@ namespace BDAseguradora.Formularios
 
             if (datosCliente==null)
             {
-                Response.Write("Datos Invalidos");
+                Response.Write("<script>alert('Datos Invalidos')</script>"); ;
                 this.Session.Add("NombreUsuario",null);
                 this.Session.Add("Tipo", null);
                 this.Session.Add("UsuarioLogeado", null);
