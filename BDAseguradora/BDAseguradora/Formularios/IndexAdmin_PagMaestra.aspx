@@ -4,6 +4,8 @@
     <title>Aseguradora</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+<META HTTP-EQUIV="EXPIRES" CONTENT="0">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contenidoPrincipal" runat="server">
            <%-- Codigo del modal de cerrar sesion --%>
@@ -15,7 +17,7 @@
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Cerrar Sesión</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
+                            <%--<span aria-hidden="true">&times;</span>--%>
                         </button>
                     </div>
                     <div class="modal-body">
@@ -98,14 +100,9 @@
                         <span class="carousel-control-next-icon"></span>
                     </a>
                 </div>
-                <br />
+          
 
-                <h2>TITLE HEADING</h2>
-                <h5>Title description, Sep 2, 2017</h5>
-                <div class="fakeimg">Fake Image</div>
-                <p>Some text..</p>
-                <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-            </div>
+               </div>
         </div>
 
     </div>

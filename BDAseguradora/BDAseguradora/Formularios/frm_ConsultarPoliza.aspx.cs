@@ -13,7 +13,11 @@ namespace BDAseguradora.Formularios
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            string datosUsuario = Convert.ToString(this.Session["NombreUsuario"]);
+            if (!string.IsNullOrEmpty(datosUsuario))
+            {
+                this.lblNombre.Text = datosUsuario;
+            }
         }
         protected void btnConsultar_Click(object sender, EventArgs e)
         {
@@ -29,15 +33,28 @@ namespace BDAseguradora.Formularios
         }
         void CargarDatos()
         {
-            ///Crear la instancia del objeto BL
-            Poliza blCliente = new Poliza();
-            ///Crear una variable que va a contener esos datos
-            List<ConsultarPoliza_Result> resultado = blCliente.RetornaPolizas(Convert.ToInt32(txtCedula.Text));
+            string mensaje = "";
+                try
+                {
+                    ///Crear la instancia del objeto BL
+                    Poliza blCliente = new Poliza();
+                    ///Crear una variable que va a contener esos datos
+                    List<ConsultarPoliza_Result> resultado = blCliente.RetornaPolizas(Convert.ToInt32(txtCedula.Text));
 
-            //La fuente de datos
-            //"grListaClientes" es el id del Grid
-            this.grdConsultarPoliza.DataSource = resultado;
-            this.grdConsultarPoliza.DataBind();
+                    //La fuente de datos
+                    //"grListaClientes" es el id del Grid
+                    this.grdConsultarPoliza.DataSource = resultado;
+                    this.grdConsultarPoliza.DataBind();
+
+                }
+                catch (Exception excepcionCapturada)
+                {
+                    mensaje += $"Ocurrió un error: {excepcionCapturada.Message}";
+                }
+                lblmensaje.Text = mensaje;
+        
         }
     }
+
 }
+

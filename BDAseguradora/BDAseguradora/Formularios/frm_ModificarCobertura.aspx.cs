@@ -17,12 +17,13 @@ namespace BDAseguradora.Formularios
             {
                 this.cargarDatosRegistro();
             }
-            
+            string datosUsuario = Convert.ToString(this.Session["NombreUsuario"]);
+            if (!string.IsNullOrEmpty(datosUsuario))
+            {
+                this.lblNombre.Text = datosUsuario;
+            }
         }
-        void ModificarCobertura()
-        {
 
-        }
 
         protected void btnSi_Click(object sender, EventArgs e)
         {
@@ -100,8 +101,8 @@ namespace BDAseguradora.Formularios
 
                     }
                 }
-                Response.Write("<script>alert('" + mensaje + "')</script>"); ;
-                ///lblmensaje.Text = mensaje;
+               
+                lblmensaje.Text = mensaje;
             }
 
 

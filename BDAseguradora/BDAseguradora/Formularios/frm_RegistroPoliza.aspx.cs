@@ -17,7 +17,11 @@ namespace BDAseguradora.Formularios
             {
                 cargaListaCobertura();
             }
-            
+            string datosUsuario = Convert.ToString(this.Session["NombreUsuario"]);
+            if (!string.IsNullOrEmpty(datosUsuario))
+            {
+                this.lblNombre.Text = datosUsuario;
+            }
         }
         protected void btnSi_Click(object sender, EventArgs e)
         {
@@ -29,6 +33,7 @@ namespace BDAseguradora.Formularios
         protected void btnPoliza_Click(object sender, EventArgs e)
         {
             AlmacenarCoberturas();
+            limpiar();
         }
         void cargaListaCobertura()
         {
@@ -40,6 +45,14 @@ namespace BDAseguradora.Formularios
 
         }
 
+
+        void limpiar()
+        {
+            txtCedula.Text = "";
+            txtFecha.Text = "";
+            txtMonto.Text = "";
+           
+        }
         void AlmacenarCoberturas()
         {
             if (this.IsValid)
@@ -64,7 +77,7 @@ namespace BDAseguradora.Formularios
                     {
                         mensaje += "El registro fue insertado";
                     }
-                    Response.Write("<script>alert('" + mensaje + "')</script>"); ;
+                    lblmensaje.Text = mensaje;
                 }
             }
         }

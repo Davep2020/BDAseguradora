@@ -1,10 +1,12 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="PaginaMaestra.master.cs" Inherits="BDAseguradora.PaginaMaestra.PaginaMaestra" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true"  CodeBehind="PaginaMaestra.master.cs"  Inherits="BDAseguradora.PaginaMaestra.PaginaMaestra" %>
 
 <!DOCTYPE html>
 
 <html>
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+<META HTTP-EQUIV="EXPIRES" CONTENT="0">
     <%--Definición de hojas de estilos para todas las páginas--%>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
@@ -81,7 +83,7 @@
     <asp:ContentPlaceHolder ID="scriptsPersonalizados" runat="server">
     </asp:ContentPlaceHolder>
     <!-- Footer -->
-    <footer class="page-footer font-small Tercero">
+    <footer class="container-fluid Tercero">
 
         <!-- Copyright -->
         <div class="footer-copyright text-center py-3">

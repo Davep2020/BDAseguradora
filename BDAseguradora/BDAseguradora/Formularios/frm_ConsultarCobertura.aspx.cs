@@ -13,7 +13,16 @@ namespace BDAseguradora.Formularios
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string datosUsuario = Convert.ToString(this.Session["NombreUsuario"]);
+            if (!string.IsNullOrEmpty(datosUsuario))
+            {
+                this.lblNombre.Text = datosUsuario;
+            }
 
+            if (Convert.ToBoolean(this.Session["UsuarioLogeado"]) != true)
+            {
+                this.Response.Redirect("~/Formularios/Login.aspx");
+            }
         }
         protected void btnConsultar_Click(object sender, EventArgs e)
         {

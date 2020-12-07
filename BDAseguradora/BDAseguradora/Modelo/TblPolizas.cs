@@ -46,7 +46,7 @@ public partial class TblPolizas
 
     public decimal PrimaFinal_Pol { get; set; }
 
-    public Nullable<System.DateTime> Fecha_Pol { get; set; }
+    public System.DateTime Fecha_Pol { get; set; }
 
 
 

@@ -3,10 +3,12 @@
     background-size: cover;
     background-attachment: fixed;
 }
+
 .Primero {
     background-color: rgba(0,0,0,.7);
     color: rgb(255, 255, 255);
-
+  
+   
 }
 
 
@@ -17,11 +19,7 @@
     background: #aaa;
 }
 .Tercero {
-    position: fixed;
-    left: 0px;
-    bottom: 0px;
-    height: 30px;
-    width: 100%;
+    padding: 15px;
     background: #999;
     background-color: rgb(0, 0, 0);
     color: rgb(255, 255, 255);

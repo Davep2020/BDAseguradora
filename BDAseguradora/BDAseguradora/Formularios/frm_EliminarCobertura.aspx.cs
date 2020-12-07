@@ -17,6 +17,12 @@ namespace BDAseguradora.Formularios
             {
 
                 this.cargaDatosRegistro();
+               
+            }
+            string datosUsuario = Convert.ToString(this.Session["NombreUsuario"]);
+            if (!string.IsNullOrEmpty(datosUsuario))
+            {
+                this.lblNombre.Text = datosUsuario;
             }
         }
         protected void btnSi_Click(object sender, EventArgs e)

@@ -1,11 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginaMaestra/PaginaMaestra.Master" AutoEventWireup="true" CodeBehind="frm_RegistroPoliza.aspx.cs" Inherits="BDAseguradora.Formularios.frm_RegistroPoliza" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contenidoPrincipal" runat="server">
-        <form id="frm_Poliza" runat="server">
+    <form id="frm_Poliza" runat="server">
 
-                      <%-- Codigo del modal de cerrar sesion --%>
-     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <%-- Codigo del modal de cerrar sesion --%>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -29,17 +30,13 @@
         <div class="container-fluid" style="margin-top: 30px">
             <div class="row mb-2">
                 <div class="col-sm-4 Primero ml-3 mr-5">
-                    <h2>About Me</h2>
-                    <h5>Photo of me:</h5>
-                    <div>
-                        <img src="../IMG/Usuario.png" alt="Logotipo" width="33%" />
-                    </div>
-                    <p>Some text about me in culpa qui officia deserunt mollit ani</p>
+                    <h2>Bienvenido</h2>
+                    <asp:Label ID="lblNombre" runat="server" Font-Bold="True" Font-Size="XX-Large"></asp:Label>
                     <h3>Mantenimientos</h3>
                     <p>Cambios en diferentes sectores</p>
                     <ul class="nav nav-pills flex-column">
 
-                           <li class="nav-item">
+                        <li class="nav-item">
                             <a class="nav-link uno" href="frm_AgregarCobertura.aspx">Ingresar Cobertura</a>
                         </li>
                         <li class="nav-item">
@@ -47,40 +44,47 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link uno" href="frm_RegistroPoliza.aspx">Ingresar Poliza</a>
+                            <a class="nav-link uno" href="frm_RegistroPoliza.aspx">Ingresar Póliza</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link uno" href="frm_ConsultarPoliza.aspx">Consultar Poliza</a>
+                            <a class="nav-link uno" href="frm_ConsultarPoliza.aspx">Consultar Póliza</a>
                         </li>
-       
+
 
 
                     </ul>
-                    <hr class="d-sm-none">
-                </div>
 
-                <div class="col-sm-7 Primero ml-5 ">
-                    <h1>Agregar Cobertura</h1>
+                </div>
+                <hr class="d-sm-none">
+                <div class="col-sm-6 Primero ml-3 mr-5 mb-5">
+                    <h1>Agregar Póliza</h1>
 
                     <div class="col-3">
-                         <asp:Label ID="Label2" runat="server" Text="Cedula: "></asp:Label>
-                         <asp:TextBox ID="txtCedula" runat="server" required></asp:TextBox>
+                        <asp:Label ID="Label2" runat="server" Text="Cedula: "></asp:Label>
+                        <asp:TextBox ID="txtCedula" runat="server" type="integer"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rqvtxtCedula" runat="server" ErrorMessage="Requiere ingresar el numero de cedula" Display="None" ControlToValidate="txtCedula"></asp:RequiredFieldValidator>
+
                         <asp:Label ID="Label1" runat="server" Text="Coberturas: "></asp:Label>
                         <asp:DropDownList ID="ddCobertura" runat="server" DataTextField="Nombre_Dpl" DataValueField="ID_DPoliza_Dpl"></asp:DropDownList>
+                        <asp:RequiredFieldValidator ID="rqvddCobertura" runat="server" ErrorMessage="Requiere Seleccionar una cobertura" Display="None" ControlToValidate="ddCobertura"></asp:RequiredFieldValidator>
                         </br>
                        
                         <asp:Label ID="Label3" runat="server" Text="Monto: "></asp:Label>
-                        <asp:TextBox ID="txtMonto" runat="server" required></asp:TextBox>
+                        <asp:TextBox ID="txtMonto" runat="server" type="number" min="1000000" max="100000000"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rqvtxtMonto" runat="server" ErrorMessage="Requiere ingresar un monto de 1,000,000 ó 100,000,000" Display="None" ControlToValidate="txtMonto"></asp:RequiredFieldValidator>
                         <asp:Label ID="Label4" runat="server" Text="Fecha de vencimiento: "></asp:Label>
-                      <asp:TextBox ID="txtFecha" runat="server" TextMode="DateTimeLocal" ></asp:TextBox>
+                        <asp:TextBox ID="txtFecha" runat="server" TextMode="DateTimeLocal"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rqvtxtFecha" runat="server" ErrorMessage="Seleccionar la fecha" Display="None" ControlToValidate="txtFecha"></asp:RequiredFieldValidator>
+                        <asp:ValidationSummary ID="ValidationSummary1" runat="server" ShowMessageBox="true" ShowSummary="false" />
+                         <asp:Label ID="lblmensaje" CssClass="alert-info" runat="server" Width="500px"></asp:Label>
                     </div>
-                    <asp:Button ID="btnPoliza" runat="server" Text="Agregar" OnClick="btnPoliza_Click"/>
-                   
+                    <asp:Button ID="btnPoliza" runat="server" Text="Agregar" OnClick="btnPoliza_Click" />
+
                 </div>
-                 
+
             </div>
-           
+
         </div>
     </form>
 

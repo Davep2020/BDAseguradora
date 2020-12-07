@@ -20,7 +20,14 @@ namespace BDAseguradora.BL
             return resultado;
         }
 
-
+        /// <summary>
+        /// Inserta la poliza
+        /// </summary>
+        /// <param name="pCedula"></param>
+        /// <param name="pCobertura"></param>
+        /// <param name="pMonto"></param>
+        /// <param name="pfecha"></param>
+        /// <returns></returns>
         public bool InsertaPoliza(int pCedula, int pCobertura, int pMonto, DateTime pfecha)
         {
             int registroAfectados = 0;

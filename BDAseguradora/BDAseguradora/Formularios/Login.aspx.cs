@@ -13,7 +13,7 @@ namespace BDAseguradora.Formularios
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+      
         }
 
         protected void btnIniciar_Click(object sender, EventArgs e)
@@ -47,7 +47,7 @@ namespace BDAseguradora.Formularios
 
                 if (Convert.ToInt32(this.Session["Tipo"])==1)
                 {
-                    this.Response.Redirect("~/Formularios/IndexAdmin_PagMaestra.aspx");
+                    this.Response.Redirect("~/Formularios/frm_Polizas.aspx");
                 }
                 else if(Convert.ToInt32(this.Session["Tipo"]) == 2)
                 {

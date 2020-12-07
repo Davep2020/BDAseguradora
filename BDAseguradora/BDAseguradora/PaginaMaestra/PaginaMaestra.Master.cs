@@ -9,9 +9,12 @@ namespace BDAseguradora.PaginaMaestra
             if (Convert.ToBoolean(this.Session["UsuarioLogeado"]) != true)
             {
                 this.Response.Redirect("~/Formularios/Login.aspx");
+                string datosUsuario = Convert.ToString(this.Session["NombreUsuario"]);
+              
             }
         }
 
+     
 
     }
 }

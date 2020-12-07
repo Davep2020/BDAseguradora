@@ -62,7 +62,7 @@
           <Property Name="PrimaAntesImp_Pol" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="Impuestos_Pol" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="PrimaFinal_Pol" Type="decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="Fecha_Pol" Type="datetime" />
+          <Property Name="Fecha_Pol" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="TblProvincia">
           <Key>
@@ -428,7 +428,7 @@
           <NavigationProperty Name="TblDetallePersona" Relationship="Self.FK_TblPolizas_TblDetallePersona" FromRole="TblPolizas" ToRole="TblDetallePersona" />
           <NavigationProperty Name="TblDetallePolizas" Relationship="Self.FK_TblPolizas_TblDetallePolizas" FromRole="TblPolizas" ToRole="TblDetallePolizas" />
           <NavigationProperty Name="TblSeguros" Relationship="Self.FK_TblSeguros_TblPolizas" FromRole="TblPolizas" ToRole="TblSeguros" />
-          <Property Name="Fecha_Pol" Type="DateTime" Precision="3" />
+          <Property Name="Fecha_Pol" Type="DateTime" Precision="3" Nullable="false" />
         </EntityType>
         <EntityType Name="TblProvincia">
           <Key>

@@ -4,8 +4,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contenidoPrincipal" runat="server">
     <form id="frm_Poliza" runat="server">
-                  <%-- Codigo del modal de cerrar sesion --%>
-     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <%-- Codigo del modal de cerrar sesion --%>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -29,17 +29,13 @@
         <div class="container-fluid" style="margin-top: 30px">
             <div class="row mb-2">
                 <div class="col-sm-4 Primero ml-3 mr-5">
-                    <h2>About Me</h2>
-                    <h5>Photo of me:</h5>
-                    <div>
-                        <img src="../IMG/Usuario.png" alt="Logotipo" width="33%" />
-                    </div>
-                    <p>Some text about me in culpa qui officia deserunt mollit ani</p>
+                    <h2>Bienvenido</h2>
+                    <asp:Label ID="lblNombre" runat="server" Font-Bold="True" Font-Size="XX-Large"></asp:Label>
                     <h3>Mantenimientos</h3>
                     <p>Cambios en diferentes sectores</p>
                     <ul class="nav nav-pills flex-column">
 
-                            <li class="nav-item">
+                        <li class="nav-item">
                             <a class="nav-link uno" href="frm_AgregarCobertura.aspx">Ingresar Cobertura</a>
                         </li>
                         <li class="nav-item">
@@ -47,27 +43,30 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link uno" href="frm_RegistroPoliza.aspx">Ingresar Poliza</a>
+                            <a class="nav-link uno" href="frm_RegistroPoliza.aspx">Ingresar Póliza</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link uno" href="frm_ConsultarPoliza.aspx">Consultar Poliza</a>
+                            <a class="nav-link uno" href="frm_ConsultarPoliza.aspx">Consultar Póliza</a>
                         </li>
 
 
 
                     </ul>
-                    <hr class="d-sm-none">
+
                 </div>
 
-                <div class="col-sm-7 Primero ml-5 ">
-                    <h1>Modificar Cobertura</h1>
+
+                <hr class="d-sm-none">
+                <div class="col-sm-6 Primero ml-3 mr-5 mb-5">
+
 
                     <div class="col-3">
+                        <h1>Eliminar Cobertura</h1>
                         <asp:Label ID="Label1" runat="server" Text="Nombre: "></asp:Label>
                         <asp:TextBox ID="txtNombreCober" runat="server" Enabled="False"></asp:TextBox>
                         <asp:Label ID="Label2" runat="server" Text="Descripcion: "></asp:Label>
-                        <textarea id="txtADescrip" runat="server" cols="30" rows="2" enableviewstate="False"></textarea>
+                        <textarea disabled id="txtADescrip" runat="server" cols="30" rows="2" enableviewstate="False" Enabled="false"></textarea>
                         <asp:Label ID="Label3" runat="server" Text="Porcentaje: "></asp:Label>
                         <asp:TextBox ID="txtPorcentaje" runat="server" Enabled="False"></asp:TextBox>
                         <asp:HiddenField ID="hdiId" runat="server" />
@@ -80,8 +79,9 @@
                 </div>
 
             </div>
-
         </div>
+        
+   
     </form>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="scriptsPersonalizados" runat="server">

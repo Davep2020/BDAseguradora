@@ -18,7 +18,11 @@ namespace BDAseguradora.Formularios
                 this.cargaListaCobertura();
                 this.cargarDatosRegistro();
             }
-
+            string datosUsuario = Convert.ToString(this.Session["NombreUsuario"]);
+            if (!string.IsNullOrEmpty(datosUsuario))
+            {
+                this.lblNombre.Text = datosUsuario;
+            }
         }
 
         protected void btnSi_Click(object sender, EventArgs e)
@@ -30,39 +34,62 @@ namespace BDAseguradora.Formularios
         }
         void cargarDatosRegistro()
         {
-            string parametro =
+            DateTime fecha = DateTime.Now.Date;
+            string mensaje = "";
+
+
+            try
+            {
+                string parametro =
                             this.Request.QueryString["ID_Polizas_Pol"];
-            if (String.IsNullOrEmpty(parametro))
-            {
-                Response.Write("Parametro Nulo"); 
-            }
-            else
-            {
-                int ID_Polizas_Pol = Convert.ToInt16(parametro);
-                Poliza ocobertura = new Poliza();
-                RetornPolizaID_Result dCober = new RetornPolizaID_Result();
-
-
-                dCober = ocobertura.RetornaPolizaID(ID_Polizas_Pol);
-
-                if (dCober == null)
+                if (String.IsNullOrEmpty(parametro))
                 {
-                    Response.Redirect("frm_ConsultarPoliza.aspx");
+                    Response.Write("Parametro Nulo");
                 }
                 else
                 {
-             
-                    this.txtCedula.Text = dCober.Cedula_Dp.ToString();
-                    this.ddCobertura.SelectedValue = dCober.Nombre_Dpl.ToString();
-                    this.txtMonto.Text = dCober.MontoAsegurado_Pol.ToString();
-                    this.txtFecha.Text = dCober.Fecha_Pol.ToString();
+                    int ID_Polizas_Pol = Convert.ToInt16(parametro);
+                    Poliza ocobertura = new Poliza();
+                    RetornPolizaID_Result dCober = new RetornPolizaID_Result();
+
+
+                    dCober = ocobertura.RetornaPolizaID(ID_Polizas_Pol);
+
+                    if (dCober == null)
+                    {
+                        Response.Redirect("frm_ConsultarPoliza.aspx");
+                    }
+                    else
+                    {
+
+                        this.txtCedula.Text = dCober.Cedula_Dp.ToString();
+                        this.ddCobertura.SelectedValue = dCober.Nombre_Dpl.ToString();
+                        this.txtMonto.Text = dCober.MontoAsegurado_Pol.ToString();
+                        this.txtFecha.Text = dCober.Fecha_Pol.ToString();
 
 
 
-                  this.hdiId.Value = dCober.ID_Polizas_Pol.ToString();
+                        this.hdiId.Value = dCober.ID_Polizas_Pol.ToString();
+
+
+                        if (Convert.ToDateTime(this.txtFecha.Text).Date < fecha)
+                        {
+
+
+                            btnModificar.Enabled = false;
+
+                        }
+                    }
+
                 }
+            }
+            catch (Exception excepcionCapturada)
+            {
+                mensaje += $"Ocurrió un error: {excepcionCapturada.Message}";
 
             }
+
+            lblmensaje.Text = mensaje;
         }
 
         protected void btnModificar_Click(object sender, EventArgs e)
@@ -71,6 +98,10 @@ namespace BDAseguradora.Formularios
         }
         void AlmacenarDatos()
         {
+
+
+
+
             if (this.IsValid)
             {
                 Poliza oCliente = new Poliza();
@@ -85,7 +116,7 @@ namespace BDAseguradora.Formularios
                         Convert.ToInt32(this.txtCedula.Text),
                         Convert.ToInt32(this.ddCobertura.SelectedValue),
                         Convert.ToInt32(this.txtMonto.Text),
-                        Convert.ToDateTime(this.txtFecha.Text)
+                        Convert.ToDateTime(this.txtFecha.Text).Date
                         );
                 }
                 catch (Exception excepcionCapturada)
@@ -102,9 +133,12 @@ namespace BDAseguradora.Formularios
 
                     }
                 }
-                Response.Write("<script>alert('" + mensaje + "')</script>"); ;
-                ///lblmensaje.Text = mensaje;
+
+                lblmensaje.Text = mensaje;
             }
+
+
+
 
 
 

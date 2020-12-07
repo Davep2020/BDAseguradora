@@ -13,7 +13,16 @@ namespace BDAseguradora.Formularios
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Convert.ToBoolean(this.Session["UsuarioLogeado"]) != true)
+            {
+                this.Response.Redirect("~/Formularios/Login.aspx");
+            }
 
+            string datosUsuario = Convert.ToString(this.Session["NombreUsuario"]);
+            if (!string.IsNullOrEmpty(datosUsuario))
+            {
+                this.lblNombre.Text = datosUsuario;
+            }
         }
         protected void btnSi_Click(object sender, EventArgs e)
         {
@@ -38,8 +47,8 @@ namespace BDAseguradora.Formularios
                 }
                 catch (Exception excepcionCapturada)
                 {
-                    mensaje += $"Ocurrio un error:{excepcionCapturada.Message}";
-
+                    mensaje += $"Ocurrió un error:{excepcionCapturada.Message}";
+                    lblError.Text = mensaje;
                 }
 
                 finally
@@ -47,8 +56,10 @@ namespace BDAseguradora.Formularios
                     if (resultado)
                     {
                         mensaje += "El registro fue insertado";
+                        lblmensaje.Text = mensaje;
                     }
-                    lblmensaje.Text = mensaje;
+                    
+                    limpiar();
                 }
             }
         }
@@ -66,7 +77,7 @@ namespace BDAseguradora.Formularios
         protected void btnCobertura_Click1(object sender, EventArgs e)
         {
             this.AlmacenarCoberturas();
-            this.limpiar();
+            
         }
 
     }

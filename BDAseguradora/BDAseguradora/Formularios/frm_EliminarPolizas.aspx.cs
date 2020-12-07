@@ -18,6 +18,11 @@ namespace BDAseguradora.Formularios
 
                 this.cargaDatosRegistro();
             }
+            string datosUsuario = Convert.ToString(this.Session["NombreUsuario"]);
+            if (!string.IsNullOrEmpty(datosUsuario))
+            {
+                this.lblNombre.Text = datosUsuario;
+            }
         }
         protected void btnSi_Click(object sender, EventArgs e)
         {
@@ -33,7 +38,7 @@ namespace BDAseguradora.Formularios
 
         void cargaDatosRegistro()
         {
-
+            DateTime fecha = DateTime.Now.Date;
             ///obtener el parámetro envíado desde el grid
             ///es CASESENSITIVE
             string parametro =
@@ -69,6 +74,16 @@ namespace BDAseguradora.Formularios
                     this.txtVencim.Text = datosCliente.Fecha_Pol.ToString();
 
                     this.hdiId.Value = datosCliente.ID_Polizas_Pol.ToString();
+
+
+                    if (Convert.ToDateTime(this.txtVencim.Text).Date < fecha)
+                    {
+
+
+                        btnEliminar.Enabled = false;
+
+                    }
+
                 }
             }
         }
@@ -106,7 +121,7 @@ namespace BDAseguradora.Formularios
                     }
                 }
                 ///mostrar el mensaje
-                Response.Write("<script>alert('" + mensaje + "')</script>"); ;
+                lblmensaje.Text = mensaje;
             }
         }
     }
