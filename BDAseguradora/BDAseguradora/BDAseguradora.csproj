@@ -181,6 +181,7 @@
     <Content Include="Formularios\IndexAdmin_PagMaestra.aspx" />
     <Content Include="Formularios\Index_PagMaestra.aspx" />
     <Content Include="Formularios\Login.aspx" />
+    <Content Include="Formularios\ReporteAdiccion.aspx" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -466,6 +467,13 @@
     <Compile Include="Formularios\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\ReporteAdiccion.aspx.cs">
+      <DependentUpon>ReporteAdiccion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\ReporteAdiccion.aspx.designer.cs">
+      <DependentUpon>ReporteAdiccion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -507,6 +515,9 @@
       <DependentUpon>AseguradoraBD.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\RetornPolizaID_Result.cs">
+      <DependentUpon>AseguradoraBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\spDatosReporteAdicciones_Result.cs">
       <DependentUpon>AseguradoraBD.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\spMuestraAdiccion_Result.cs">
@@ -608,6 +619,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Reportes\ReporteAdiccion.rdlc" />
     <EmbeddedResource Include="Reportes\RptPolizaXCliente.rdlc" />
   </ItemGroup>
   <PropertyGroup>
