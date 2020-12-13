@@ -54,6 +54,16 @@ namespace BDAseguradora.BL
             return resultado;
         }
 
+          public List<ReportePolizaCliente_Result>RetornaReporte(int pCedula,string pApellido, int pMonto, DateTime pfecha)
+        {
+            ///crear la variable que se retornará
+            List<ReportePolizaCliente_Result> resultado = new List<ReportePolizaCliente_Result>();
+            ///asignarle a la variable el resultado del llamado del procedimiento almacenado
+            resultado = this.Polizas.ReportePolizaCliente(pCedula, pApellido, pMonto,pfecha).ToList();
+            return resultado;
+        }
+
+
         public RetornPolizaID_Result RetornaPolizaID(int pid)
         {
             RetornPolizaID_Result resultado = new RetornPolizaID_Result();

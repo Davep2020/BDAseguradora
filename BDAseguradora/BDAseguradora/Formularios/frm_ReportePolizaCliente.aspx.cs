@@ -17,7 +17,11 @@ namespace BDAseguradora.Formularios
         bdaseguradoraEntities Pack = new bdaseguradoraEntities();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            string datosUsuario = Convert.ToString(this.Session["NombreUsuario"]);
+            if (!string.IsNullOrEmpty(datosUsuario))
+            {
+                this.lblNombre.Text = datosUsuario;
+            }
         }
         protected void btnSi_Click(object sender, EventArgs e)
         {
@@ -47,34 +51,35 @@ namespace BDAseguradora.Formularios
             }
             else
             {
+                Poliza oPoliza = new Poliza();
                 rpvClientes.LocalReport.ReportPath = rutaServidor;
                 var infoFuenteDatos = this.rpvClientes.LocalReport.GetDataSourceNames();
-                ///limpiar los datos de la fuente de datos
+
+
+
                 rpvClientes.LocalReport.DataSources.Clear();
-                ///obtener los datos del reporte
-                List<ConsultarPoliza_Result> datosReporte = this.retornaDatosReporte(Convert.ToInt32(this.txtCedula.Text));
-                ///crear la fuente de datos
+
+
+
+                List<ReportePolizaCliente_Result> datosReporte = oPoliza.RetornaReporte(Convert.ToInt32(this.txtCedula.Text), txtApellido.Text, Convert.ToInt32(this.txtMonto.Text), Convert.ToDateTime(this.txtFecha.Text));
+
+
+
                 ReportDataSource fuenteDatos = new ReportDataSource();
                 fuenteDatos.Name = infoFuenteDatos[0];
                 fuenteDatos.Value = datosReporte;
-                // agregar la fuente de datos al reporte
+
+
+
                 this.rpvClientes.LocalReport.DataSources.Add(fuenteDatos);
 
-                /// mostrar los datos en el reporte
+
+
                 this.rpvClientes.LocalReport.Refresh();
+
+
             }
         }
-        /// <summary>
-        /// Función que retorna la fuente de datos a mostrar en el reporte
-        /// </summary>
-        /// <param name="pPrimerApellido"></param>
-        /// <param name="pNombre"></param>
-        /// <returns></returns>
-        List<ConsultarPoliza_Result> retornaDatosReporte(
-            int pCedula)
-        {
-            return this.Pack.ConsultarPoliza(pCedula).ToList();
-                  
-        }
+       
     }
 }

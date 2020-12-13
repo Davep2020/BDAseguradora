@@ -454,4 +454,31 @@ namespace BDAseguradora.Modelo
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spDatosReporteAdicciones_Result>("spDatosReporteAdicciones", nombreClienteParameter, cedulaParameter, codAdiccionParameter, nombreAdiccionParameter);
         }
     }
+
+    public virtual ObjectResult<ReportePolizaCliente_Result> ReportePolizaCliente(Nullable<int> cedula, string apellido, Nullable<int> monto, Nullable<System.DateTime> fecha)
+    {
+
+        var cedulaParameter = cedula.HasValue ?
+            new ObjectParameter("Cedula", cedula) :
+            new ObjectParameter("Cedula", typeof(int));
+
+
+        var apellidoParameter = apellido != null ?
+            new ObjectParameter("Apellido", apellido) :
+            new ObjectParameter("Apellido", typeof(string));
+
+
+        var montoParameter = monto.HasValue ?
+            new ObjectParameter("Monto", monto) :
+            new ObjectParameter("Monto", typeof(int));
+
+
+        var fechaParameter = fecha.HasValue ?
+            new ObjectParameter("Fecha", fecha) :
+            new ObjectParameter("Fecha", typeof(System.DateTime));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ReportePolizaCliente_Result>("ReportePolizaCliente", cedulaParameter, apellidoParameter, montoParameter, fechaParameter);
+    }
+
 }

@@ -238,6 +238,17 @@
     <Content Include="bdaseguradoraDataSet.xss">
       <DependentUpon>bdaseguradoraDataSet.xsd</DependentUpon>
     </Content>
+    <Content Include="bdaseguradoraDataSet11.xsc">
+      <DependentUpon>bdaseguradoraDataSet11.xsd</DependentUpon>
+    </Content>
+    <None Include="bdaseguradoraDataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>bdaseguradoraDataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="bdaseguradoraDataSet11.xss">
+      <DependentUpon>bdaseguradoraDataSet11.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -300,6 +311,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>bdaseguradoraDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="bdaseguradoraDataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bdaseguradoraDataSet11.xsd</DependentUpon>
     </Compile>
     <Compile Include="BL\BLAdicciones.cs" />
     <Compile Include="BL\BLCliente.cs" />
@@ -422,6 +438,7 @@
     </Compile>
     <Compile Include="Formularios\frm_Polizas.aspx.cs">
       <DependentUpon>frm_Polizas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Formularios\frm_Polizas.aspx.designer.cs">
       <DependentUpon>frm_Polizas.aspx</DependentUpon>
@@ -511,6 +528,9 @@
       <DependentUpon>AseguradoraBD.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\ConsultarPoliza_Result.cs">
+      <DependentUpon>AseguradoraBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\ReportePolizaCliente_Result.cs">
       <DependentUpon>AseguradoraBD.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\RetornaCoberturaID_Result.cs">
