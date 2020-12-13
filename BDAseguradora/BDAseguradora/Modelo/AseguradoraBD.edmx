@@ -243,6 +243,12 @@
           <Parameter Name="Des" Type="varchar" Mode="In" />
           <Parameter Name="Porce" Type="int" Mode="In" />
         </Function>
+        <Function Name="spDatosReporteAdicciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombreCliente" Type="varchar" Mode="In" />
+          <Parameter Name="cedula" Type="int" Mode="In" />
+          <Parameter Name="codAdiccion" Type="varchar" Mode="In" />
+          <Parameter Name="nombreAdiccion" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="spEliminaAdiccionCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id" Type="int" Mode="In" />
         </Function>
@@ -758,6 +764,12 @@
             <Parameter Name="Monto" Mode="In" Type="Int32" />
             <Parameter Name="Fecha" Mode="In" Type="DateTime" />
           </FunctionImport>
+          <FunctionImport Name="spDatosReporteAdicciones" ReturnType="Collection(bdaseguradoraModel.spDatosReporteAdicciones_Result)">
+            <Parameter Name="nombreCliente" Mode="In" Type="String" />
+            <Parameter Name="cedula" Mode="In" Type="Int32" />
+            <Parameter Name="codAdiccion" Mode="In" Type="String" />
+            <Parameter Name="nombreAdiccion" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <Association Name="FK_TblDetallePersona_TblProvincia">
           <End Type="bdaseguradoraModel.TblProvincia" Role="TblProvincia" Multiplicity="0..1" />
@@ -899,6 +911,21 @@
           <Property Type="String" Name="Nombre_Dpl" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Descripción_Dpl" Nullable="false" MaxLength="500" />
           <Property Type="Int32" Name="Porcentaje_Dpl" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="spDatosReporteAdicciones_Result">
+          <Property Type="Int32" Name="ID_DPersona_Dp" Nullable="false" />
+          <Property Type="Int32" Name="Cedula_Dp" Nullable="false" />
+          <Property Type="String" Name="Genero_DP" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="Fecha_nacimiento_Dp" Nullable="false" />
+          <Property Type="String" Name="Primer_Apellido_Dp" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Segundo_Apellido_Dp" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Nombre_Dp" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Dirección_Física_Dp" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Correo_Electrónico_Dp" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Telefono_Principal_Dp" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Nombre_Prv" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Nombre_Ad" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Codigo_Ad" Nullable="false" MaxLength="50" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1206,6 +1233,25 @@
                 <ScalarProperty Name="Nombre_Dpl" ColumnName="Nombre_Dpl" />
                 <ScalarProperty Name="Descripción_Dpl" ColumnName="Descripción_Dpl" />
                 <ScalarProperty Name="Porcentaje_Dpl" ColumnName="Porcentaje_Dpl" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spDatosReporteAdicciones" FunctionName="bdaseguradoraModel.Store.spDatosReporteAdicciones">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="bdaseguradoraModel.spDatosReporteAdicciones_Result">
+                <ScalarProperty Name="ID_DPersona_Dp" ColumnName="ID_DPersona_Dp" />
+                <ScalarProperty Name="Cedula_Dp" ColumnName="Cedula_Dp" />
+                <ScalarProperty Name="Genero_DP" ColumnName="Genero_DP" />
+                <ScalarProperty Name="Fecha_nacimiento_Dp" ColumnName="Fecha_nacimiento_Dp" />
+                <ScalarProperty Name="Primer_Apellido_Dp" ColumnName="Primer_Apellido_Dp" />
+                <ScalarProperty Name="Segundo_Apellido_Dp" ColumnName="Segundo_Apellido_Dp" />
+                <ScalarProperty Name="Nombre_Dp" ColumnName="Nombre_Dp" />
+                <ScalarProperty Name="Dirección_Física_Dp" ColumnName="Dirección_Física_Dp" />
+                <ScalarProperty Name="Correo_Electrónico_Dp" ColumnName="Correo_Electrónico_Dp" />
+                <ScalarProperty Name="Telefono_Principal_Dp" ColumnName="Telefono_Principal_Dp" />
+                <ScalarProperty Name="Nombre_Prv" ColumnName="Nombre_Prv" />
+                <ScalarProperty Name="Nombre_Ad" ColumnName="Nombre_Ad" />
+                <ScalarProperty Name="Codigo_Ad" ColumnName="Codigo_Ad" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
