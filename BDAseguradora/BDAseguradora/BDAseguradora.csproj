@@ -162,6 +162,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Formularios\frm_AgregarAdiccionXC_PagMaestra.aspx" />
     <Content Include="Formularios\frm_AgregarCobertura.aspx" />
+    <Content Include="Formularios\frm_ClienteVista.aspx" />
     <Content Include="Formularios\frm_ConsultarCobertura.aspx" />
     <Content Include="Formularios\frm_EliminarAdiccionCliente.aspx" />
     <Content Include="Formularios\frm_EliminarCliente.aspx" />
@@ -334,6 +335,13 @@
     </Compile>
     <Compile Include="Formularios\frm_AgregarCobertura.aspx.designer.cs">
       <DependentUpon>frm_AgregarCobertura.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_ClienteVista.aspx.cs">
+      <DependentUpon>frm_ClienteVista.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_ClienteVista.aspx.designer.cs">
+      <DependentUpon>frm_ClienteVista.aspx</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frm_ConsultarCobertura.aspx.cs">
       <DependentUpon>frm_ConsultarCobertura.aspx</DependentUpon>

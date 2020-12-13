@@ -1,23 +1,80 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginaMaestra/PaginaMaestra.Master" AutoEventWireup="true" CodeBehind="frm_ModificarCliente.aspx.cs" Inherits="BDAseguradora.Formularios.frm_ModificarCliente" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="../CSS/estilosRegistro&Consulta_Clientes.css" rel="stylesheet" />
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="contenidoPrincipal" runat="server">
-    <form id="frmClienteActualiza" runat="server" > 
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frm_ClienteVista.aspx.cs" Inherits="BDAseguradora.Formularios.frm_ClienteVista" %>
 
-         <h2>Registro de Clientes</h2>
+<!DOCTYPE html>
 
-        <div class="container">
-            <div class="row justify-content-around">
-                <div class="form-group">
-                <asp:Label ID="lblCedulaBuscar" runat="server" Text="Cédula" ></asp:Label>
-                <asp:TextBox ID="txtCedula" runat="server" CssClass="form-control"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="rqvCedula" Display="None" runat="server" 
-                ControlToValidate="txtCedula" ErrorMessage="Debe ingresar un número de cédula."></asp:RequiredFieldValidator>
-            <asp:ValidationSummary ID="vsCedula" ShowMessageBox="true" runat="server"  ShowSummary="false"/>
-            <asp:CompareValidator ID="cmptxtCedula" runat="server" ErrorMessage="Debe digitar números en la cédula, sin espacios ni guiones"
-                ControlToValidate="txtCedula" Operator="DataTypeCheck" Type="Integer" Display="None" ></asp:CompareValidator>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+    <META HTTP-EQUIV="EXPIRES" CONTENT="0">
+    <%--Definición de hojas de estilos para todas las páginas--%>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <link href="../Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="../CSS/Admi.css" rel="stylesheet" />
+
+
+    <script src="../JS/main.js"></script>
+    <title></title>
+</head>
+<body class="body1 body">
+    <form id="form1" runat="server">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+                <ul class="navbar-nav mr-auto">
+
+                    <li class="nav-item uno">
+                        <a class="nav-link" href=".aspx">Reporte Adicciones <i class="fa fa-list fa-fw"></i></a>
+                    </li>
+                    <li class="nav-item uno">
+                        <a class="nav-link" href=".aspx">Reporte Polizas<i class="fa fa-shield  fa-fw"></i></a>
+                    </li>
+
+                </ul>
             </div>
+            <div class="mx-auto order-0">
+
+                <a class="navbar-brand mx-auto">
+                    <img src="../IMG/Logo.png" alt="Logotipo" style="margin-right: 6%" width="33%" />Aseguradora</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+            </div>
+            <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item uno">
+                        <a class="nav-link" href="frm_ClienteVista.aspx">Home<i class="fa fa-home fa-fw"></i></a>
+
+                    </li>
+                    <li class="nav-item uno">
+                        <a class="nav-link" href="../Formularios/Login.aspx" data-toggle="modal" data-target="#exampleModal">Cerrar Sesion <i class="fa fa-sign-out fa-fw"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Modal -->
+
+
+
+
+        <h2>Tus Datos Personales</h2>
+
+<%--        <div class="container">
+            <div class="row justify-content-around">
+                <div class="form-group mr10">
+                    <asp:Label ID="lblCedulaBuscar" runat="server" Text="Cédula" ></asp:Label>
+                    <asp:TextBox ID="txtCedula" runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rqvCedula" Display="None" runat="server" 
+                    ControlToValidate="txtCedula" ErrorMessage="Debe ingresar un número de cédula."></asp:RequiredFieldValidator>
+                    <asp:ValidationSummary ID="vsCedula" ShowMessageBox="true" runat="server"  ShowSummary="false"/>
+                    <asp:CompareValidator ID="cmptxtCedula" runat="server" ErrorMessage="Debe digitar números en la cédula, sin espacios ni guiones"
+                    ControlToValidate="txtCedula" Operator="DataTypeCheck" Type="Integer" Display="None" ></asp:CompareValidator>
+                </div>
 
               <div class="form-group">
                   <asp:Label ID="lblGenero" runat="server" Text="Género" ></asp:Label>      
@@ -52,7 +109,7 @@
                     <asp:RequiredFieldValidator ID="rqvTxtSegundoApellido" runat="server" ControlToValidate="txtSegundoApellido" ErrorMessage="Debe ingresar el segundo apellido" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
                 </div>
             </div>
-            <%--Fin 3 columnas--%>
+
 
 
             <div class="row justify-content-around">
@@ -101,19 +158,38 @@
 
             <div class="row justify-content-around">
                 
-                <asp:Button ID="btnAgregarUsuario" runat="server" Text="Agregar" class="btn boton" OnClick="btnAgregarUsuario_Click" />
+                <asp:Button ID="btnModificar" runat="server" Text="Modificar mis datos" class="btn boton boton-rojo" />
 
             </div>
 
-        </div><%--Contenedor--%>
+
+        </div>--%>
 
 
-         <div class="bajar">
-             <asp:HiddenField ID="hdIdCliente" runat="server"/>
-         </div>
+            <asp:GridView ID="GridView1" runat="server">
+            </asp:GridView>
 
 
-</form>
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="scriptsPersonalizados" runat="server">
-</asp:Content>
+
+
+        <div class="mb-117">
+        </div>
+
+
+
+
+            <!-- Footer -->
+    <footer class="container-fluid Tercero">
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">
+            © 2020 Copyright:
+    <a>Aeguradora</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+    </form>
+</body>
+</html>

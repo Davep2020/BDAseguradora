@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <Height>1.51886in</Height>
+    <Style />
+  </Body>
+  <Width>6.5in</Width>
+  <Page>
+    <PageHeader>
+      <Height>3.05745cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Image Name="Image1">
+          <Source>Embedded</Source>
+          <Value>Logo</Value>
+          <Sizing>FitProportional</Sizing>
+          <Top>0.52cm</Top>
+          <Left>0.41417cm</Left>
+          <Height>1.5cm</Height>
+          <Width>1.5cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+        <Textbox Name="Textbox1">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>EL EQUIPO DEL SIGLO XXI</Value>
+                  <Style>
+                    <FontSize>14pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox1</rd:DefaultName>
+          <Top>0.52cm</Top>
+          <Left>5.07683cm</Left>
+          <Height>0.70583cm</Height>
+          <Width>6.86562cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox2">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Adicciones Por Clientes</Value>
+                  <Style>
+                    <FontSize>12pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox2</rd:DefaultName>
+          <Top>1.42cm</Top>
+          <Left>6.02933cm</Left>
+          <Height>0.6cm</Height>
+          <Width>4.77542cm</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageHeader>
+    <PageFooter>
+      <Height>4.04313cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Rectangle Name="Rectangle1">
+          <ReportItems>
+            <Textbox Name="Textbox4">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Fecha: </Value>
+                      <Style>
+                        <FontWeight>Bold</FontWeight>
+                        <Color>White</Color>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox4</rd:DefaultName>
+              <Top>1.34938cm</Top>
+              <Left>0.41417cm</Left>
+              <Height>0.6cm</Height>
+              <Width>2.5cm</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="ExecutionTime">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Globals!ExecutionTime</Value>
+                      <Style>
+                        <Color>White</Color>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>ExecutionTime</rd:DefaultName>
+              <Top>1.34938cm</Top>
+              <Left>3.09056cm</Left>
+              <Height>0.6cm</Height>
+              <Width>2.5cm</Width>
+              <ZIndex>1</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+          </ReportItems>
+          <KeepTogether>true</KeepTogether>
+          <Top>1.54312cm</Top>
+          <Height>2.5cm</Height>
+          <Width>16.51cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <BackgroundColor>Black</BackgroundColor>
+          </Style>
+        </Rectangle>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageFooter>
+    <PageHeight>29.7cm</PageHeight>
+    <PageWidth>21cm</PageWidth>
+    <LeftMargin>2cm</LeftMargin>
+    <RightMargin>2cm</RightMargin>
+    <TopMargin>2cm</TopMargin>
+    <BottomMargin>2cm</BottomMargin>
+    <ColumnSpacing>0.13cm</ColumnSpacing>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <EmbeddedImages>
+    <EmbeddedImage Name="Logo">
+      <MIMEType>image/jpeg</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>a818f703-96d3-41c8-a334-54f173f3d4fc</rd:ReportID>
+</Report>
