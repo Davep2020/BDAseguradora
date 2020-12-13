@@ -249,6 +249,17 @@
     <Content Include="bdaseguradoraDataSet11.xss">
       <DependentUpon>bdaseguradoraDataSet11.xsd</DependentUpon>
     </Content>
+    <Content Include="bdaseguradoraDataSet2.xsc">
+      <DependentUpon>bdaseguradoraDataSet2.xsd</DependentUpon>
+    </Content>
+    <None Include="bdaseguradoraDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>bdaseguradoraDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="bdaseguradoraDataSet2.xss">
+      <DependentUpon>bdaseguradoraDataSet2.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -316,6 +327,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>bdaseguradoraDataSet11.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="bdaseguradoraDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bdaseguradoraDataSet2.xsd</DependentUpon>
     </Compile>
     <Compile Include="BL\BLAdicciones.cs" />
     <Compile Include="BL\BLCliente.cs" />
