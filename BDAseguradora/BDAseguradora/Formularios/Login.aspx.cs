@@ -47,11 +47,11 @@ namespace BDAseguradora.Formularios
 
                 if (Convert.ToInt32(this.Session["Tipo"])==1)
                 {
-                    this.Response.Redirect("~/Formularios/frm_Polizas.aspx");
+                    this.Response.Redirect("~/Formularios/IndexAdmin_PagMaestra.aspx");
                 }
                 else if(Convert.ToInt32(this.Session["Tipo"]) == 2)
                 {
-                    this.Response.Redirect("~/Formularios/Index_PagMaestra.aspx");
+                    this.Response.Redirect("~/Formularios/frm_ClienteVista.aspx");
                 }
                 
 
