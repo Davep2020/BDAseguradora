@@ -3,8 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contenidoPrincipal" runat="server">
+    <form runat="server" id="form11">
     <%-- Codigo del modal de cerrar sesion --%>
-     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <%--<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -23,7 +24,7 @@
                     </div>
                 </div>
             </div>
-        </div> <%--Modal--%>
+        </div>--%> <%--Modal--%>
 
 
         <div>
@@ -34,8 +35,7 @@
     <div>
         <asp:Label Text="Nombre: " runat="server" />
         <asp:TextBox runat="server" id="txtNombre"/>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
-            ErrorMessage="RequiredFieldValidator" Type="Text"></asp:RequiredFieldValidator>
+        
     </div>
     <div>
         <asp:Label Text="Cédula: " runat="server" />
@@ -51,7 +51,7 @@
     </div>
 
     <div>
-        <asp:Button Text="text" ID="btnBuscar" runat="server" OnClick="btnBuscar_Click" />
+        <asp:Button Text="Buscar" ID="btnBuscar" runat="server" OnClick="btnBuscar_Click" />
     </div>
 
     <div>
@@ -61,6 +61,7 @@
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <rsweb:ReportViewer ID="rpvAdicciones" runat="server" Width="100%">
         </rsweb:ReportViewer>
+        </form>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="scriptsPersonalizados" runat="server">
 </asp:Content>

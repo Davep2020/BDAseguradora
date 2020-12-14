@@ -28,7 +28,7 @@ namespace BDAseguradora.Formularios
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-
+            construirReporte();
         }
         
         void construirReporte()
