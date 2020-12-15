@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BDAseguradora.BL;
+using BDAseguradora.Modelo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +13,18 @@ namespace BDAseguradora.Formularios
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            cargarDatos();
+        }
 
+         void cargarDatos()
+        {
+            ///Crear la instancia del objeto BL
+            BLCliente blCliente = new BLCliente();
+            ///Variable con el sp y los datos
+            List<spMostrarDatosCliente_Result> datos = blCliente.RetornaDatosCliente(Session["correo"].ToString());
+            ///Fuente de datos
+            grdVistaCliente.DataSource = datos;
+            grdVistaCliente.DataBind();
         }
     }
 }

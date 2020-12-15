@@ -173,6 +173,7 @@
     <Content Include="Formularios\frm_ModificarAdicción.aspx" />
     <Content Include="Formularios\frm_ModificarCobertura.aspx" />
     <Content Include="Formularios\frm_ModificarCliente.aspx" />
+    <Content Include="Formularios\frm_ModificarMisDatos.aspx" />
     <Content Include="Formularios\frm_ModificarPolizas.aspx" />
     <Content Include="Formularios\frm_Polizas.aspx" />
     <Content Include="Formularios\frm_RegistroClientes_PagMaestra.aspx" />
@@ -183,6 +184,8 @@
     <Content Include="Formularios\Index_PagMaestra.aspx" />
     <Content Include="Formularios\Login.aspx" />
     <Content Include="Formularios\ReporteAdiccion.aspx" />
+    <Content Include="Formularios\ReporteAdiccionCliente.aspx" />
+    <Content Include="Formularios\ReportePolizaCliente.aspx" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -260,6 +263,28 @@
     <Content Include="bdaseguradoraDataSet2.xss">
       <DependentUpon>bdaseguradoraDataSet2.xsd</DependentUpon>
     </Content>
+    <Content Include="bdaseguradoraDSDatosReporteAdiccionesCliente.xsc">
+      <DependentUpon>bdaseguradoraDSDatosReporteAdiccionesCliente.xsd</DependentUpon>
+    </Content>
+    <None Include="bdaseguradoraDSDatosReporteAdiccionesCliente.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>bdaseguradoraDSDatosReporteAdiccionesCliente.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="bdaseguradoraDSDatosReporteAdiccionesCliente.xss">
+      <DependentUpon>bdaseguradoraDSDatosReporteAdiccionesCliente.xsd</DependentUpon>
+    </Content>
+    <Content Include="DSReportePolizasCliente.xsc">
+      <DependentUpon>DSReportePolizasCliente.xsd</DependentUpon>
+    </Content>
+    <None Include="DSReportePolizasCliente.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSReportePolizasCliente.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="DSReportePolizasCliente.xss">
+      <DependentUpon>DSReportePolizasCliente.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -333,6 +358,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>bdaseguradoraDataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="bdaseguradoraDSDatosReporteAdiccionesCliente.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bdaseguradoraDSDatosReporteAdiccionesCliente.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BL\BLAdicciones.cs" />
     <Compile Include="BL\BLCliente.cs" />
     <Compile Include="BL\BLProvincia.cs" />
@@ -353,6 +383,11 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DSReportePolizasCliente.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSReportePolizasCliente.xsd</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frm_AgregarAdiccionXC_PagMaestra.aspx.cs">
       <DependentUpon>frm_AgregarAdiccionXC_PagMaestra.aspx</DependentUpon>
@@ -445,6 +480,13 @@
     <Compile Include="Formularios\frm_ModificarCobertura.aspx.designer.cs">
       <DependentUpon>frm_ModificarCobertura.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frm_ModificarMisDatos.aspx.cs">
+      <DependentUpon>frm_ModificarMisDatos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_ModificarMisDatos.aspx.designer.cs">
+      <DependentUpon>frm_ModificarMisDatos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\frm_ModificarPolizas.aspx.cs">
       <DependentUpon>frm_ModificarPolizas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -515,6 +557,20 @@
     <Compile Include="Formularios\ReporteAdiccion.aspx.designer.cs">
       <DependentUpon>ReporteAdiccion.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\ReporteAdiccionCliente.aspx.cs">
+      <DependentUpon>ReporteAdiccionCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\ReporteAdiccionCliente.aspx.designer.cs">
+      <DependentUpon>ReporteAdiccionCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\ReportePolizaCliente.aspx.cs">
+      <DependentUpon>ReportePolizaCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\ReportePolizaCliente.aspx.designer.cs">
+      <DependentUpon>ReportePolizaCliente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -561,7 +617,16 @@
     <Compile Include="Modelo\RetornPolizaID_Result.cs">
       <DependentUpon>AseguradoraBD.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\spDatosReporteAdiccionesCliente_Result.cs">
+      <DependentUpon>AseguradoraBD.tt</DependentUpon>
+    </Compile>
     <Compile Include="Modelo\spDatosReporteAdicciones_Result.cs">
+      <DependentUpon>AseguradoraBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\spDatosReportePolizasCliente_Result.cs">
+      <DependentUpon>AseguradoraBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\spMostrarDatosCliente_Result.cs">
       <DependentUpon>AseguradoraBD.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\spMuestraAdiccion_Result.cs">
@@ -664,6 +729,8 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Reportes\ReporteAdiccion.rdlc" />
+    <EmbeddedResource Include="Reportes\ReporteAdiccionesCliente.rdlc" />
+    <EmbeddedResource Include="Reportes\ReportePolizaCliente.rdlc" />
     <EmbeddedResource Include="Reportes\RptPolizaXCliente.rdlc" />
   </ItemGroup>
   <PropertyGroup>
