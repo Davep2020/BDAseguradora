@@ -25,8 +25,6 @@ namespace BDAseguradora.Formularios
         }
         void RealizarAutenticacion()
         {
-            string mensaje = "";
-            try
             {
                 Logins oCliente = new Logins();
                 RetornaUsuaPwd_Result datosCliente = new RetornaUsuaPwd_Result();

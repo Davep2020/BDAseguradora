@@ -1,7 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frm_ClienteVista.aspx.cs" Inherits="BDAseguradora.Formularios.frm_ClienteVista" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ReporteAdiccionCliente.aspx.cs" Inherits="BDAseguradora.Formularios.ReporteAdiccionCliente" %>
+<%@ Register Assembly="Microsoft.ReportViewer.WebForms" Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -16,9 +16,6 @@
 
     <link href="../Content/font-awesome.min.css" rel="stylesheet" />
     <link href="../CSS/Admi.css" rel="stylesheet" />
-
-
-    <script src="../JS/main.js"></script>
     <title></title>
 </head>
 <body class="body1 body">
@@ -60,46 +57,18 @@
         <!-- Modal -->
 
 
-
-        <div style="margin-bottom:100px"></div>
-       
+        <asp:Label Text="" ID="lblMensaje" runat="server" />
 
 
-            <asp:GridView ID="grdVistaCliente" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
-                <AlternatingRowStyle BackColor="White" />
-                <Columns>
-                    <asp:BoundField DataField="Nombre_Dp" HeaderText="Nombre" />
-                    <asp:BoundField DataField="Primer_Apellido_Dp" HeaderText="Primer Apellido" />
-                    <asp:BoundField DataField="Segundo_Apellido_Dp" HeaderText="Segundo Apellido" />
-                    <asp:BoundField DataField="Correo_Electrónico_Dp" HeaderText="Correo" />
-                    <asp:BoundField DataField="Cedula_Dp" HeaderText="Cédula" />
-                    <asp:BoundField DataField="Genero_DP" HeaderText="Género" />
-                    <asp:BoundField DataField="Fecha_nacimiento_Dp" HeaderText="Fecha Nacimiento" />
-                    <asp:BoundField DataField="Dirección_Física_Dp" HeaderText="Dirección" />
-                    <asp:BoundField DataField="Telefono_Principal_Dp" HeaderText="Teléfono 1°" />
-                    <asp:BoundField DataField="Telefono_Secundario_Dp" HeaderText="Teléfono 2°" />
-                    <asp:HyperLinkField DataNavigateUrlFields="ID_DPersona_Dp" DataNavigateUrlFormatString="frm_ModificarMisDatos.aspx?ID_DPersona_Dp={0}" Text="Modificar mis datos" />
-                </Columns>
-                <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-                <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-                <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-                <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
-                <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
-                <SortedAscendingCellStyle BackColor="#FDF5AC" />
-                <SortedAscendingHeaderStyle BackColor="#4D0000" />
-                <SortedDescendingCellStyle BackColor="#FCF6C0" />
-                <SortedDescendingHeaderStyle BackColor="#820000" />
-            </asp:GridView>
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+
+        <rsweb:ReportViewer ID="rpvAdicciones" runat="server" Width="100%">
+        </rsweb:ReportViewer>
 
 
+        <div style="margin-bottom:117px"></div> 
 
-
-        <div class="mb-117" style="margin-bottom:350px"></div>
-
-
-
-
-            <!-- Footer -->
+        <!-- Footer -->
     <footer class="container-fluid Tercero">
 
         <!-- Copyright -->

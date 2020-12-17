@@ -105,5 +105,21 @@ namespace BDAseguradora.BL
 
             return registros > 0;
         }
+
+
+
+        /// <summary>
+        /// Método que retorna los datos del cliente
+        /// /// </summary>
+        /// <param name="pCorreo">Correo del cliente</param>
+        /// <returns></returns>
+        public List<spMostrarDatosCliente_Result> RetornaDatosCliente(string pCorreo)
+        {
+            List<spMostrarDatosCliente_Result> resultados = new List<spMostrarDatosCliente_Result>();
+            resultados = this.blCliente.spMostrarDatosCliente(pCorreo).ToList();
+            ///Retorna el valor
+            return resultados;
+        }
+
     }
 }

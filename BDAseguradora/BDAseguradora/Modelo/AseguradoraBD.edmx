@@ -252,6 +252,12 @@
           <Parameter Name="codAdiccion" Type="varchar" Mode="In" />
           <Parameter Name="nombreAdiccion" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="spDatosReporteAdiccionesCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="correo" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spDatosReportePolizasCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="correo" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="spEliminaAdiccionCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id" Type="int" Mode="In" />
         </Function>
@@ -304,6 +310,9 @@
           <Parameter Name="idProvincia" Type="int" Mode="In" />
         </Function>
         <Function Name="spMostrarAdicciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spMostrarDatosCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="correo" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="spMuestraAdiccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="cedula" Type="int" Mode="In" />
         </Function>
@@ -776,6 +785,15 @@
           <FunctionImport Name="Correo" ReturnType="Collection(bdaseguradoraModel.Correo_Result)">
             <Parameter Name="ID_Usuario" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="spMostrarDatosCliente" ReturnType="Collection(bdaseguradoraModel.spMostrarDatosCliente_Result)">
+          <Parameter Name="correo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spDatosReporteAdiccionesCliente" ReturnType="Collection(bdaseguradoraModel.spDatosReporteAdiccionesCliente_Result)">
+          <Parameter Name="correo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spDatosReportePolizasCliente" ReturnType="Collection(bdaseguradoraModel.spDatosReportePolizasCliente_Result)">
+            <Parameter Name="correo" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <Association Name="FK_TblDetallePersona_TblProvincia">
           <End Type="bdaseguradoraModel.TblProvincia" Role="TblProvincia" Multiplicity="0..1" />
@@ -938,6 +956,65 @@
           <Property Type="String" Name="Ussers_Sg" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Password_Sg" Nullable="false" MaxLength="25" />
           <Property Type="DateTime" Name="Ult_Fecha_Ing_Sg" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="spMostrarDatosCliente_Result">
+          <Property Type="Int32" Name="ID_DPersona_Dp" Nullable="false" />
+          <Property Type="Int32" Name="Cedula_Dp" Nullable="false" />
+          <Property Type="String" Name="Genero_DP" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="Fecha_nacimiento_Dp" Nullable="false" />
+          <Property Type="String" Name="Primer_Apellido_Dp" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Segundo_Apellido_Dp" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Nombre_Dp" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Dirección_Física_Dp" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Correo_Electrónico_Dp" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Telefono_Principal_Dp" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Telefono_Secundario_Dp" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Nombre_Prv" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="spDatosReporteAdiccionesCliente_Result">
+          <Property Type="Int32" Name="ID_DPersona_Dp" Nullable="false" />
+          <Property Type="Int32" Name="Cedula_Dp" Nullable="false" />
+          <Property Type="String" Name="Genero_DP" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="Fecha_nacimiento_Dp" Nullable="false" />
+          <Property Type="String" Name="Primer_Apellido_Dp" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Segundo_Apellido_Dp" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Nombre_Dp" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Dirección_Física_Dp" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Correo_Electrónico_Dp" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Telefono_Principal_Dp" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Nombre_Prv" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Nombre_Ad" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Codigo_Ad" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="spDatosReportePolizasCliente_Result">
+          <Property Type="Int32" Name="ID_Polizas_Pol" Nullable="false" />
+          <Property Type="Int32" Name="ID_DPoliza_Pol" Nullable="false" />
+          <Property Type="Int32" Name="ID_DPersona_Pol" Nullable="false" />
+          <Property Type="Decimal" Name="MontoAsegurado_Pol" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="PorcentajeCobertura_Pol" Nullable="false" />
+          <Property Type="Int32" Name="NumAdicciones_Pol" Nullable="false" />
+          <Property Type="Decimal" Name="MontoAdicciones_Pol" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="PrimaAntesImp_Pol" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="Impuestos_Pol" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="PrimaFinal_Pol" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="Fecha_Pol" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="ID_DPersona_Dp" Nullable="false" />
+          <Property Type="Int32" Name="Cedula_Dp" Nullable="false" />
+          <Property Type="String" Name="Genero_DP" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="Fecha_nacimiento_Dp" Nullable="false" />
+          <Property Type="String" Name="Nombre_Dp" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Primer_Apellido_Dp" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Segundo_Apellido_Dp" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Dirección_Física_Dp" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Telefono_Principal_Dp" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Telefono_Secundario_Dp" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Correo_Electrónico_Dp" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="ID_TipoPersona_Dp" Nullable="false" />
+          <Property Type="Int32" Name="ID_Provincia_Dp" Nullable="true" />
+          <Property Type="Int32" Name="ID_DPoliza_Dpl" Nullable="false" />
+          <Property Type="String" Name="Nombre_Dpl" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Descripción_Dpl" Nullable="false" MaxLength="500" />
+          <Property Type="Int32" Name="Porcentaje_Dpl" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1274,6 +1351,77 @@
                 <ScalarProperty Name="Ussers_Sg" ColumnName="Ussers_Sg" />
                 <ScalarProperty Name="Password_Sg" ColumnName="Password_Sg" />
                 <ScalarProperty Name="Ult_Fecha_Ing_Sg" ColumnName="Ult_Fecha_Ing_Sg" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spMostrarDatosCliente" FunctionName="bdaseguradoraModel.Store.spMostrarDatosCliente">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="bdaseguradoraModel.spMostrarDatosCliente_Result">
+                <ScalarProperty Name="ID_DPersona_Dp" ColumnName="ID_DPersona_Dp" />
+                <ScalarProperty Name="Cedula_Dp" ColumnName="Cedula_Dp" />
+                <ScalarProperty Name="Genero_DP" ColumnName="Genero_DP" />
+                <ScalarProperty Name="Fecha_nacimiento_Dp" ColumnName="Fecha_nacimiento_Dp" />
+                <ScalarProperty Name="Primer_Apellido_Dp" ColumnName="Primer_Apellido_Dp" />
+                <ScalarProperty Name="Segundo_Apellido_Dp" ColumnName="Segundo_Apellido_Dp" />
+                <ScalarProperty Name="Nombre_Dp" ColumnName="Nombre_Dp" />
+                <ScalarProperty Name="Dirección_Física_Dp" ColumnName="Dirección_Física_Dp" />
+                <ScalarProperty Name="Correo_Electrónico_Dp" ColumnName="Correo_Electrónico_Dp" />
+                <ScalarProperty Name="Telefono_Principal_Dp" ColumnName="Telefono_Principal_Dp" />
+                <ScalarProperty Name="Telefono_Secundario_Dp" ColumnName="Telefono_Secundario_Dp" />
+                <ScalarProperty Name="Nombre_Prv" ColumnName="Nombre_Prv" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spDatosReporteAdiccionesCliente" FunctionName="bdaseguradoraModel.Store.spDatosReporteAdiccionesCliente">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="bdaseguradoraModel.spDatosReporteAdiccionesCliente_Result">
+                <ScalarProperty Name="ID_DPersona_Dp" ColumnName="ID_DPersona_Dp" />
+                <ScalarProperty Name="Cedula_Dp" ColumnName="Cedula_Dp" />
+                <ScalarProperty Name="Genero_DP" ColumnName="Genero_DP" />
+                <ScalarProperty Name="Fecha_nacimiento_Dp" ColumnName="Fecha_nacimiento_Dp" />
+                <ScalarProperty Name="Primer_Apellido_Dp" ColumnName="Primer_Apellido_Dp" />
+                <ScalarProperty Name="Segundo_Apellido_Dp" ColumnName="Segundo_Apellido_Dp" />
+                <ScalarProperty Name="Nombre_Dp" ColumnName="Nombre_Dp" />
+                <ScalarProperty Name="Dirección_Física_Dp" ColumnName="Dirección_Física_Dp" />
+                <ScalarProperty Name="Correo_Electrónico_Dp" ColumnName="Correo_Electrónico_Dp" />
+                <ScalarProperty Name="Telefono_Principal_Dp" ColumnName="Telefono_Principal_Dp" />
+                <ScalarProperty Name="Nombre_Prv" ColumnName="Nombre_Prv" />
+                <ScalarProperty Name="Nombre_Ad" ColumnName="Nombre_Ad" />
+                <ScalarProperty Name="Codigo_Ad" ColumnName="Codigo_Ad" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spDatosReportePolizasCliente" FunctionName="bdaseguradoraModel.Store.spDatosReportePolizasCliente">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="bdaseguradoraModel.spDatosReportePolizasCliente_Result">
+                <ScalarProperty Name="ID_Polizas_Pol" ColumnName="ID_Polizas_Pol" />
+                <ScalarProperty Name="ID_DPoliza_Pol" ColumnName="ID_DPoliza_Pol" />
+                <ScalarProperty Name="ID_DPersona_Pol" ColumnName="ID_DPersona_Pol" />
+                <ScalarProperty Name="MontoAsegurado_Pol" ColumnName="MontoAsegurado_Pol" />
+                <ScalarProperty Name="PorcentajeCobertura_Pol" ColumnName="PorcentajeCobertura_Pol" />
+                <ScalarProperty Name="NumAdicciones_Pol" ColumnName="NumAdicciones_Pol" />
+                <ScalarProperty Name="MontoAdicciones_Pol" ColumnName="MontoAdicciones_Pol" />
+                <ScalarProperty Name="PrimaAntesImp_Pol" ColumnName="PrimaAntesImp_Pol" />
+                <ScalarProperty Name="Impuestos_Pol" ColumnName="Impuestos_Pol" />
+                <ScalarProperty Name="PrimaFinal_Pol" ColumnName="PrimaFinal_Pol" />
+                <ScalarProperty Name="Fecha_Pol" ColumnName="Fecha_Pol" />
+                <ScalarProperty Name="ID_DPersona_Dp" ColumnName="ID_DPersona_Dp" />
+                <ScalarProperty Name="Cedula_Dp" ColumnName="Cedula_Dp" />
+                <ScalarProperty Name="Genero_DP" ColumnName="Genero_DP" />
+                <ScalarProperty Name="Fecha_nacimiento_Dp" ColumnName="Fecha_nacimiento_Dp" />
+                <ScalarProperty Name="Nombre_Dp" ColumnName="Nombre_Dp" />
+                <ScalarProperty Name="Primer_Apellido_Dp" ColumnName="Primer_Apellido_Dp" />
+                <ScalarProperty Name="Segundo_Apellido_Dp" ColumnName="Segundo_Apellido_Dp" />
+                <ScalarProperty Name="Dirección_Física_Dp" ColumnName="Dirección_Física_Dp" />
+                <ScalarProperty Name="Telefono_Principal_Dp" ColumnName="Telefono_Principal_Dp" />
+                <ScalarProperty Name="Telefono_Secundario_Dp" ColumnName="Telefono_Secundario_Dp" />
+                <ScalarProperty Name="Correo_Electrónico_Dp" ColumnName="Correo_Electrónico_Dp" />
+                <ScalarProperty Name="ID_TipoPersona_Dp" ColumnName="ID_TipoPersona_Dp" />
+                <ScalarProperty Name="ID_Provincia_Dp" ColumnName="ID_Provincia_Dp" />
+                <ScalarProperty Name="ID_DPoliza_Dpl" ColumnName="ID_DPoliza_Dpl" />
+                <ScalarProperty Name="Nombre_Dpl" ColumnName="Nombre_Dpl" />
+                <ScalarProperty Name="Descripción_Dpl" ColumnName="Descripción_Dpl" />
+                <ScalarProperty Name="Porcentaje_Dpl" ColumnName="Porcentaje_Dpl" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

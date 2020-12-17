@@ -11,7 +11,7 @@ namespace BDAseguradora.Modelo
 {
     using System;
     
-    public partial class spDatosReporteAdicciones_Result
+    public partial class spDatosReporteAdiccionesCliente_Result
     {
         public int ID_DPersona_Dp { get; set; }
         public int Cedula_Dp { get; set; }
