@@ -199,6 +199,9 @@
         <Function Name="ConsultarPoliza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Cedula" Type="int" Mode="In" />
         </Function>
+        <Function Name="Correo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID_Usuario" Type="int" Mode="In" />
+        </Function>
         <Function Name="EliminaCoberturas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id" Type="int" Mode="In" />
         </Function>
@@ -770,6 +773,9 @@
             <Parameter Name="Monto" Mode="In" Type="Int32" />
             <Parameter Name="Fecha" Mode="In" Type="DateTime" />
           </FunctionImport>
+          <FunctionImport Name="Correo" ReturnType="Collection(bdaseguradoraModel.Correo_Result)">
+            <Parameter Name="ID_Usuario" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <Association Name="FK_TblDetallePersona_TblProvincia">
           <End Type="bdaseguradoraModel.TblProvincia" Role="TblProvincia" Multiplicity="0..1" />
@@ -926,6 +932,12 @@
           <Property Type="String" Name="Nombre_Dpl" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Descripción_Dpl" Nullable="false" MaxLength="500" />
           <Property Type="Int32" Name="Porcentaje_Dpl" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="Correo_Result">
+          <Property Type="Int32" Name="ID_DPersona_Sg" Nullable="false" />
+          <Property Type="String" Name="Ussers_Sg" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Password_Sg" Nullable="false" MaxLength="25" />
+          <Property Type="DateTime" Name="Ult_Fecha_Ing_Sg" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1252,6 +1264,16 @@
                 <ScalarProperty Name="Nombre_Dpl" ColumnName="Nombre_Dpl" />
                 <ScalarProperty Name="Descripción_Dpl" ColumnName="Descripción_Dpl" />
                 <ScalarProperty Name="Porcentaje_Dpl" ColumnName="Porcentaje_Dpl" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Correo" FunctionName="bdaseguradoraModel.Store.Correo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="bdaseguradoraModel.Correo_Result">
+                <ScalarProperty Name="ID_DPersona_Sg" ColumnName="ID_DPersona_Sg" />
+                <ScalarProperty Name="Ussers_Sg" ColumnName="Ussers_Sg" />
+                <ScalarProperty Name="Password_Sg" ColumnName="Password_Sg" />
+                <ScalarProperty Name="Ult_Fecha_Ing_Sg" ColumnName="Ult_Fecha_Ing_Sg" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

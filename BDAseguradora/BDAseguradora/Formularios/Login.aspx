@@ -12,7 +12,7 @@
     <form id="form1" runat="server">
         <div class="contenedor-form">
             <div class="toggle">
-                <span>Aseguradora</span>
+                <span style="display:none">Aseguradora</span>
             </div>
 
             <div class="formulario">

@@ -41,6 +41,7 @@
                     <asp:BoundField DataField="Nombre_Prv" HeaderText="Provincia" />
                     <asp:HyperLinkField DataNavigateUrlFields="ID_DPersona_Dp" DataNavigateUrlFormatString="frm_ModificarCliente.aspx?ID_DPersona_Dp={0}" Text="Modificar" />
                     <asp:HyperLinkField DataNavigateUrlFields="ID_DPersona_Dp" DataNavigateUrlFormatString="frm_EliminarCliente.aspx?ID_DPersona_Dp={0}" Text="Eliminar" />
+                     <asp:HyperLinkField DataNavigateUrlFields="ID_DPersona_Dp" DataNavigateUrlFormatString="frm_EnviarCorreo.aspx?ID_DPersona_Dp={0}" Text="Enviar Correo" />
                 </Columns>
                 <FooterStyle BackColor="#CCCCCC" />
                 <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
