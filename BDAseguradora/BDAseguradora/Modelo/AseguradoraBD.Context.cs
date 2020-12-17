@@ -501,17 +501,18 @@ namespace BDAseguradora.Modelo
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spDatosReportePolizasCliente_Result>("spDatosReportePolizasCliente", correoParameter);
         }
+        public virtual ObjectResult<Correo_Result> Correo(Nullable<int> iD_Usuario)
+        {
+
+            var iD_UsuarioParameter = iD_Usuario.HasValue ?
+                new ObjectParameter("ID_Usuario", iD_Usuario) :
+                new ObjectParameter("ID_Usuario", typeof(int));
+
+
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Correo_Result>("Correo", iD_UsuarioParameter);
+        }
     }
 
-    public virtual ObjectResult<Correo_Result> Correo(Nullable<int> iD_Usuario)
-    {
-
-        var iD_UsuarioParameter = iD_Usuario.HasValue ?
-            new ObjectParameter("ID_Usuario", iD_Usuario) :
-            new ObjectParameter("ID_Usuario", typeof(int));
-
-
-        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Correo_Result>("Correo", iD_UsuarioParameter);
-    }
+   
 
 }

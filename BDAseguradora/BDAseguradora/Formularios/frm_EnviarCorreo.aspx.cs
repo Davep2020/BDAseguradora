@@ -30,74 +30,52 @@ namespace BDAseguradora.Formularios
 
         protected void btnCorreo_Click(object sender, EventArgs e)
         {
-            string tomail = "";
-            tomail = txtCorreo.Text;
-            string pass = "";
-            pass = txtContraseña.Text;
-            MailMessage mail = new MailMessage();
-            SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
-            mail.From = new MailAddress("Aseguradora@gmail.com");
-            mail.To.Add(txtCorreo.Text);
-            mail.To.Add(txtCorreo.Text);
-            mail.Subject = "Password Recovery ";
-            mail.Body += " <html>";
-            mail.Body += "<body>";
-            mail.Body += "<table>";
+            bool resultado = false;
+            string mensaje = "";
+            try
+            {
+                string tomail = "";
+                tomail = txtCorreo.Text;
+                string pass = "";
+                pass = txtContraseña.Text;
+                MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+                mail.From = new MailAddress("Aseguradora@gmail.com");
+                mail.To.Add(txtCorreo.Text);
+                mail.Subject = "Credenciales de ingreso";
+                mail.Body += " <html>";
+                mail.Body += "<body>";
+                mail.Body += "<table>";
 
-            mail.Body += "<tr>";
-            mail.Body += "<td>User Name : </td><td>"+tomail+"</td>";
-            mail.Body += "</tr>";
+                mail.Body += "<tr>";
+                mail.Body += "<td>Usuario: </td><td>" + tomail + "</td>";
+                mail.Body += "</tr>";
 
-            mail.Body += "<tr>";
-            mail.Body += "<td>Password : </td><td>"+pass+"</td>";
-            mail.Body += "</tr>";
+                mail.Body += "<tr>";
+                mail.Body += "<td>Contraseña: </td><td>" + pass + "</td>";
+                mail.Body += "</tr>";
 
-            mail.Body += "</table>";
-            mail.Body += "</body>";
-            mail.Body += "</html>";
+                mail.Body += "</table>";
+                mail.Body += "</body>";
+                mail.Body += "</html>";
 
-            mail.IsBodyHtml = true;
-            SmtpServer.Port = 587;
-            SmtpServer.Credentials = new System.Net.NetworkCredential("AseguradoraPuriscal@gmail.com", "gl9#^oWWV#er");
-            SmtpServer.EnableSsl = true;
+                mail.IsBodyHtml = true;
+                SmtpServer.Port = 587;
+                SmtpServer.Credentials = new System.Net.NetworkCredential("AseguradoraPuriscal@gmail.com", "gl9#^oWWV#er");
+                SmtpServer.EnableSsl = true;
 
-            SmtpServer.Send(mail);
+                SmtpServer.Send(mail);
+                mensaje += "El Correo fue enviado.";
+            }
+            catch (Exception excepcion)
+            {
+                //Mensaje de error si no funciona
+                mensaje += $"Ocurrió un error:{excepcion.Message}";
+            }
+    
+            ///mostrar el mensaje
+            Response.Write("<script>alert('" + mensaje + "')</script>"); ;
 
-
-
-
-
-
-
-
-
-
-
-            //string body =
-            //    "<body>"+
-            //    "<h1>Bienvenido</h1>"+
-            //    "<h4>Querido Asociado</h4>" +
-            //    "<span>Estan son las credenciales para ingresar a su plataforma </span>" +
-            //    "<span>de gestion de datos de la aseuradora.</span>" +
-            //    "<h4>Usuario:r/><span>Saludos Cordiales.</span> " +
-            //    "</body> </h4>" +txtCorreo.Text+
-            //    "<h4>Contraseña: </h4>" +txtContraseña.Text+
-            //    "<br/><b";
-            //string tomail = "";
-            //tomail = txtCorreo.Text;
-
-            //SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-            //smtp.Credentials = new NetworkCredential("jdavidaraya11@gmail.com", "manzanas123xd");
-            //smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
-            //smtp.EnableSsl = true;
-            //smtp.UseDefaultCredentials = false;
-            //MailMessage mail = new MailMessage();
-            //mail.From = new MailAddress("jdavidaraya11@gmail.com", "Credenciales");
-            //mail.To.Add(new MailAddress(tomail));
-            //mail.Subject = "Mensaje de Bienvenida";
-            //mail.IsBodyHtml = true;
-            //mail.Body=body;
-            //smtp.Send(mail);
         }
 
         protected void btnSi_Click(object sender, EventArgs e)
