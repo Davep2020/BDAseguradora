@@ -25,6 +25,8 @@ public partial class Correo_Result
 
     public System.DateTime Ult_Fecha_Ing_Sg { get; set; }
 
+    public string DatosUsuario { get; set; }
+
 }
 
 }

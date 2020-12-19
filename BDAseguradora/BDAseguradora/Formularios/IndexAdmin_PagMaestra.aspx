@@ -36,8 +36,11 @@
         <div class="container-fluid" style="margin-top: 30px">
             <div class="row mb-2">
                 <div class="col-sm-4 Primero ml-3 mr-5">
-                    <h2>Bienvenido</h2>
-                    <asp:Label ID="lblNombre" runat="server" Font-Bold="True" Font-Size="XX-Large"></asp:Label>
+                    <h1>Bienvenido</h1>
+                    <asp:Label ID="lblNombre" runat="server" Font-Bold="True" Font-Size="X-Large"></asp:Label>
+                    <br />
+                    <asp:Label ID="Label2" runat="server" Font-Bold="True" Text="Usted ingresó por última vez:" Font-Size="X-Large"></asp:Label>
+                    <asp:Label ID="lblFecha" runat="server" Font-Bold="True" Font-Size="X-Large"></asp:Label>
                     <h3>Mantenimientos</h3>
                     <p>Cambios en diferentes sectores</p>
                     <ul class="nav nav-pills flex-column">

@@ -38,24 +38,20 @@ namespace BDAseguradora.Formularios
                 tomail = txtCorreo.Text;
                 string pass = "";
                 pass = txtContraseña.Text;
+                string datos = "";
+                datos = txtDatos.Text;
                 MailMessage mail = new MailMessage();
                 SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
                 mail.From = new MailAddress("Aseguradora@gmail.com");
                 mail.To.Add(txtCorreo.Text);
-                mail.Subject = "Credenciales de ingreso";
+                mail.Subject = "Su cuenta en Seguros El Equipo del Siglo XXI.";
                 mail.Body += " <html>";
                 mail.Body += "<body>";
-                mail.Body += "<table>";
-
-                mail.Body += "<tr>";
-                mail.Body += "<td>Usuario: </td><td>" + tomail + "</td>";
-                mail.Body += "</tr>";
-
-                mail.Body += "<tr>";
-                mail.Body += "<td>Contraseña: </td><td>" + pass + "</td>";
-                mail.Body += "</tr>";
-
-                mail.Body += "</table>";
+                mail.Body += "<h1>Estimado cliente:  </h1>"+ datos+ ", gracias por confiar en Seguros el Equipo del Siglo XXI. Para nosotros es un placer servirle."+"</br>";
+                mail.Body += "<h1>Sus credenciales para ingresar son los siguientes: </h1>"+"</br>";
+                mail.Body += "<h1>Usuario: </h1>"+ tomail;
+                mail.Body += "<h1>Clave: </h1>"+ pass;
+                mail.Body += "<h1>Gracias</h1>";
                 mail.Body += "</body>";
                 mail.Body += "</html>";
 
@@ -116,6 +112,7 @@ namespace BDAseguradora.Formularios
                 {
                     this.txtCorreo.Text = datosCliente.Ussers_Sg;
                     this.txtContraseña.Text = datosCliente.Password_Sg;
+                    this.txtDatos.Text = datosCliente.DatosUsuario;
                     this.txtFecha.Text = datosCliente.Ult_Fecha_Ing_Sg.ToString();
 
                 }

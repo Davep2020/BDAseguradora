@@ -27,6 +27,8 @@ public partial class RetornaUsuaPwd_Result
 
     public Nullable<int> Tipo { get; set; }
 
+    public string Fecha { get; set; }
+
 }
 
 }

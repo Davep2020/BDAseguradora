@@ -747,10 +747,6 @@
             <Parameter Name="Monto" Mode="In" Type="Int32" />
             <Parameter Name="Fecha" Mode="In" Type="DateTime" />
           </FunctionImport>
-          <FunctionImport Name="RetornaUsuaPwd" ReturnType="Collection(bdaseguradoraModel.RetornaUsuaPwd_Result)">
-            <Parameter Name="Usuario" Mode="In" Type="String" />
-            <Parameter Name="contrasena" Mode="In" Type="String" />
-          </FunctionImport>
           <FunctionImport Name="spMuestraAdiccion" ReturnType="Collection(bdaseguradoraModel.spMuestraAdiccion_Result)">
           <Parameter Name="cedula" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -769,9 +765,6 @@
             <Parameter Name="cedula" Mode="In" Type="Int32" />
             <Parameter Name="codAdiccion" Mode="In" Type="String" />
             <Parameter Name="nombreAdiccion" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="Correo" ReturnType="Collection(bdaseguradoraModel.Correo_Result)">
-          <Parameter Name="ID_Usuario" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spMostrarDatosCliente" ReturnType="Collection(bdaseguradoraModel.spMostrarDatosCliente_Result)">
           <Parameter Name="correo" Mode="In" Type="String" />
@@ -793,6 +786,13 @@
             <Parameter Name="Apellido" Mode="In" Type="String" />
             <Parameter Name="Monto" Mode="In" Type="Int32" />
             <Parameter Name="Nombre_Cobertura" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="RetornaUsuaPwd" ReturnType="Collection(bdaseguradoraModel.RetornaUsuaPwd_Result)">
+            <Parameter Name="Usuario" Mode="In" Type="String" />
+            <Parameter Name="contrasena" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Correo" ReturnType="Collection(bdaseguradoraModel.Correo_Result)">
+          <Parameter Name="ID_Usuario" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <Association Name="FK_TblDetallePersona_TblProvincia">
@@ -885,13 +885,6 @@
           <Property Type="Decimal" Name="PrimaFinal_Pol" Nullable="false" Precision="18" Scale="0" />
           <Property Type="DateTime" Name="Fecha_Pol" Nullable="true" Precision="23" />
         </ComplexType>
-        <ComplexType Name="RetornaUsuaPwd_Result">
-          <Property Type="Int32" Name="ID_Seguridad_Sg" Nullable="false" />
-          <Property Type="String" Name="Ussers_Sg" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="Password_Sg" Nullable="false" MaxLength="25" />
-          <Property Type="String" Name="Nombre" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="Tipo" Nullable="true" />
-        </ComplexType>
         <ComplexType Name="spMuestraAdiccion_Result">
           <Property Type="String" Name="Nombre_Ad" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Codigo_Ad" Nullable="false" MaxLength="50" />
@@ -920,12 +913,6 @@
           <Property Type="String" Name="Nombre_Prv" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Nombre_Ad" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Codigo_Ad" Nullable="false" MaxLength="50" />
-        </ComplexType>
-        <ComplexType Name="Correo_Result">
-          <Property Type="Int32" Name="ID_DPersona_Sg" Nullable="false" />
-          <Property Type="String" Name="Ussers_Sg" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="Password_Sg" Nullable="false" MaxLength="25" />
-          <Property Type="DateTime" Name="Ult_Fecha_Ing_Sg" Nullable="false" />
         </ComplexType>
         <ComplexType Name="spMostrarDatosCliente_Result">
           <Property Type="Int32" Name="ID_DPersona_Dp" Nullable="false" />
@@ -1015,6 +1002,21 @@
           <Property Type="String" Name="Nombre_Dpl" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Descripción_Dpl" Nullable="false" MaxLength="500" />
           <Property Type="Int32" Name="Porcentaje_Dpl" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="RetornaUsuaPwd_Result">
+          <Property Type="Int32" Name="ID_Seguridad_Sg" Nullable="false" />
+          <Property Type="String" Name="Ussers_Sg" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Password_Sg" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="Nombre" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Tipo" Nullable="true" />
+          <Property Type="String" Name="Fecha" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="Correo_Result">
+          <Property Type="Int32" Name="ID_DPersona_Sg" Nullable="false" />
+          <Property Type="String" Name="Ussers_Sg" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Password_Sg" Nullable="false" MaxLength="25" />
+          <Property Type="DateTime" Name="Ult_Fecha_Ing_Sg" Nullable="false" />
+          <Property Type="String" Name="DatosUsuario" Nullable="true" MaxLength="100" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1255,17 +1257,6 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="ModificaPoliza" FunctionName="bdaseguradoraModel.Store.ModificaPoliza" />
-          <FunctionImportMapping FunctionImportName="RetornaUsuaPwd" FunctionName="bdaseguradoraModel.Store.RetornaUsuaPwd">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="bdaseguradoraModel.RetornaUsuaPwd_Result">
-                <ScalarProperty Name="ID_Seguridad_Sg" ColumnName="ID_Seguridad_Sg" />
-                <ScalarProperty Name="Ussers_Sg" ColumnName="Ussers_Sg" />
-                <ScalarProperty Name="Password_Sg" ColumnName="Password_Sg" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="spMuestraAdiccion" FunctionName="bdaseguradoraModel.Store.spMuestraAdiccion">
             <ResultMapping>
               <ComplexTypeMapping TypeName="bdaseguradoraModel.spMuestraAdiccion_Result">
@@ -1306,16 +1297,6 @@
                 <ScalarProperty Name="Nombre_Prv" ColumnName="Nombre_Prv" />
                 <ScalarProperty Name="Nombre_Ad" ColumnName="Nombre_Ad" />
                 <ScalarProperty Name="Codigo_Ad" ColumnName="Codigo_Ad" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="Correo" FunctionName="bdaseguradoraModel.Store.Correo">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="bdaseguradoraModel.Correo_Result">
-                <ScalarProperty Name="ID_DPersona_Sg" ColumnName="ID_DPersona_Sg" />
-                <ScalarProperty Name="Ussers_Sg" ColumnName="Ussers_Sg" />
-                <ScalarProperty Name="Password_Sg" ColumnName="Password_Sg" />
-                <ScalarProperty Name="Ult_Fecha_Ing_Sg" ColumnName="Ult_Fecha_Ing_Sg" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -1422,6 +1403,29 @@
                 <ScalarProperty Name="Nombre_Dpl" ColumnName="Nombre_Dpl" />
                 <ScalarProperty Name="Descripción_Dpl" ColumnName="Descripción_Dpl" />
                 <ScalarProperty Name="Porcentaje_Dpl" ColumnName="Porcentaje_Dpl" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="RetornaUsuaPwd" FunctionName="bdaseguradoraModel.Store.RetornaUsuaPwd">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="bdaseguradoraModel.RetornaUsuaPwd_Result">
+                <ScalarProperty Name="ID_Seguridad_Sg" ColumnName="ID_Seguridad_Sg" />
+                <ScalarProperty Name="Ussers_Sg" ColumnName="Ussers_Sg" />
+                <ScalarProperty Name="Password_Sg" ColumnName="Password_Sg" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Correo" FunctionName="bdaseguradoraModel.Store.Correo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="bdaseguradoraModel.Correo_Result">
+                <ScalarProperty Name="ID_DPersona_Sg" ColumnName="ID_DPersona_Sg" />
+                <ScalarProperty Name="Ussers_Sg" ColumnName="Ussers_Sg" />
+                <ScalarProperty Name="Password_Sg" ColumnName="Password_Sg" />
+                <ScalarProperty Name="Ult_Fecha_Ing_Sg" ColumnName="Ult_Fecha_Ing_Sg" />
+                <ScalarProperty Name="DatosUsuario" ColumnName="DatosUsuario" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginaMaestra/PaginaMaestra.Master" AutoEventWireup="true" CodeBehind="frm_EnviarCorreo.aspx.cs" Inherits="BDAseguradora.Formularios.frm_EnviarCorreo" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contenidoPrincipal" runat="server">
-   <form id="frm_Poliza" runat="server">
+    <form id="frm_Poliza" runat="server">
         <%-- Codigo del modal de cerrar sesion --%>
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -65,22 +66,23 @@
                         <asp:Label ID="Label1" runat="server" Text="Correo: "></asp:Label>
                         <asp:TextBox ID="txtCorreo" runat="server" Enabled="False"></asp:TextBox>
                         <asp:Label ID="Label2" runat="server" Text="Contraseña: "></asp:Label>
-                       <asp:TextBox ID="txtContraseña" runat="server" Enabled="False"></asp:TextBox>
-                         <asp:Label ID="Label3" runat="server" Text="Fecha de creación: "></asp:Label>
-                       <asp:TextBox ID="txtFecha" runat="server" Enabled="False"></asp:TextBox>
+                        <asp:TextBox ID="txtContraseña" runat="server" Enabled="False"></asp:TextBox>
+                        <asp:Label ID="Label3" runat="server" Text="Fecha de creación: "></asp:Label>
+                        <asp:TextBox ID="txtFecha" runat="server" Enabled="False"></asp:TextBox>
+                        <asp:TextBox ID="txtDatos" runat="server" Visible="false"></asp:TextBox>
                         <asp:HiddenField ID="hdiId" runat="server" />
                         <asp:Label ID="lblmensaje" CssClass="alert-info" runat="server" Width="500px"></asp:Label>
 
                     </div>
 
-                    <asp:Button ID="btnCorreo" runat="server" Text="Enviar" OnClick="btnCorreo_Click"/>
+                    <asp:Button ID="btnCorreo" runat="server" Text="Enviar" OnClick="btnCorreo_Click" />
                     <asp:HyperLink ID="hpRegresar" runat="server" CssClass="text-info" NavigateUrl="~/Formularios/frm_ListaClientes_PagMaestra.aspx">Regresar a la lista</asp:HyperLink>
                 </div>
 
             </div>
         </div>
-        
-   
+
+
     </form>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="scriptsPersonalizados" runat="server">

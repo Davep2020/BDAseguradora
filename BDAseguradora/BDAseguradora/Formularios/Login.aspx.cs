@@ -26,9 +26,9 @@ namespace BDAseguradora.Formularios
         void RealizarAutenticacion()
         {
             string mensaje = "";
+
             try
             {
-                
                 Logins oCliente = new Logins();
                 RetornaUsuaPwd_Result datosCliente = new RetornaUsuaPwd_Result();
                 ///invocar al procedimiento
@@ -40,12 +40,14 @@ namespace BDAseguradora.Formularios
                     Response.Write("<script>alert('Datos Invalidos')</script>"); ;
                     this.Session.Add("NombreUsuario", null);
                     this.Session.Add("Tipo", null);
+                    this.Session.Add("Fecha", null);
                     this.Session.Add("UsuarioLogeado", null);
                 }
                 else
                 {
                     this.Session.Add("NombreUsuario", datosCliente.@Nombre);
                     this.Session.Add("Tipo", datosCliente.@Tipo);
+                    this.Session.Add("Fecha", datosCliente.@Fecha);
                     this.Session.Add("UsuarioLogeado", true);
 
 
@@ -64,9 +66,13 @@ namespace BDAseguradora.Formularios
             catch (Exception excepcionCapturada)
             {
                 mensaje += $"Ocurrio un error:{excepcionCapturada.Message}";
+
             }
 
-
+           lblmensaje.Text = mensaje;
         }
+        
+
+
     }
 }

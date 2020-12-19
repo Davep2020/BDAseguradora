@@ -24,7 +24,7 @@
                 <asp:Button ID="btnIniciar" runat="server" Text="Iniciar Sesion" OnClick="btnIniciar_Click" />
 
             </div>
-
+    <asp:Label ID="lblmensaje" runat="server" Text=""></asp:Label>
 
         </div>
     </form>

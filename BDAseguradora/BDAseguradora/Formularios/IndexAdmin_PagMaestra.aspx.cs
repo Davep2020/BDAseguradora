@@ -16,6 +16,12 @@ namespace BDAseguradora.Formularios
                 this.lblNombre.Text = datosUsuario;
             }
 
+            string Fechaingreso = Convert.ToString(this.Session["Fecha"]);
+            if (!string.IsNullOrEmpty(Fechaingreso))
+            {
+                this.lblFecha.Text = Fechaingreso;
+            }
+
             if (Convert.ToBoolean(this.Session["UsuarioLogeado"]) != true)
             {
                 this.Session.Add("NombreUsuario", null);

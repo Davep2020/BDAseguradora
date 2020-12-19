@@ -472,23 +472,6 @@ public partial class bdaseguradoraEntities : DbContext
     }
 
 
-    public virtual ObjectResult<RetornaUsuaPwd_Result> RetornaUsuaPwd(string usuario, string contrasena)
-    {
-
-        var usuarioParameter = usuario != null ?
-            new ObjectParameter("Usuario", usuario) :
-            new ObjectParameter("Usuario", typeof(string));
-
-
-        var contrasenaParameter = contrasena != null ?
-            new ObjectParameter("contrasena", contrasena) :
-            new ObjectParameter("contrasena", typeof(string));
-
-
-        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<RetornaUsuaPwd_Result>("RetornaUsuaPwd", usuarioParameter, contrasenaParameter);
-    }
-
-
     public virtual ObjectResult<spMuestraAdiccion_Result> spMuestraAdiccion(Nullable<int> cedula)
     {
 
@@ -566,18 +549,6 @@ public partial class bdaseguradoraEntities : DbContext
 
 
         return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spDatosReporteAdicciones_Result>("spDatosReporteAdicciones", nombreClienteParameter, cedulaParameter, codAdiccionParameter, nombreAdiccionParameter);
-    }
-
-
-    public virtual ObjectResult<Correo_Result> Correo(Nullable<int> iD_Usuario)
-    {
-
-        var iD_UsuarioParameter = iD_Usuario.HasValue ?
-            new ObjectParameter("ID_Usuario", iD_Usuario) :
-            new ObjectParameter("ID_Usuario", typeof(int));
-
-
-        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Correo_Result>("Correo", iD_UsuarioParameter);
     }
 
 
@@ -668,6 +639,35 @@ public partial class bdaseguradoraEntities : DbContext
 
 
         return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ReportePolizaCliente_Result>("ReportePolizaCliente", cedulaParameter, apellidoParameter, montoParameter, nombre_CoberturaParameter);
+    }
+
+
+    public virtual ObjectResult<RetornaUsuaPwd_Result> RetornaUsuaPwd(string usuario, string contrasena)
+    {
+
+        var usuarioParameter = usuario != null ?
+            new ObjectParameter("Usuario", usuario) :
+            new ObjectParameter("Usuario", typeof(string));
+
+
+        var contrasenaParameter = contrasena != null ?
+            new ObjectParameter("contrasena", contrasena) :
+            new ObjectParameter("contrasena", typeof(string));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<RetornaUsuaPwd_Result>("RetornaUsuaPwd", usuarioParameter, contrasenaParameter);
+    }
+
+
+    public virtual ObjectResult<Correo_Result> Correo(Nullable<int> iD_Usuario)
+    {
+
+        var iD_UsuarioParameter = iD_Usuario.HasValue ?
+            new ObjectParameter("ID_Usuario", iD_Usuario) :
+            new ObjectParameter("ID_Usuario", typeof(int));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Correo_Result>("Correo", iD_UsuarioParameter);
     }
 
 }
