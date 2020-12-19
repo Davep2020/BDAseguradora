@@ -37,49 +37,70 @@ namespace BDAseguradora.Formularios
 
         void contruirReporte()
         {
-
-            ///indicar la ruta del reporte
-            string rutaReporte = "~/Reportes/RptPolizaXCliente.rdlc";
-            ///construir la ruta física
-            string rutaServidor = Server.MapPath(rutaReporte);
+            string mensaje = "";
+          
+                ///indicar la ruta del reporte
+                string rutaReporte = "~/Reportes/RptPolizaXCliente.rdlc";
+                ///construir la ruta física
+                string rutaServidor = Server.MapPath(rutaReporte);
             ///Validar que la ruta física exista
-            if (!File.Exists(rutaServidor))
+           try
             {
-                this.lblResultado.Text =
-                    "El reporte seleccionado no existe";
-                return;
+                if (!File.Exists(rutaServidor))
+                {
+                    this.lblResultado.Text =
+                        "El reporte seleccionado no existe";
+                    return;
+                }
+                else
+                {
+                   
+                    rpvClientes.LocalReport.ReportPath = rutaServidor;
+                    var infoFuenteDatos = this.rpvClientes.LocalReport.GetDataSourceNames();
+
+
+
+                    rpvClientes.LocalReport.DataSources.Clear();
+
+              
+
+
+                    List<ReportePolizaCliente_Result> datosReporte = RetornaReporte(Convert.ToInt32(this.txtCedula.Text), this.txtApellido.Text, Convert.ToInt32(this.txtMonto.Text), this.txtNombre.Text);
+
+
+
+                    ReportDataSource fuenteDatos = new ReportDataSource();
+                    fuenteDatos.Name = infoFuenteDatos[0];
+                    fuenteDatos.Value = datosReporte;
+
+
+
+                    this.rpvClientes.LocalReport.DataSources.Add(fuenteDatos);
+
+
+
+                    this.rpvClientes.LocalReport.Refresh();
+
+
+                }
             }
-            else
+            catch (Exception excepcionCapturada)
             {
-                Poliza oPoliza = new Poliza();
-                rpvClientes.LocalReport.ReportPath = rutaServidor;
-                var infoFuenteDatos = this.rpvClientes.LocalReport.GetDataSourceNames();
-
-
-
-                rpvClientes.LocalReport.DataSources.Clear();
-
-
-
-                List<ReportePolizaCliente_Result> datosReporte = oPoliza.RetornaReporte(Convert.ToInt32(this.txtCedula.Text), txtApellido.Text, Convert.ToInt32(this.txtMonto.Text), Convert.ToDateTime(this.txtFecha.Text));
-
-
-
-                ReportDataSource fuenteDatos = new ReportDataSource();
-                fuenteDatos.Name = infoFuenteDatos[0];
-                fuenteDatos.Value = datosReporte;
-
-
-
-                this.rpvClientes.LocalReport.DataSources.Add(fuenteDatos);
-
-
-
-                this.rpvClientes.LocalReport.Refresh();
-
+                mensaje += $"Ocurrio un error:{excepcionCapturada.Message}";
 
             }
+            lblResultado.Text = mensaje;
         }
+
+       List<ReportePolizaCliente_Result> RetornaReporte(int pCedula, string pApellido, int pMonto, string pnombre=null)
+        {
+            ///crear la variable que se retornará
+            List<ReportePolizaCliente_Result> resultado = new List<ReportePolizaCliente_Result>();
+            ///asignarle a la variable el resultado del llamado del procedimiento almacenado
+            resultado = this.Pack.ReportePolizaCliente(pCedula, pApellido, pMonto, pnombre).ToList();
+            return resultado;
+        }
+
 
     }
 }

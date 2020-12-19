@@ -30,7 +30,7 @@ namespace BDAseguradora.Formularios
 
         protected void btnCorreo_Click(object sender, EventArgs e)
         {
-            bool resultado = false;
+           
             string mensaje = "";
             try
             {

@@ -35,13 +35,10 @@
                 <ul class="navbar-nav mr-auto">
 
                     <li class="nav-item uno">
-                        <a class="nav-link" href="frm_RegistroClientes_PagMaestra.aspx">Registrar usuario <i class="fa fa-user fa-fw"></i></a>
+                        <a class="nav-link" href="../Formularios/IndexAdmin_PagMaestra.aspx">Datos Usuarios <i class="fa fa-user fa-fw"></i></a>
                     </li>
                     <li class="nav-item uno">
                         <a class="nav-link" href="../Formularios/frm_Polizas.aspx">Polizas <i class="fa fa-shield  fa-fw"></i></a>
-                    </li>
-                    <li class="nav-item uno">
-                        <a class="nav-link" href="frm_AgregarAdiccionXC_PagMaestra.aspx">Adicciones <i class="fa fa-book  fa-fw"></i></a>
                     </li>
                     <li class="nav-item uno">
                         <a class="nav-link" href="frm_ListaClientes_PagMaestra.aspx">Buscar <i class="fa fa-search  fa-fw"></i></a>

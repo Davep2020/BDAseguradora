@@ -67,15 +67,15 @@
                         <p>Buscar por</p>
                     </div>
                     <asp:Label ID="Label2" runat="server" Text="Cedula:"></asp:Label>
-                    <asp:TextBox ID="txtCedula" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtCedula"  runat="server"></asp:TextBox>
                     <asp:Label ID="Label1" runat="server" Text="Primer Apellido:"></asp:Label>
-                    <asp:TextBox ID="txtApellido" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtApellido"  runat="server"></asp:TextBox>
 
                     </br>
                     <asp:Label ID="Label3" runat="server" Text="Monto:"></asp:Label>
                     <asp:TextBox ID="txtMonto" runat="server"></asp:TextBox>
-                    <asp:Label ID="Label4" runat="server" Text="Fecha:"></asp:Label>
-                    <asp:TextBox ID="txtFecha" TextMode="Date" runat="server"></asp:TextBox>
+                    <asp:Label ID="Label4" runat="server" Text="Nombre Cobertura:"></asp:Label>
+                    <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
                     &nbsp;&nbsp;
                     </br>
                      <asp:Button ID="btVerReporte" runat="server" OnClick="btBuscar_Click" Text="Ver Reporte" />
@@ -89,6 +89,7 @@
                     <rsweb:ReportViewer ID="rpvClientes" runat="server" Width="100%">
                     </rsweb:ReportViewer>
 
+                   
 
                 </div>
 

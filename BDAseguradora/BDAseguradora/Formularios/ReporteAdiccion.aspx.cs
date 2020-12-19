@@ -33,33 +33,46 @@ namespace BDAseguradora.Formularios
         
         void construirReporte()
         {
-            ///indicar la ruta del reporte
-            string rutaReporte = "~/Reportes/ReporteAdiccion.rdlc";
-            ///construir la ruta física
-            string rutaServidor = Server.MapPath(rutaReporte);
-            if (!File.Exists(rutaServidor))
-            {
-                this.lblMensaje.Text = "El reporte seleccionado no existe";
-                return;
-            }
-            else
-            {
-                rpvAdicciones.LocalReport.ReportPath = rutaServidor;
-                var infoFuenteDatos = this.rpvAdicciones.LocalReport.GetDataSourceNames();
-                ///limpiar los datos de la fuente de datos
-                rpvAdicciones.LocalReport.DataSources.Clear();
-                ///obtener los datos del reporte
-                List<spDatosReporteAdicciones_Result> datosReporte = this.retornaDatosReporte(txtNombre.Text, Convert.ToInt32(txtCedula.Text), txtCodigo.Text, txtNombreAdiccion.Text);
-                ///crear la fuente de datos
-                ReportDataSource fuenteDatos = new ReportDataSource();
-                fuenteDatos.Name = infoFuenteDatos[0];
-                fuenteDatos.Value = datosReporte;
-                // agregar la fuente de datos al reporte
-                this.rpvAdicciones.LocalReport.DataSources.Add(fuenteDatos);
 
-                /// mostrar los datos en el reporte
-                this.rpvAdicciones.LocalReport.Refresh();
+            string mensaje = "";
+            try
+            {
+                
+                ///indicar la ruta del reporte
+                string rutaReporte = "~/Reportes/ReporteAdiccion.rdlc";
+                ///construir la ruta física
+                string rutaServidor = Server.MapPath(rutaReporte);
+                if (!File.Exists(rutaServidor))
+                {
+                    this.lblMensaje.Text = "El reporte seleccionado no existe";
+                    return;
+                }
+                else
+                {
+                    rpvAdicciones.LocalReport.ReportPath = rutaServidor;
+                    var infoFuenteDatos = this.rpvAdicciones.LocalReport.GetDataSourceNames();
+                    ///limpiar los datos de la fuente de datos
+                    rpvAdicciones.LocalReport.DataSources.Clear();
+                    ///obtener los datos del reporte
+                    List<spDatosReporteAdicciones_Result> datosReporte = this.retornaDatosReporte(txtNombre.Text, Convert.ToInt32(txtCedula.Text), txtCodigo.Text, txtNombreAdiccion.Text);
+                    ///crear la fuente de datos
+                    ReportDataSource fuenteDatos = new ReportDataSource();
+                    fuenteDatos.Name = infoFuenteDatos[0];
+                    fuenteDatos.Value = datosReporte;
+                    // agregar la fuente de datos al reporte
+                    this.rpvAdicciones.LocalReport.DataSources.Add(fuenteDatos);
+
+                    /// mostrar los datos en el reporte
+                    this.rpvAdicciones.LocalReport.Refresh();
+                }
             }
+            catch (Exception excepcionCapturada)
+            {
+                mensaje += $"Ocurrio un error:{excepcionCapturada.Message}";
+
+            }
+            lblMensaje.Text = mensaje;
+         
         }
 
         /// <summary>

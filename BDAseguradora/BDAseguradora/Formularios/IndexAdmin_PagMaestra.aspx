@@ -11,13 +11,14 @@
            <%-- Codigo del modal de cerrar sesion --%>
 
     <form runat="server"> 
-     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <%-- Codigo del modal de cerrar sesion --%>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Cerrar Sesión</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <%--<span aria-hidden="true">&times;</span>--%>
+                            <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
@@ -31,37 +32,40 @@
                 </div>
             </div>
         </div>
+        <%-- Creacion del NAV --%>
+        <div class="container-fluid" style="margin-top: 30px">
+            <div class="row mb-2">
+                <div class="col-sm-4 Primero ml-3 mr-5">
+                    <h2>Bienvenido</h2>
+                    <asp:Label ID="lblNombre" runat="server" Font-Bold="True" Font-Size="XX-Large"></asp:Label>
+                    <h3>Mantenimientos</h3>
+                    <p>Cambios en diferentes sectores</p>
+                    <ul class="nav nav-pills flex-column">
 
+                        <li class="nav-item">
+                            <a class="nav-link uno" href="frm_RegistroClientes_PagMaestra.aspx">Agregar Cliente</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link uno" href="frm_ListaClientes_PagMaestra.aspx">Consultar Cliente</a>
+                        </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link uno" href="frm_AgregarAdiccionXC_PagMaestra.aspx">Agregar Adicciones Clientes</a>
+                        </li>
 
-    <div class="container-fluid" style="margin-top: 30px">
-        <div class="row mb-2">
-            <div class="col-sm-4 Primero ml-3 mr-5">
-                <h2>About Me</h2>
-                <h5>Photo of me:</h5>
-                <div>
-                    <img src="../IMG/Usuario.png" alt="Logotipo" width="33%" />
+                        <li class="nav-item">
+                            <a class="nav-link uno" href="frm_ReportePolizaCliente.aspx">Reporte Póliza Cliente</a>
+                        </li>
+
+                             <li class="nav-item">
+                            <a class="nav-link uno" href="ReporteAdiccion.aspx">Reporte Adicción Cliente</a>
+                        </li>
+
+                    </ul>
+
                 </div>
-                <asp:Label ID="lblNombre" runat="server" Font-Bold="True" Font-Size="XX-Large"></asp:Label>
-                <h3>Mantenimientos</h3>
-                <p>Cambios en diferentes sectores</p>
-                <ul class="nav nav-pills flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link uno" href="#">Clientes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link uno" href="#">Adicciones</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link uno" href="#">Adicciones por cliente</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link uno" href="frm_ReportePolizaCliente.aspx">Reportes</a>
-                    </li>
-
-                </ul>
                 <hr class="d-sm-none">
-            </div>
+           
             <div class="col-sm-7 Primero ml-4 ">
                 <h2 class="Polizas">Polizas</h2>
                 <div id="demo" class="carousel slide" data-ride="carousel">
