@@ -22,11 +22,21 @@ namespace BDAseguradora.Formularios
         }
         void cargaAdicciones()
         {
-            BLAdicciones oAdicciones = new BLAdicciones();
-            ///indicarle al dropdownlist la fuente de datos
-            this.ddlAdiccion.DataSource = oAdicciones.RetonaAdiccion(null, null);
-            ///indicarle al dropdownlist que se muestre
-            this.ddlAdiccion.DataBind();
+            string mensajes = "";
+            try
+            {
+                BLAdicciones oAdicciones = new BLAdicciones();
+                ///indicarle al dropdownlist la fuente de datos
+                this.ddlAdiccion.DataSource = oAdicciones.RetonaAdiccion(null, null);
+                ///indicarle al dropdownlist que se muestre
+                this.ddlAdiccion.DataBind();
+            }
+            catch (Exception e)
+            {
+                //Mensaje de error si no funciona
+                mensajes += $"Ocurrió un error:{e.Message}";
+            }
+            
 
         }
 
@@ -35,31 +45,41 @@ namespace BDAseguradora.Formularios
         /// </summary>
         void CargarAdiccion()
         {
-            string parametro = this.Request.QueryString["ID_ACliente_Ac"];
-            Session["ID_ACliente_Ac"] = parametro;
-            if (String.IsNullOrEmpty(parametro))
+            string mensajes = "";
+            try
             {
-                Response.Write("<script>alert('Parámetro nulo')</script>");
-            }
-            else
-            {
-                int ID_ACliente_Ac = Convert.ToInt16(parametro);
-
-                BLAdicciones oBLAdiccion = new BLAdicciones();
-
-                spRetornaAdicciónID_Result datos = new spRetornaAdicciónID_Result();
-
-                datos = oBLAdiccion.RetornaAdiccionClienteID(ID_ACliente_Ac);
-                if (datos == null)
+                string parametro = this.Request.QueryString["ID_ACliente_Ac"];
+                Session["ID_ACliente_Ac"] = parametro;
+                if (String.IsNullOrEmpty(parametro))
                 {
-                    Response.Redirect("frm_ListaClientes_PagMaestra.aspx");
+                    Response.Write("<script>alert('Parámetro nulo')</script>");
                 }
                 else
                 {
-                    this.txtCedula.Text = datos.Cedula_Dp.ToString();
-                    this.ddlAdiccion.SelectedValue = datos.Nombre_Ad.ToString();
+                    int ID_ACliente_Ac = Convert.ToInt16(parametro);
+
+                    BLAdicciones oBLAdiccion = new BLAdicciones();
+
+                    spRetornaAdicciónID_Result datos = new spRetornaAdicciónID_Result();
+
+                    datos = oBLAdiccion.RetornaAdiccionClienteID(ID_ACliente_Ac);
+                    if (datos == null)
+                    {
+                        Response.Redirect("frm_ListaClientes_PagMaestra.aspx");
+                    }
+                    else
+                    {
+                        this.txtCedula.Text = datos.Cedula_Dp.ToString();
+                        this.ddlAdiccion.SelectedValue = datos.Nombre_Ad.ToString();
+                    }
                 }
             }
+            catch (Exception e)
+            {
+                //Mensaje de error si no funciona
+                mensajes += $"Ocurrió un error:{e.Message}";
+            }
+            
         }
 
         /// <summary>
@@ -68,37 +88,40 @@ namespace BDAseguradora.Formularios
         /// </summary>
         void ActualizarAdicciones()
         {
-            if (this.IsValid)
-            {
-                ///Variable para enviar un mensaje
-                string mensaje = "";
-                ///Creación de objeto tipo BLAdicciones
-                BLAdicciones oAdiccion = new BLAdicciones();
-                ///Variable para compronar un resultado
-                bool resultado = false;
 
-                try
+                if (this.IsValid)
                 {
-                    int id = Convert.ToInt16(Session["ID_ACliente_Ac"]);
-                    string nombreAdiccion = ddlAdiccion.SelectedValue;
-                    resultado = oAdiccion.ModificaAdiccion(id, nombreAdiccion);
-                }
-                catch (Exception excepcionCapturada)
-                {
-                    ///Excepción en caso que dé error
-                    mensaje += $"Ocurrió un error:{excepcionCapturada.Message}";
-                }
-                finally
-                {
-                    ///Mensaje de aviso de insercípon
-                    if (resultado)
+                    ///Variable para enviar un mensaje
+                    string mensaje = "";
+                    ///Creación de objeto tipo BLAdicciones
+                    BLAdicciones oAdiccion = new BLAdicciones();
+                    ///Variable para compronar un resultado
+                    bool resultado = false;
+
+                    try
                     {
-                        mensaje += "La adicción fue modificada";
+                        int id = Convert.ToInt16(Session["ID_ACliente_Ac"]);
+                        string nombreAdiccion = ddlAdiccion.SelectedValue;
+                        resultado = oAdiccion.ModificaAdiccion(id, nombreAdiccion);
                     }
+                    catch (Exception excepcionCapturada)
+                    {
+                        ///Excepción en caso que dé error
+                        mensaje += $"Ocurrió un error:{excepcionCapturada.Message}";
+                    }
+                    finally
+                    {
+                        ///Mensaje de aviso de insercípon
+                        if (resultado)
+                        {
+                            mensaje += "La adicción fue modificada";
+                            Response.Redirect("IndexAdmin_PagMaestra.aspx");
+                        }
+                    }
+                    ///mostrar el mensaje
+                    Response.Write("<script>alert('" + mensaje + "')</script>"); ;
                 }
-                ///mostrar el mensaje
-                Response.Write("<script>alert('" + mensaje + "')</script>"); ;
-            }
+            
         }
 
         protected void btnModificarAdicción_Click(object sender, EventArgs e)

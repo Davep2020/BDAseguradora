@@ -4,9 +4,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contenidoPrincipal" runat="server">
     <form id="frm_ModificaAdiccion" runat="server">
-        <div style="background-color:#a5a5a5">
+        <div style="background-color:#a5a5a5; opacity:0.9; padding-bottom:1px;">
 
-             <h2 >Modificación de Adicciones por el número de cédula del clientes</h2>
+             <h2 style="text-align: center;margin-bottom:25px;">Modificación de Adicciones por el número de cédula del clientes</h2>
              <div class="container">
 
              <div class="row justify-content-around">

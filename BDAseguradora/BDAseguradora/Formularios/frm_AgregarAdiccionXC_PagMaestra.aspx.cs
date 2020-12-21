@@ -35,39 +35,51 @@ namespace BDAseguradora.Formularios
         /// </summary>
         void AlmacenarAdicciones()
         {
-            if (this.IsValid)
-            {
-                ///Variable para enviar un mensaje
-                string mensaje = "";
-                ///Creación de objeto tipo BLAdicciones
-                BLAdicciones oAdiccion = new BLAdicciones();
-                ///Variable para compronar un resultado
-                bool resultado = false;
+            ///Variable para enviar un mensaje
+            string mensaje = "";
 
-                try
+            try
+            {
+
+                if (this.IsValid)
                 {
-                    ///Creamos variables para asignar los datos que entran del formulario
-                    string codigo = this.ddlAdiccion.SelectedValue;
-                    string cedula = this.txtCedula.Text;
-                    ///Llamos al store procedure del objeto y le enviamos los parámetros
-                    resultado = oAdiccion.InsertaAdiccion(cedula, codigo);
-                }
-                catch (Exception excepcionCapturada)
-                {
-                    ///Excepción en caso que dé error
-                    mensaje += $"Ocurrió un error:{excepcionCapturada.Message}";
-                }
-                finally
-                {
-                    ///Mensaje de aviso de insercípon
-                    if (resultado )
+                    ///Creación de objeto tipo BLAdicciones
+                    BLAdicciones oAdiccion = new BLAdicciones();
+                    ///Variable para compronar un resultado
+                    bool resultado = false;
+
+                    try
                     {
-                        mensaje += "La adicción fue insertada";
+                        ///Creamos variables para asignar los datos que entran del formulario
+                        string codigo = this.ddlAdiccion.SelectedValue;
+                        string cedula = this.txtCedula.Text;
+                        ///Llamos al store procedure del objeto y le enviamos los parámetros
+                        resultado = oAdiccion.InsertaAdiccion(cedula, codigo);
                     }
+                    catch (Exception excepcionCapturada)
+                    {
+                        ///Excepción en caso que dé error
+                        mensaje += $"Ocurrió un error:{excepcionCapturada.Message}";
+                    }
+                    finally
+                    {
+                        ///Mensaje de aviso de insercípon
+                        if (resultado)
+                        {
+                            mensaje += "La adicción fue insertada";
+                        }
+                    }
+                    ///mostrar el mensaje
+                    Response.Write("<script>alert('" + mensaje + "')</script>"); ;
                 }
-                ///mostrar el mensaje
-                Response.Write("<script>alert('" + mensaje + "')</script>"); ;
+
             }
+            catch (Exception excepcionCapturada)
+            {
+
+                mensaje += $"Ocurrió un error:{excepcionCapturada.Message}";
+            }
+            
         }
         
         protected void btnAgregarAdicción_Click(object sender, EventArgs e)

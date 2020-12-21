@@ -485,7 +485,7 @@
         <Top>1.71661cm</Top>
         <Left>2.46726cm</Left>
         <Height>1.2cm</Height>
-        <Width>23.1709cm</Width>
+        <Width>23.17091cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -498,10 +498,10 @@
       <Border>
         <Style>None</Style>
       </Border>
-      <BackgroundColor>Silver</BackgroundColor>
+      <BackgroundColor>DimGray</BackgroundColor>
     </Style>
   </Body>
-  <Width>10.09376in</Width>
+  <Width>10.09377in</Width>
   <Page>
     <PageHeader>
       <Height>3.25438cm</Height>

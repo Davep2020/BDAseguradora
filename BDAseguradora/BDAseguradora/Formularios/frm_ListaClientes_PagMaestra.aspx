@@ -6,9 +6,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="contenidoPrincipal" runat="server">
     <form id="frmLista" runat="server">
      
-        <div style="background-color:#a5a5a5">
+        <div style="background-color:#a5a5a5; opacity:0.9; padding-bottom:1px;">
 
-              <h2>Búsqueda de clientes</h2>
+              <h2 style="text-align: center;margin-bottom:25px;">Búsqueda de clientes</h2>
           <div class="container">
               <div class="col-3">
                   <div class="form-group">

@@ -25,27 +25,47 @@ namespace BDAseguradora.Formularios
         /// </summary>
         void CargarDatos()
         {
-            ///Crear la instancia del objeto BL
-            BLCliente blCliente = new BLCliente();
-            ///Crear una variable que va a contener esos datos
-            List<spMuestraCliente_Result> resultado = blCliente.RetornaClientes(Convert.ToInt32(txtCedula.Text));
+            string mensajes = "";
+            try
+            {
+                ///Crear la instancia del objeto BL
+                BLCliente blCliente = new BLCliente();
+                ///Crear una variable que va a contener esos datos
+                List<spMuestraCliente_Result> resultado = blCliente.RetornaClientes(Convert.ToInt32(txtCedula.Text));
 
-            //La fuente de datos
-            //"grListaClientes" es el id del Grid
-            this.grdListaClientes.DataSource = resultado;
-            this.grdListaClientes.DataBind();
+                //La fuente de datos
+                //"grListaClientes" es el id del Grid
+                this.grdListaClientes.DataSource = resultado;
+                this.grdListaClientes.DataBind();
+            }
+            catch (Exception e)
+            {
+                //Mensaje de error si no funciona
+                mensajes += $"Ocurrió un error:{e.Message}";
+            }
+            
         }
         /// <summary>
         /// Método que carga las adicciones del cliente en un GRID
         /// </summary>
         void CargarAdicciones()
         {
-            BLCliente bLCliente = new BLCliente();
+            string mensajes = "";
+            try
+            {
+                BLCliente bLCliente = new BLCliente();
 
-            List<spMuestraAdiccion_Result> resultado = bLCliente.RetornaAdicciones(Convert.ToInt32(txtCedula.Text));
+                List<spMuestraAdiccion_Result> resultado = bLCliente.RetornaAdicciones(Convert.ToInt32(txtCedula.Text));
 
-            this.grdListaAdicciones.DataSource = resultado;
-            this.grdListaAdicciones.DataBind();
+                this.grdListaAdicciones.DataSource = resultado;
+                this.grdListaAdicciones.DataBind();
+            }
+            catch (Exception e)
+            {
+                //Mensaje de error si no funciona
+                mensajes += $"Ocurrió un error:{e.Message}";
+            }
+            
         }
     }
 }

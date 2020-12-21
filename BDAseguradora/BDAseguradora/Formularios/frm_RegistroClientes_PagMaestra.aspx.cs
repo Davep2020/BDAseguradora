@@ -30,12 +30,22 @@ namespace BDAseguradora.Formularios
  /// </summary>
         void CargarProvincia()
         {
-            ///Crear objeto
-            BLProvincia oBLProvincia = new BLProvincia();
-            ///La fuente del datos del dropdown
-            this.ddlProvincia.DataSource = oBLProvincia.RetornaProvincias(null);
-            ///Mostra en el dropdown
-            this.ddlProvincia.DataBind();
+            string mensajes = "";
+            try
+            {
+                ///Crear objeto
+                BLProvincia oBLProvincia = new BLProvincia();
+                ///La fuente del datos del dropdown
+                this.ddlProvincia.DataSource = oBLProvincia.RetornaProvincias(null);
+                ///Mostra en el dropdown
+                this.ddlProvincia.DataBind();
+            }
+            catch (Exception e)
+            {
+                //Mensaje de error si no funciona
+                mensajes += $"Ocurrió un error:{e.Message}";
+            }
+            
         }
         /// <summary>
         /// Lista los tipos de clientes que vienen de la tabla TblTipoPersonas
@@ -43,12 +53,22 @@ namespace BDAseguradora.Formularios
         /// </summary>
         void CargarTipoCliente()
         {
-            ///Crear objeto
-            BLTipoCliente oBLTipoCliente = new BLTipoCliente();
-            ///La fuente del datos del dropdown
-            this.ddlTipoPersona.DataSource = oBLTipoCliente.RetornaTipoPersona(null);
-            ///Mostra en el dropdown
-            this.ddlTipoPersona.DataBind();
+            string mensajes = "";
+            try
+            {
+                ///Crear objeto
+                BLTipoCliente oBLTipoCliente = new BLTipoCliente();
+                ///La fuente del datos del dropdown
+                this.ddlTipoPersona.DataSource = oBLTipoCliente.RetornaTipoPersona(null);
+                ///Mostra en el dropdown
+                this.ddlTipoPersona.DataBind();
+            }
+            catch (Exception e)
+            {
+                //Mensaje de error si no funciona
+                mensajes += $"Ocurrió un error:{e.Message}";
+            }
+            
         }
         /// <summary>
         /// Método que ingresa el registro del cliente.
@@ -85,6 +105,7 @@ namespace BDAseguradora.Formularios
                 {
                     //Mensaje si funciona
                     mensaje += "El registro fue insertado.";
+                    Response.Redirect("IndexAdmin_PagMaestra.aspx");
                 }
             }
             ///mostrar el mensaje

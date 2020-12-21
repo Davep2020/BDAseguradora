@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="contenidoPrincipal" runat="server">
     <form runat="server" id="form11">
     <%-- Codigo del modal de cerrar sesion --%>
-     <%--<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -24,43 +24,62 @@
                     </div>
                 </div>
             </div>
-        </div>--%> <%--Modal--%>
+        </div> <%--Modal--%>
 
+        <div style="background-color:#a5a5a5; opacity:0.9; padding-bottom:1px;">
+                <div>
+                    <h1 class="auto-style1">Reporte de adicciones</h1>
+                    <H2 style="text-align: center;margin-bottom:25px;">Buscar por</H2>
+                </div>
+                <div class="container">
+                    <div class="row justify-content-around">
 
-        <div>
-            <h1 class="auto-style1">Reporte de adicciones</h1>
-            <p>Buscar por</p>
+                         <div>
+                             <asp:Label Text="Nombre: " runat="server" />
+                             <asp:TextBox runat="server" id="txtNombre"/>
+                             
+                         </div>
+                         <div>
+                             <asp:Label Text="Cédula: " runat="server" />
+                             <asp:TextBox runat="server" id="txtCedula"/>
+                             
+                         </div>
+                         <div>
+                             <asp:Label Text="Código Adicción: " runat="server" />
+                             <asp:TextBox runat="server" id="txtCodigo"/>
+                         </div>
+
+                    </div>
+                    <br />
+                    <div class="row justify-content-around">
+
+                        <div>
+                            <asp:Label Text="Nombre adicción: " runat="server" />
+                            <asp:TextBox runat="server" id="txtNombreAdiccion"/>
+                        </div>
+
+                        <div>
+                            <asp:Button Text="Buscar" ID="btnBuscar" runat="server" OnClick="btnBuscar_Click" CssClass="btn badge-danger" />
+                        </div>
+
+                        <div>
+                            <asp:Label Text="" ID="lblMensaje" runat="server" />
+                        </div>
+                    </div>
+                </div>
+            <br />
         </div>
+        <br />
 
-    <div>
-        <asp:Label Text="Nombre: " runat="server" />
-        <asp:TextBox runat="server" id="txtNombre"/>
-        
-    </div>
-    <div>
-        <asp:Label Text="Cédula: " runat="server" />
-        <asp:TextBox runat="server" id="txtCedula"/>
-    </div>
-    <div>
-        <asp:Label Text="Código Adicción: " runat="server" />
-        <asp:TextBox runat="server" id="txtCodigo"/>
-    </div>
-    <div>
-        <asp:Label Text="Nombre adicción: " runat="server" />
-        <asp:TextBox runat="server" id="txtNombreAdiccion"/>
-    </div>
+        <asp:ValidationSummary ID="vsAdiccion" runat="server" />
 
-    <div>
-        <asp:Button Text="Buscar" ID="btnBuscar" runat="server" OnClick="btnBuscar_Click" />
-    </div>
-
-    <div>
-        <asp:Label Text="" ID="lblMensaje" runat="server" />
-    </div>
 
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <rsweb:ReportViewer ID="rpvAdicciones" runat="server" Width="100%">
         </rsweb:ReportViewer>
+
+        <br />
+        <br />
         </form>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="scriptsPersonalizados" runat="server">

@@ -728,9 +728,6 @@
           <FunctionImport Name="spRetornaTipoPersona" ReturnType="Collection(bdaseguradoraModel.spRetornaTipoPersona_Result)">
           <Parameter Name="nombre" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="spEliminaCliente">
-          <Parameter Name="idCliente" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="EliminaPoliza">
           <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -793,6 +790,9 @@
           </FunctionImport>
           <FunctionImport Name="Correo" ReturnType="Collection(bdaseguradoraModel.Correo_Result)">
           <Parameter Name="ID_Usuario" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spEliminaCliente">
+            <Parameter Name="idCliente" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <Association Name="FK_TblDetallePersona_TblProvincia">
@@ -1219,8 +1219,6 @@
             </ResultMapping>
           </FunctionImportMapping>
 
-          <FunctionImportMapping FunctionImportName="spEliminaCliente" FunctionName="bdaseguradoraModel.Store.spEliminaCliente" />
-
           <FunctionImportMapping FunctionImportName="EliminaPoliza" FunctionName="bdaseguradoraModel.Store.EliminaPoliza" />
           <FunctionImportMapping FunctionImportName="ConsultarPoliza" FunctionName="bdaseguradoraModel.Store.ConsultarPoliza">
 
@@ -1429,6 +1427,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spEliminaCliente" FunctionName="bdaseguradoraModel.Store.spEliminaCliente" />
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

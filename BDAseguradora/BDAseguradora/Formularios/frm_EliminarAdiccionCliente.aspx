@@ -5,13 +5,13 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="contenidoPrincipal" runat="server">
     <form id="form11" runat="server">
 
-        <div style="background-color: #a5a5a5">
-                   <h2 >Eliminación de Adicciones de un cliente</h2>
+        <div style="background-color:#a5a5a5; opacity:0.9; padding-bottom:1px;">
+                   <h2 style="text-align: center;margin-bottom:25px;">Eliminación de Adicciones de un cliente</h2>
                   <div class="container">
 
                   <div class="row justify-content-around">
                           <div class="form-group">
-                              <asp:Label ID="lblCedulaBuscar" runat="server" Text="Cédula" ></asp:Label>
+                              <asp:Label ID="lblCedulaBuscar" runat="server" Text="Cédula" style="text-align:center;"></asp:Label>
                               <asp:TextBox ID="txtCedula" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
                               <asp:RequiredFieldValidator ID="rqvCedula" Display="None" runat="server" 
                               ControlToValidate="txtCedula" ErrorMessage="Debe ingresar un número de cédula."></asp:RequiredFieldValidator>
