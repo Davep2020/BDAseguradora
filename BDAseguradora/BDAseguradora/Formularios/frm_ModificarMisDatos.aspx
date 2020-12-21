@@ -21,7 +21,7 @@
     <script src="../JS/main.js"></script>
     <title></title>
 </head>
-<body class="body1 body" style="background-color:#a5a5a5">
+<body class="body1 body" >
     <form id="form1" runat="server">
          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">

@@ -34,7 +34,7 @@ namespace BDAseguradora.Formularios
                 ///invocar al procedimiento
                 datosCliente =
                     oCliente.RetornaUsuario(txtUsua.Text, txtPass.Text);
-
+                Session["Correo"] = txtUsua.Text;
                 if (datosCliente == null)
                 {
                     Response.Write("<script>alert('Datos Invalidos')</script>"); ;
