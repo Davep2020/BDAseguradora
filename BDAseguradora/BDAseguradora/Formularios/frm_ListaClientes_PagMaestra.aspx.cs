@@ -13,6 +13,27 @@ namespace BDAseguradora.Formularios
             {
 
             }
+            if (Convert.ToBoolean(this.Session["UsuarioLogeado"]) != true)
+            {
+                this.Session.Add("NombreUsuario", null);
+                this.Session.Add("Tipo", null);
+                this.Session.Add("UsuarioLogeado", null);
+                this.Response.Redirect("~/Formularios/Login.aspx");
+            }
+        }
+
+
+        /// <summary>
+        /// Método para cerrar sesión
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void btnSi_Click(object sender, EventArgs e)
+        {
+            this.Session.Add("NombreUsuario", null);
+            this.Session.Add("Tipo", null);
+            this.Session.Add("UsuarioLogeado", null);
+            this.Response.Redirect("~/Formularios/Login.aspx");
         }
 
         protected void btnBuscarCliente_Click(object sender, EventArgs e)

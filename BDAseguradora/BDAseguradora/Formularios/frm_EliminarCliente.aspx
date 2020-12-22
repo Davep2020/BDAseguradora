@@ -4,6 +4,29 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contenidoPrincipal" runat="server">
     <form id="frmClienteActualiza" runat="server" > 
+
+        <%-- Codigo del modal de cerrar sesion --%>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Cerrar Sesión</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ¿Estas Seguro en Cerrar Sesión?
+                    </div>
+                    <div class="modal-footer">
+                        <asp:Button ID="btnNo" runat="server" data-dismiss="modal" Text="No" />
+                        <asp:Button ID="btnSi" runat="server" Text="Si" OnClick="btnSi_Click" />
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
   <div style="background-color:#a5a5a5; opacity:0.9; padding-bottom:1px;">
          <h2 style="text-align: center;margin-bottom:25px;">Eliminar Cliente</h2>
 

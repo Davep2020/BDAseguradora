@@ -20,6 +20,13 @@ namespace BDAseguradora.Formularios
             {
                 construirReporte();
             }
+            if (Convert.ToBoolean(this.Session["UsuarioLogeado"]) != true)
+            {
+                this.Session.Add("NombreUsuario", null);
+                this.Session.Add("Tipo", null);
+                this.Session.Add("UsuarioLogeado", null);
+                this.Response.Redirect("~/Formularios/Login.aspx");
+            }
         }
 
         /// <summary>

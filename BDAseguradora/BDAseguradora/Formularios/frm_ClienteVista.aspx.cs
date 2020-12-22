@@ -14,9 +14,30 @@ namespace BDAseguradora.Formularios
         protected void Page_Load(object sender, EventArgs e)
         {
             cargarDatos();
+            if (Convert.ToBoolean(this.Session["UsuarioLogeado"]) != true)
+            {
+                this.Session.Add("NombreUsuario", null);
+                this.Session.Add("Tipo", null);
+                this.Session.Add("UsuarioLogeado", null);
+                this.Response.Redirect("~/Formularios/Login.aspx");
+            }
         }
 
-         void cargarDatos()
+
+        /// <summary>
+        /// Método para cerrar sesión
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void btnSi_Click(object sender, EventArgs e)
+        {
+            this.Session.Add("NombreUsuario", null);
+            this.Session.Add("Tipo", null);
+            this.Session.Add("UsuarioLogeado", null);
+            this.Response.Redirect("~/Formularios/Login.aspx");
+        }
+        //Método para cargar los datos del usuario
+        void cargarDatos()
         {
             ///Crear la instancia del objeto BL
             BLCliente blCliente = new BLCliente();
