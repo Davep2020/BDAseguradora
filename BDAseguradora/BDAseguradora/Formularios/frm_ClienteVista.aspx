@@ -35,7 +35,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        ¿Estas Seguro en Cerrar Sesión?
+                        ¿Estás Seguro en Cerrar Sesión?
                     </div>
                     <div class="modal-footer">
                         <asp:Button ID="btnNo" runat="server" data-dismiss="modal" Text="No" />
@@ -54,7 +54,7 @@
                         <a class="nav-link" href="ReporteAdiccionCliente.aspx">Reporte Adicciones <i class="fa fa-list fa-fw"></i></a>
                     </li>
                     <li class="nav-item uno">
-                        <a class="nav-link" href="ReportePolizaCliente.aspx">Reporte Polizas<i class="fa fa-shield  fa-fw"></i></a>
+                        <a class="nav-link" href="ReportePolizaCliente.aspx">Reporte Pólizas<i class="fa fa-shield  fa-fw"></i></a>
                     </li>
 
                 </ul>
@@ -71,11 +71,11 @@
             <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item uno">
-                        <a class="nav-link" href="frm_ClienteVista.aspx">Home<i class="fa fa-home fa-fw"></i></a>
+                        <a class="nav-link" href="frm_ClienteVista.aspx">Inicio<i class="fa fa-home fa-fw"></i></a>
 
                     </li>
                     <li class="nav-item uno">
-                        <a class="nav-link" href="../Formularios/Login.aspx" data-toggle="modal" data-target="#exampleModal">Cerrar Sesion <i class="fa fa-sign-out fa-fw"></i></a>
+                        <a class="nav-link" href="../Formularios/Login.aspx" data-toggle="modal" data-target="#exampleModal">Cerrar Sesión <i class="fa fa-sign-out fa-fw"></i></a>
                     </li>
                 </ul>
             </div>

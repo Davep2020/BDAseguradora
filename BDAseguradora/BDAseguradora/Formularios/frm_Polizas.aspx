@@ -18,7 +18,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        ¿Estas Seguro en Cerrar Sesión?
+                        ¿Estás Seguro en Cerrar Sesión?
                     </div>
                     <div class="modal-footer">
                         <asp:Button ID="btnNo" runat="server" data-dismiss="modal" Text="No" />
@@ -63,7 +63,7 @@
 
             <div class="col-sm-6 Primero ml-3 mr-5">
 
-                <h2 class="Polizas">Polizas</h2>
+                <h2 class="Polizas">Pólizas</h2>
                 <div id="demo" class="carousel slide" data-ride="carousel">
                     <ul class="carousel-indicators">
                         <li data-target="#demo" data-slide-to="0" class="active"></li>
