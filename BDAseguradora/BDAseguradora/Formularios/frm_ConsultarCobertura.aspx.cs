@@ -39,15 +39,26 @@ namespace BDAseguradora.Formularios
 
         void CargarDatos()
         {
-            ///Crear la instancia del objeto BL
-            Cobertura blCliente = new Cobertura();
-            ///Crear una variable que va a contener esos datos
-            List<ConsultarCobertura_Result> resultado = blCliente.RetornaCoberturas(txtNombreconsu.Text);
+            string mensaje = "";
+            try
+            {
 
-            //La fuente de datos
-            //"grListaClientes" es el id del Grid
-            this.grdConsultarcober.DataSource = resultado;
-            this.grdConsultarcober.DataBind();
+                ///Crear la instancia del objeto BL
+                Cobertura blCliente = new Cobertura();
+                ///Crear una variable que va a contener esos datos
+                List<ConsultarCobertura_Result> resultado = blCliente.RetornaCoberturas(txtNombreconsu.Text);
+
+                //La fuente de datos
+                //"grListaClientes" es el id del Grid
+                this.grdConsultarcober.DataSource = resultado;
+                this.grdConsultarcober.DataBind();
+            }
+            catch (Exception excepcionCapturada)
+            {
+                mensaje += $"Ocurrió un error:{excepcionCapturada.Message}";
+                lblmensaje.Text = mensaje;
+            }
+            
         }
     }
 }

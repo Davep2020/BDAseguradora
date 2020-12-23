@@ -15,6 +15,7 @@ namespace BDAseguradora.Formularios
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (!this.IsPostBack)
             {
 
@@ -61,7 +62,7 @@ namespace BDAseguradora.Formularios
                 SmtpServer.EnableSsl = true;
 
                 SmtpServer.Send(mail);
-                mensaje += "El Correo fue enviado.";
+                mensaje += "El correo fue enviado.";
             }
             catch (Exception excepcion)
             {
@@ -81,6 +82,7 @@ namespace BDAseguradora.Formularios
             this.Session.Add("UsuarioLogeado", null);
             this.Response.Redirect("~/Formularios/Login.aspx");
         }
+
 
         void cargaDatosRegistro()
         {
