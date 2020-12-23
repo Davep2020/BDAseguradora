@@ -90,6 +90,7 @@
                         <SortedDescendingCellStyle BackColor="#CAC9C9" />
                         <SortedDescendingHeaderStyle BackColor="#383838" />
                     </asp:GridView>
+                    <asp:Label ID="lblmensaje" runat="server" Text=""></asp:Label>
                     <asp:Button ID="btnConsultar" runat="server" Text="Consultar" OnClick="btnConsultar_Click" />
                 </div>
             </div>
