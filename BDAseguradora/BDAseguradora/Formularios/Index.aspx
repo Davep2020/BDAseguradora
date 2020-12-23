@@ -99,7 +99,7 @@
     <div class="contenido container">
       <p>Asegura tu futuro</p>
       <h3>Aseguradora</h3>
-      <a href="#" class="button transparente">Iniciar Sesión</a>
+      <a href="/Formularios/Login.aspx" class="button transparente">Iniciar Sesión</a>
     </div>  <!-- Contenido -->
   </div>  <!-- newsletter -->
 

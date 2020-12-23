@@ -61,31 +61,39 @@
                     <h1>Agregar Póliza</h1>
 
                     <div class="col-3">
-                        <asp:Label ID="Label2" runat="server" Text="Cedula: "></asp:Label>
+                        <asp:Label ID="Label2" runat="server" Text="Cédula: "></asp:Label>
                         <asp:TextBox ID="txtCedula" runat="server" type="integer"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rqvtxtCedula" runat="server" ErrorMessage="Requiere ingresar el numero de cedula" Display="None" ControlToValidate="txtCedula"></asp:RequiredFieldValidator>
+
+                        <div style="margin-bottom:10px"></div>
 
                         <asp:Label ID="Label1" runat="server" Text="Coberturas: "></asp:Label>
                         <asp:DropDownList ID="ddCobertura" runat="server" DataTextField="Nombre_Dpl" DataValueField="ID_DPoliza_Dpl"></asp:DropDownList>
                         <asp:RequiredFieldValidator ID="rqvddCobertura" runat="server" ErrorMessage="Requiere Seleccionar una cobertura" Display="None" ControlToValidate="ddCobertura"></asp:RequiredFieldValidator>
-                        </br>
+                        
+                        <div style="margin-bottom:10px"></div>
                        
                         <asp:Label ID="Label3" runat="server" Text="Monto: "></asp:Label>
                         <asp:TextBox ID="txtMonto" runat="server" type="number" min="1000000" max="100000000"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rqvtxtMonto" runat="server" ErrorMessage="Requiere ingresar un monto de 1,000,000 ó 100,000,000" Display="None" ControlToValidate="txtMonto"></asp:RequiredFieldValidator>
+                        
+                        <div style="margin-bottom:10px"></div>
+                        
                         <asp:Label ID="Label4" runat="server" Text="Fecha de vencimiento: "></asp:Label>
                         <asp:TextBox ID="txtFecha" runat="server" TextMode="DateTimeLocal"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rqvtxtFecha" runat="server" ErrorMessage="Seleccionar la fecha" Display="None" ControlToValidate="txtFecha"></asp:RequiredFieldValidator>
                         <asp:ValidationSummary ID="ValidationSummary1" runat="server" ShowMessageBox="true" ShowSummary="false" />
                          <asp:Label ID="lblmensaje" CssClass="alert-info" runat="server" Width="500px"></asp:Label>
                     </div>
-                    <asp:Button ID="btnPoliza" runat="server" Text="Agregar" OnClick="btnPoliza_Click" />
+                    <asp:Button ID="btnPoliza" runat="server" Text="Agregar" OnClick="btnPoliza_Click" class="btn btn-danger" style="margin-bottom:15px"/>
 
                 </div>
 
             </div>
 
         </div>
+
+        <div style="margin-bottom:40px">   </div>
     </form>
 
 </asp:Content>

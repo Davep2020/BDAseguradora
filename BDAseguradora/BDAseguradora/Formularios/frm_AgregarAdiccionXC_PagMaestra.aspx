@@ -30,7 +30,7 @@
 
         <div style="background-color:#a5a5a5; opacity:0.9; padding-bottom:1px;">
 
-                     <h2 style="text-align: center;margin-bottom:25px;">Registro de Adicciones por el número de cédula del clientes</h2>
+                     <h2 style="text-align: center;margin-bottom:25px;">Registro de Adicciones por el número de cédula del cliente</h2>
                  <div class="container">
 
                  <div class="row justify-content-around" style="margin-bottom:25px">

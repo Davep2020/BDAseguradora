@@ -82,8 +82,8 @@
         </nav>
         <!-- Modal -->
 
-
-         <h2>Modifica tus Datos Personales</h2>
+        <div style="background-color:#a5a5a5; opacity:0.9; padding-bottom:185px;">
+         <h2  style="text-align: center;margin-bottom:25px;">Modifica tus Datos Personales</h2>
 
         <div class="container">
             <div class="row justify-content-around">
@@ -185,6 +185,7 @@
 
 
             </div>
+         </div>
     </form>
 </body>
 </html>

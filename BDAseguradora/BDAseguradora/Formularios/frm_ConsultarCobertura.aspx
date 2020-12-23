@@ -68,6 +68,7 @@
 
                     <asp:Label ID="Label4" runat="server" Text="Ingrese el nombre de la cobertura: "></asp:Label>
                     <asp:TextBox ID="txtNombreconsu" runat="server"></asp:TextBox>
+                    <div style="margin-bottom:20px"></div>
                     <asp:GridView ID="grdConsultarcober" runat="server" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black" AutoGenerateColumns="False">
                         <Columns>
                             <asp:BoundField DataField="ID_DPoliza_Dpl" HeaderText="ID" Visible="False" />
@@ -90,10 +91,11 @@
                         <SortedDescendingCellStyle BackColor="#CAC9C9" />
                         <SortedDescendingHeaderStyle BackColor="#383838" />
                     </asp:GridView>
-                    <asp:Button ID="btnConsultar" runat="server" Text="Consultar" OnClick="btnConsultar_Click" />
+                    <asp:Button ID="btnConsultar" runat="server" Text="Consultar" OnClick="btnConsultar_Click" style="margin-top:20px;" CssClass="btn btn-danger"/>
                 </div>
             </div>
         </div>
+        <div style="margin-bottom:148px;"></div>
     </form>
 
 

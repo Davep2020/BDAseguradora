@@ -63,7 +63,7 @@
                     <h2 class="Polizas">Consultar Pólizas</h2>
 
 
-                    <asp:Label ID="Label4" runat="server" Text="Cedula: "></asp:Label>
+                    <asp:Label ID="Label4" runat="server" Text="Cédula: "></asp:Label>
                     <asp:TextBox ID="txtCedula" runat="server"></asp:TextBox>
                     <asp:Label ID="lblmensaje" CssClass="alert-info" runat="server" Width="500px"></asp:Label>
                     <div id="Layer1" style="width: 100% ; overflow: scroll;">
@@ -96,10 +96,13 @@
                             <SortedDescendingHeaderStyle BackColor="#383838" />
                         </asp:GridView>
                     </div>
-                    <asp:Button ID="btnConsultar" runat="server" Text="Consultar" OnClick="btnConsultar_Click" />
+                    <div style="margin-bottom:15px"></div>
+                    <asp:Button ID="btnConsultar" runat="server" Text="Consultar" OnClick="btnConsultar_Click" CssClass="btn btn-danger" />
+                    <div style="margin-bottom:15px"></div>
                 </div>
             </div>
         </div>
+        <div style="margin-bottom:150px"></div>
     </form>
 
 

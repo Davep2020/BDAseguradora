@@ -77,9 +77,10 @@
                         <asp:Label ID="lblError" CssClass="alert-danger" runat="server" Width="500px"></asp:Label>
 
                         <asp:ValidationSummary ID="ValidationSummary1" runat="server" ShowMessageBox="true" ShowSummary="false" />
-                        <asp:Button ID="btnCobertura" runat="server" Text="Agregar" OnClick="btnCobertura_Click1" />
+                        <asp:Button ID="btnCobertura" runat="server" Text="Agregar" OnClick="btnCobertura_Click1" class="btn badge-danger"/>
                     </div>
 
+                    <div style="margin-bottom:100px"></div>
 
                 </div>
 

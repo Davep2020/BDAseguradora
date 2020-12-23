@@ -66,19 +66,22 @@
                         <h1 class="auto-style1">Reporte de Clientes</h1>
                         <p>Buscar por</p>
                     </div>
-                    <asp:Label ID="Label2" runat="server" Text="Cedula:"></asp:Label>
+                    <asp:Label ID="Label2" runat="server" Text="Cédula:"></asp:Label>
                     <asp:TextBox ID="txtCedula"  runat="server"></asp:TextBox>
                     <asp:Label ID="Label1" runat="server" Text="Primer Apellido:"></asp:Label>
                     <asp:TextBox ID="txtApellido"  runat="server"></asp:TextBox>
 
-                    </br>
+                    <div style="margin-bottom: 15px"></div>
+
                     <asp:Label ID="Label3" runat="server" Text="Monto:"></asp:Label>
                     <asp:TextBox ID="txtMonto" runat="server"></asp:TextBox>
                     <asp:Label ID="Label4" runat="server" Text="Nombre Cobertura:"></asp:Label>
                     <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
                     &nbsp;&nbsp;
-                    </br>
-                     <asp:Button ID="btVerReporte" runat="server" OnClick="btBuscar_Click" Text="Ver Reporte" />
+                   
+                    <div style="margin-bottom: 15px"></div>
+
+                     <asp:Button ID="btVerReporte" runat="server" OnClick="btBuscar_Click" Text="Ver Reporte" class="btn btn-danger"/>
 
                     <asp:Label ID="lblResultado" runat="server" ForeColor="Red"></asp:Label>
 

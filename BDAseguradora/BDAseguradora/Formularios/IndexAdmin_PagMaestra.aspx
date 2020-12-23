@@ -70,7 +70,7 @@
                 <hr class="d-sm-none">
            
             <div class="col-sm-7 Primero ml-4 ">
-                <h2 class="Polizas">Polizas</h2>
+                <h2 class="Polizas">Pólizas</h2>
                 <div id="demo" class="carousel slide" data-ride="carousel">
                     <ul class="carousel-indicators">
                         <li data-target="#demo" data-slide-to="0" class="active"></li>
@@ -81,21 +81,21 @@
                         <div class="carousel-item active">
                             <img src="../IMG/Familia.jpg" alt="Poliza de Familia" width="1100" height="500">
                             <div class="carousel-caption">
-                                <h3 class="dos">Poliza de Familia</h3>
+                                <h3 class="dos">Póliza de Familia</h3>
                                 <p class="dos">Manten tu familia asegurada</p>
                             </div>
                         </div>
                         <div class="carousel-item">
                             <img src="../IMG/Estudiantes.png" alt="Poliza Estudiantil" width="1100" height="500">
                             <div class="carousel-caption">
-                                <h3 class="dos">Poliza Estudiantil</h3>
+                                <h3 class="dos">Póliza Estudiantil</h3>
                                 <p class="dos">Ten tus hijo asegurados</p>
                             </div>
                         </div>
                         <div class="carousel-item">
                             <img src="../IMG/Carro.jpg"  alt="Poliza Automovil" width="1100" height="500">
                             <div class="carousel-caption">
-                                <h3 class="dos">Poliza Automovil</h3>
+                                <h3 class="dos">Póliza Automóvil</h3>
                                 <p class="dos">Asegura tu coche</p>
                             </div>
                         </div>
@@ -113,6 +113,7 @@
         </div>
 
     </div>
+        <div style="margin-bottom:50px;"></div>
         </form>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="scriptsPersonalizados" runat="server">
