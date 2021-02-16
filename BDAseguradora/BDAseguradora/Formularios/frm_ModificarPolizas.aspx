@@ -67,7 +67,7 @@
                         <asp:Label ID="Label1" runat="server" Text="Coberturas: "></asp:Label>
                         <asp:DropDownList ID="ddCobertura" runat="server" DataTextField="Nombre_Dpl" DataValueField="ID_DPoliza_Dpl"></asp:DropDownList>
                         <asp:RequiredFieldValidator ID="rqvddCobertura" runat="server" ErrorMessage="Requiere Seleccionar una cobertura" Display="None" ControlToValidate="ddCobertura"></asp:RequiredFieldValidator>
-                        </br>
+                        <div style="margin-bottom:10px;"></div>
                        
                         <asp:Label ID="Label3" runat="server" Text="Monto: "></asp:Label>
                         <asp:TextBox ID="txtMonto" runat="server" type="number" min="1000000" max="100000000"></asp:TextBox>
@@ -82,7 +82,7 @@
 
                     </div>
 
-                    <asp:Button ID="btnModificar" runat="server" Text="Modificar" OnClick="btnModificar_Click" />
+                    <asp:Button ID="btnModificar" runat="server" Text="Modificar" OnClick="btnModificar_Click" cssClass="btn btn-danger"/>
                     <asp:HyperLink ID="hpRegresar" runat="server" CssClass="text-info" NavigateUrl="~/Formularios/frm_ConsultarPoliza.aspx">Regresar a la lista</asp:HyperLink>
                 </div>
 

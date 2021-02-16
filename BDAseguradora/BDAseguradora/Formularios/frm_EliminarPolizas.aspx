@@ -63,7 +63,7 @@
                         <asp:TextBox ID="txtCobertura" runat="server" Enabled="False"></asp:TextBox>
                         <asp:Label ID="Label2" runat="server" Text="Cedula: "></asp:Label>
                         <asp:TextBox ID="txtCedula" runat="server" Enabled="False"></asp:TextBox>
-                        </br>
+                        <div style="margin-bottom:10px;"></div>
                         <asp:Label ID="Label3" runat="server" Text="Monto Asegurado: "></asp:Label>
                         <asp:TextBox ID="txtMonto" runat="server" Enabled="False"></asp:TextBox>
                         <asp:Label ID="Label4" runat="server" Text="Cantidad de Adicciones: "></asp:Label>
@@ -72,12 +72,12 @@
                         <asp:TextBox ID="txtAmont" runat="server" Enabled="False"></asp:TextBox>
                         <asp:Label ID="Label6" runat="server" Text="Prima: "></asp:Label>
                         <asp:TextBox ID="txtPrima" runat="server" Enabled="False"></asp:TextBox> 
-                        </br>
+                        <div style="margin-bottom:10px;"></div>
                         <asp:Label ID="Label7" runat="server" Text="Impuestos: "></asp:Label>
                         <asp:TextBox ID="txtImpu" runat="server" Enabled="False"></asp:TextBox>
                         <asp:Label ID="Label8" runat="server" Text="Monto Final: "></asp:Label>
                         <asp:TextBox ID="txtMontoFin" runat="server" Enabled="False"></asp:TextBox>
-                        </br>
+                        <div style="margin-bottom:10px;"></div>
                         <asp:Label ID="Label9" runat="server" Text="Vencimiento: "></asp:Label>
                         <asp:TextBox ID="txtVencim" runat="server" Enabled="False"></asp:TextBox>
                         
@@ -86,7 +86,7 @@
                         <asp:Label ID="lblmensaje" CssClass="alert-info" runat="server" Width="500px"></asp:Label>
                     </div>
 
-                    <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" OnClick="btnEliminar_Click" />
+                    <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" OnClick="btnEliminar_Click" CssClass="btn btn-danger" />
                     <asp:HyperLink ID="hpRegresar" runat="server" CssClass="text-info" NavigateUrl="~/Formularios/frm_ConsultarPoliza.aspx">Regresar a la lista</asp:HyperLink>
                 </div>
 
